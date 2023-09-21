@@ -5,7 +5,7 @@ This application is designed to collect and analyze logs from remote machines ho
 **Note**: This application was specifically designed for use with Pastel Network's log files. However, it can be easily adapted to work with any log files by modifying the parsing functions, data models, and specifying the location and names of the log files to be downloaded. It is compatible with log files stored in a standard format, where each entry is on a separate line and contains a timestamp, a log level, and a message. The application has been tested with log files several gigabytes in size and can process them in minutes. It is designed for Ubuntu 22.04+, but can be adapted for other Linux distributions.
 
 Demo Screenshot:
-(https://github.com/Dicklesworthstone/automatic_log_collector_and_analyzer/blob/main/demo_screenshot.png?raw=true)
+(https://raw.githubusercontent.com/Dicklesworthstone/automatic_log_collector_and_analyzer/main/demo_screenshot.png)
 
 ## Customization
 
