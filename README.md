@@ -59,13 +59,13 @@ pip install -r requirements.txt
 You will also need to install Redis:
 
 ```bash
-sudo apt-get install redis
+sudo apt install redis -y
 ```
 
 And install Datasette to expose the results as a website:
 
 ```bash
-pip install datasette
+sudo apt install pipx -y && pipx ensurepath && pipx install datasette
 ```
 
 To run the application every 30 minutes as a cron job, execute:
