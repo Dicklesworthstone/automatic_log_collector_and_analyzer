@@ -2,7 +2,9 @@
 
 This application is designed to collect and analyze logs from remote machines that are hosted on Amazon Web Services (AWS) and on other cloud hosting services.
 
-NOTE: This was specifically designed to be used with Pastel Network's particular log files, but it can be easily adapted to work with any log files by modifying the parsing functions and the data models, and specifying the location and names of the log files to be downloaded.
+NOTE: This was specifically designed to be used with Pastel Network's particular log files, but it can be easily adapted to work with any log files by modifying the parsing functions and the data models, and specifying the location and names of the log files to be downloaded. It is designed to work with any log files that are stored in a standard format, with each log entry on a separate line, and with each log entry containing a timestamp, a log level, and a message. It has been tested using log files that are several gigabytes in size, and it can process them in a matter of minutes. Designed to work under Ubuntu 22.04+ but can be easily adapted to work with any Linux distribution.
+
+To customize to your own application, check out the included sample log files and compare them to the parsing functions in the code. You can also modify the data models to store the log entries in any way you want. The application is designed to be flexible and scalable, and it can be easily adapted to work with any log files.
 
 The application consists of various Python scripts that perform the following functions:
 
@@ -75,6 +77,6 @@ crontab -e
 Add the following line:
 
 ```
-*/15 * * * * . $HOME/.profile; /home/ubuntu/automatic_log_collector_and_analyzer/venv/bin/python /home/ubuntu/automatic_log_collector_and_analyzer/download_sn_log_files_locally_for_analysis.py >> /home/ubuntu/automatic_log_collector_and_analyzer/log_$(date +\%Y-\%m-\%dT\%H_\%M_\%S).log 2>&1
+*/15 * * * * . $HOME/.profile; /home/ubuntu/automatic_log_collector_and_analyzer/venv/bin/python /home/ubuntu/automatic_log_collector_and_analyzer/automatic_log_collector_and_analyzer.py >> /home/ubuntu/automatic_log_collector_and_analyzer/log_$(date +\%Y-\%m-\%dT\%H_\%M_\%S).log 2>&1
 ```
 

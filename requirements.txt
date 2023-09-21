@@ -5,4 +5,4 @@ tqdm
 redis
 pandas
 pyyaml
-decouple
+python-decouple

@@ -1,0 +1,400 @@
+Sep 17 07:25:04 TestnetSupernode01 kernel: Command line: BOOT_IMAGE=/vmlinuz-5.15.0-79-generic root=UUID=11c5afcd-dda3-45f8-b3e4-28d334354465 ro net.ifnames=0 biosdevname=0 nomodeset
+Sep 17 07:25:04 TestnetSupernode01 kernel: KERNEL supported cpus:
+Sep 17 07:25:04 TestnetSupernode01 kernel:   Intel GenuineIntel
+Sep 17 07:25:04 TestnetSupernode01 kernel:   AMD AuthenticAMD
+Sep 17 07:25:04 TestnetSupernode01 kernel:   Hygon HygonGenuine
+Sep 17 07:25:04 TestnetSupernode01 kernel:   Centaur CentaurHauls
+Sep 17 07:25:04 TestnetSupernode01 kernel:   zhaoxin   Shanghai  
+Sep 17 07:25:04 TestnetSupernode01 kernel: x86/fpu: Supporting XSAVE feature 0x001: 'x87 floating point registers'
+Sep 17 07:25:04 TestnetSupernode01 kernel: x86/fpu: Supporting XSAVE feature 0x002: 'SSE registers'
+Sep 17 07:25:04 TestnetSupernode01 kernel: x86/fpu: Supporting XSAVE feature 0x004: 'AVX registers'
+Sep 17 07:25:04 TestnetSupernode01 kernel: x86/fpu: xstate_offset[2]:  576, xstate_sizes[2]:  256
+Sep 17 07:25:04 TestnetSupernode01 kernel: x86/fpu: Enabled xstate features 0x7, context size is 832 bytes, using 'standard' format.
+Sep 17 07:25:04 TestnetSupernode01 kernel: signal: max sigframe size: 1776
+Sep 17 07:25:04 TestnetSupernode01 kernel: BIOS-provided physical RAM map:
+Sep 17 07:25:04 TestnetSupernode01 kernel: BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff] usable
+Sep 17 07:25:04 TestnetSupernode01 kernel: BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff] reserved
+Sep 17 07:25:04 TestnetSupernode01 kernel: BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff] reserved
+Sep 17 07:25:04 TestnetSupernode01 kernel: BIOS-e820: [mem 0x0000000000100000-0x00000000bffd9fff] usable
+Sep 17 07:25:04 TestnetSupernode01 kernel: BIOS-e820: [mem 0x00000000bffda000-0x00000000bfffffff] reserved
+Sep 17 07:25:04 TestnetSupernode01 kernel: BIOS-e820: [mem 0x00000000feffc000-0x00000000feffffff] reserved
+Sep 17 07:25:04 TestnetSupernode01 kernel: BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff] reserved
+Sep 17 07:25:04 TestnetSupernode01 kernel: BIOS-e820: [mem 0x0000000100000000-0x00000007bfffffff] usable
+Sep 17 07:25:04 TestnetSupernode01 kernel: NX (Execute Disable) protection: active
+Sep 17 07:25:04 TestnetSupernode01 kernel: SMBIOS 2.8 present.
+Sep 17 07:25:04 TestnetSupernode01 kernel: DMI: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.14.0-0-g155821a1990b-prebuilt.qemu.org 04/01/2014
+Sep 17 07:25:04 TestnetSupernode01 kernel: Hypervisor detected: KVM
+Sep 17 07:25:04 TestnetSupernode01 kernel: kvm-clock: Using msrs 4b564d01 and 4b564d00
+Sep 17 07:25:04 TestnetSupernode01 kernel: kvm-clock: cpu 0, msr 5c9a01001, primary cpu clock
+Sep 17 07:25:04 TestnetSupernode01 kernel: kvm-clock: using sched offset of 15397846816 cycles
+Sep 17 07:25:04 TestnetSupernode01 kernel: clocksource: kvm-clock: mask: 0xffffffffffffffff max_cycles: 0x1cd42e4dffb, max_idle_ns: 881590591483 ns
+Sep 17 07:25:04 TestnetSupernode01 kernel: tsc: Detected 2794.748 MHz processor
+Sep 17 07:25:04 TestnetSupernode01 kernel: e820: update [mem 0x00000000-0x00000fff] usable ==> reserved
+Sep 17 07:25:04 TestnetSupernode01 kernel: e820: remove [mem 0x000a0000-0x000fffff] usable
+Sep 17 07:25:04 TestnetSupernode01 kernel: last_pfn = 0x7c0000 max_arch_pfn = 0x400000000
+Sep 17 07:25:04 TestnetSupernode01 kernel: x86/PAT: Configuration [0-7]: WB  WC  UC- UC  WB  WP  UC- WT  
+Sep 17 07:25:04 TestnetSupernode01 kernel: last_pfn = 0xbffda max_arch_pfn = 0x400000000
+Sep 17 07:25:04 TestnetSupernode01 kernel: found SMP MP-table at [mem 0x000f5a80-0x000f5a8f]
+Sep 17 07:25:04 TestnetSupernode01 kernel: Using GB pages for direct mapping
+Sep 17 07:25:04 TestnetSupernode01 kernel: RAMDISK: [mem 0x2ffd3000-0x33fe0fff]
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: Early table checksum verification disabled
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: RSDP 0x00000000000F5850 000014 (v00 BOCHS )
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: RSDT 0x00000000BFFE1693 000038 (v01 BOCHS  BXPCRSDT 00000001 BXPC 00000001)
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: FACP 0x00000000BFFE1445 000074 (v01 BOCHS  BXPCFACP 00000001 BXPC 00000001)
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: DSDT 0x00000000BFFDF040 002405 (v01 BOCHS  BXPCDSDT 00000001 BXPC 00000001)
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: FACS 0x00000000BFFDF000 000040
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: APIC 0x00000000BFFE14B9 0000B0 (v01 BOCHS  BXPCAPIC 00000001 BXPC 00000001)
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: SSDT 0x00000000BFFE1569 0000CA (v01 BOCHS  VMGENID  00000001 BXPC 00000001)
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: HPET 0x00000000BFFE1633 000038 (v01 BOCHS  BXPCHPET 00000001 BXPC 00000001)
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: WAET 0x00000000BFFE166B 000028 (v01 BOCHS  BXPCWAET 00000001 BXPC 00000001)
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: Reserving FACP table memory at [mem 0xbffe1445-0xbffe14b8]
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: Reserving DSDT table memory at [mem 0xbffdf040-0xbffe1444]
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: Reserving FACS table memory at [mem 0xbffdf000-0xbffdf03f]
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: Reserving APIC table memory at [mem 0xbffe14b9-0xbffe1568]
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: Reserving SSDT table memory at [mem 0xbffe1569-0xbffe1632]
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: Reserving HPET table memory at [mem 0xbffe1633-0xbffe166a]
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: Reserving WAET table memory at [mem 0xbffe166b-0xbffe1692]
+Sep 17 07:25:04 TestnetSupernode01 kernel: No NUMA configuration found
+Sep 17 07:25:04 TestnetSupernode01 kernel: Faking a node at [mem 0x0000000000000000-0x00000007bfffffff]
+Sep 17 07:25:04 TestnetSupernode01 kernel: NODE_DATA(0) allocated [mem 0x7bffd6000-0x7bfffffff]
+Sep 17 07:25:04 TestnetSupernode01 kernel: Zone ranges:
+Sep 17 07:25:04 TestnetSupernode01 kernel:   DMA      [mem 0x0000000000001000-0x0000000000ffffff]
+Sep 17 07:25:04 TestnetSupernode01 kernel:   DMA32    [mem 0x0000000001000000-0x00000000ffffffff]
+Sep 17 07:25:04 TestnetSupernode01 kernel:   Normal   [mem 0x0000000100000000-0x00000007bfffffff]
+Sep 17 07:25:04 TestnetSupernode01 kernel:   Device   empty
+Sep 17 07:25:04 TestnetSupernode01 kernel: Movable zone start for each node
+Sep 17 07:25:04 TestnetSupernode01 kernel: Early memory node ranges
+Sep 17 07:25:04 TestnetSupernode01 kernel:   node   0: [mem 0x0000000000001000-0x000000000009efff]
+Sep 17 07:25:04 TestnetSupernode01 kernel:   node   0: [mem 0x0000000000100000-0x00000000bffd9fff]
+Sep 17 07:25:04 TestnetSupernode01 kernel:   node   0: [mem 0x0000000100000000-0x00000007bfffffff]
+Sep 17 07:25:04 TestnetSupernode01 kernel: Initmem setup node 0 [mem 0x0000000000001000-0x00000007bfffffff]
+Sep 17 07:25:04 TestnetSupernode01 kernel: On node 0, zone DMA: 1 pages in unavailable ranges
+Sep 17 07:25:04 TestnetSupernode01 kernel: On node 0, zone DMA: 97 pages in unavailable ranges
+Sep 17 07:25:04 TestnetSupernode01 kernel: On node 0, zone Normal: 38 pages in unavailable ranges
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: PM-Timer IO Port: 0x608
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: LAPIC_NMI (acpi_id[0xff] dfl dfl lint[0x1])
+Sep 17 07:25:04 TestnetSupernode01 kernel: IOAPIC[0]: apic_id 0, version 17, address 0xfec00000, GSI 0-23
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: INT_SRC_OVR (bus 0 bus_irq 0 global_irq 2 dfl dfl)
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: INT_SRC_OVR (bus 0 bus_irq 5 global_irq 5 high level)
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: INT_SRC_OVR (bus 0 bus_irq 9 global_irq 9 high level)
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: INT_SRC_OVR (bus 0 bus_irq 10 global_irq 10 high level)
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: INT_SRC_OVR (bus 0 bus_irq 11 global_irq 11 high level)
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: Using ACPI (MADT) for SMP configuration information
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: HPET id: 0x8086a201 base: 0xfed00000
+Sep 17 07:25:04 TestnetSupernode01 kernel: TSC deadline timer available
+Sep 17 07:25:04 TestnetSupernode01 kernel: smpboot: Allowing 8 CPUs, 0 hotplug CPUs
+Sep 17 07:25:04 TestnetSupernode01 kernel: kvm-guest: KVM setup pv remote TLB flush
+Sep 17 07:25:04 TestnetSupernode01 kernel: kvm-guest: setup PV sched yield
+Sep 17 07:25:04 TestnetSupernode01 kernel: PM: hibernation: Registered nosave memory: [mem 0x00000000-0x00000fff]
+Sep 17 07:25:04 TestnetSupernode01 kernel: PM: hibernation: Registered nosave memory: [mem 0x0009f000-0x0009ffff]
+Sep 17 07:25:04 TestnetSupernode01 kernel: PM: hibernation: Registered nosave memory: [mem 0x000a0000-0x000effff]
+Sep 17 07:25:04 TestnetSupernode01 kernel: PM: hibernation: Registered nosave memory: [mem 0x000f0000-0x000fffff]
+Sep 17 07:25:04 TestnetSupernode01 kernel: PM: hibernation: Registered nosave memory: [mem 0xbffda000-0xbfffffff]
+Sep 17 07:25:04 TestnetSupernode01 kernel: PM: hibernation: Registered nosave memory: [mem 0xc0000000-0xfeffbfff]
+Sep 17 07:25:04 TestnetSupernode01 kernel: PM: hibernation: Registered nosave memory: [mem 0xfeffc000-0xfeffffff]
+Sep 17 07:25:04 TestnetSupernode01 kernel: PM: hibernation: Registered nosave memory: [mem 0xff000000-0xfffbffff]
+Sep 17 07:25:04 TestnetSupernode01 kernel: PM: hibernation: Registered nosave memory: [mem 0xfffc0000-0xffffffff]
+Sep 17 07:25:04 TestnetSupernode01 kernel: [mem 0xc0000000-0xfeffbfff] available for PCI devices
+Sep 17 07:25:04 TestnetSupernode01 kernel: Booting paravirtualized kernel on KVM
+Sep 17 07:25:04 TestnetSupernode01 kernel: clocksource: refined-jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645519600211568 ns
+Sep 17 07:25:04 TestnetSupernode01 kernel: setup_percpu: NR_CPUS:8192 nr_cpumask_bits:8 nr_cpu_ids:8 nr_node_ids:1
+Sep 17 07:25:04 TestnetSupernode01 kernel: percpu: Embedded 61 pages/cpu s212992 r8192 d28672 u262144
+Sep 17 07:25:04 TestnetSupernode01 kernel: pcpu-alloc: s212992 r8192 d28672 u262144 alloc=1*2097152
+Sep 17 07:25:04 TestnetSupernode01 kernel: pcpu-alloc: [0] 0 1 2 3 4 5 6 7 
+Sep 17 07:25:04 TestnetSupernode01 kernel: kvm-guest: stealtime: cpu 0, msr 7a1c33080
+Sep 17 07:25:04 TestnetSupernode01 kernel: kvm-guest: PV spinlocks enabled
+Sep 17 07:25:04 TestnetSupernode01 kernel: PV qspinlock hash table entries: 256 (order: 0, 4096 bytes, linear)
+Sep 17 07:25:04 TestnetSupernode01 kernel: Built 1 zonelists, mobility grouping on.  Total pages: 7741146
+Sep 17 07:25:04 TestnetSupernode01 kernel: Policy zone: Normal
+Sep 17 07:25:04 TestnetSupernode01 kernel: Kernel command line: BOOT_IMAGE=/vmlinuz-5.15.0-79-generic root=UUID=11c5afcd-dda3-45f8-b3e4-28d334354465 ro net.ifnames=0 biosdevname=0 nomodeset
+Sep 17 07:25:04 TestnetSupernode01 kernel: You have booted with nomodeset. This means your GPU drivers are DISABLED
+Sep 17 07:25:04 TestnetSupernode01 kernel: Any video related functionality will be severely degraded, and you may not even be able to suspend the system properly
+Sep 17 07:25:04 TestnetSupernode01 kernel: Unless you actually understand what nomodeset does, you should reboot without enabling it
+Sep 17 07:25:04 TestnetSupernode01 kernel: Unknown kernel command line parameters "BOOT_IMAGE=/vmlinuz-5.15.0-79-generic biosdevname=0", will be passed to user space.
+Sep 17 07:25:04 TestnetSupernode01 kernel: Dentry cache hash table entries: 4194304 (order: 13, 33554432 bytes, linear)
+Sep 17 07:25:04 TestnetSupernode01 kernel: Inode-cache hash table entries: 2097152 (order: 12, 16777216 bytes, linear)
+Sep 17 07:25:04 TestnetSupernode01 kernel: mem auto-init: stack:off, heap alloc:on, heap free:off
+Sep 17 07:25:04 TestnetSupernode01 kernel: Memory: 30723624K/31456736K available (16393K kernel code, 4390K rwdata, 10860K rodata, 3352K init, 18720K bss, 732852K reserved, 0K cma-reserved)
+Sep 17 07:25:04 TestnetSupernode01 kernel: SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=8, Nodes=1
+Sep 17 07:25:04 TestnetSupernode01 kernel: ftrace: allocating 50633 entries in 198 pages
+Sep 17 07:25:04 TestnetSupernode01 kernel: ftrace: allocated 198 pages with 4 groups
+Sep 17 07:25:04 TestnetSupernode01 kernel: rcu: Hierarchical RCU implementation.
+Sep 17 07:25:04 TestnetSupernode01 kernel: rcu:         RCU restricting CPUs from NR_CPUS=8192 to nr_cpu_ids=8.
+Sep 17 07:25:04 TestnetSupernode01 kernel:         Rude variant of Tasks RCU enabled.
+Sep 17 07:25:04 TestnetSupernode01 kernel:         Tracing variant of Tasks RCU enabled.
+Sep 17 07:25:04 TestnetSupernode01 kernel: rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+Sep 17 07:25:04 TestnetSupernode01 kernel: rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=8
+Sep 17 07:25:04 TestnetSupernode01 kernel: NR_IRQS: 524544, nr_irqs: 488, preallocated irqs: 16
+Sep 17 07:25:04 TestnetSupernode01 kernel: random: crng init done
+Sep 17 07:25:04 TestnetSupernode01 kernel: Console: colour dummy device 80x25
+Sep 17 07:25:04 TestnetSupernode01 kernel: printk: console [tty0] enabled
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: Core revision 20210730
+Sep 17 07:25:04 TestnetSupernode01 kernel: clocksource: hpet: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604467 ns
+Sep 17 07:25:04 TestnetSupernode01 kernel: APIC: Switch to symmetric I/O mode setup
+Sep 17 07:25:04 TestnetSupernode01 kernel: x2apic enabled
+Sep 17 07:25:04 TestnetSupernode01 kernel: Switched APIC routing to physical x2apic.
+Sep 17 07:25:04 TestnetSupernode01 kernel: kvm-guest: setup PV IPIs
+Sep 17 07:25:04 TestnetSupernode01 kernel: ..TIMER: vector=0x30 apic1=0 pin1=2 apic2=-1 pin2=-1
+Sep 17 07:25:04 TestnetSupernode01 kernel: tsc: Marking TSC unstable due to TSCs unsynchronized
+Sep 17 07:25:04 TestnetSupernode01 kernel: Calibrating delay loop (skipped) preset value.. 5589.49 BogoMIPS (lpj=11178992)
+Sep 17 07:25:04 TestnetSupernode01 kernel: pid_max: default: 32768 minimum: 301
+Sep 17 07:25:04 TestnetSupernode01 kernel: LSM: Security Framework initializing
+Sep 17 07:25:04 TestnetSupernode01 kernel: landlock: Up and running.
+Sep 17 07:25:04 TestnetSupernode01 kernel: Yama: becoming mindful.
+Sep 17 07:25:04 TestnetSupernode01 kernel: AppArmor: AppArmor initialized
+Sep 17 07:25:04 TestnetSupernode01 kernel: Mount-cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+Sep 17 07:25:04 TestnetSupernode01 kernel: Mountpoint-cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+Sep 17 07:25:04 TestnetSupernode01 kernel: x86/cpu: User Mode Instruction Prevention (UMIP) activated
+Sep 17 07:25:04 TestnetSupernode01 kernel: Last level iTLB entries: 4KB 512, 2MB 255, 4MB 127
+Sep 17 07:25:04 TestnetSupernode01 kernel: Last level dTLB entries: 4KB 512, 2MB 255, 4MB 127, 1GB 0
+Sep 17 07:25:04 TestnetSupernode01 kernel: Spectre V1 : Mitigation: usercopy/swapgs barriers and __user pointer sanitization
+Sep 17 07:25:04 TestnetSupernode01 kernel: Spectre V2 : Mitigation: Retpolines
+Sep 17 07:25:04 TestnetSupernode01 kernel: Spectre V2 : Spectre v2 / SpectreRSB mitigation: Filling RSB on context switch
+Sep 17 07:25:04 TestnetSupernode01 kernel: Spectre V2 : Spectre v2 / SpectreRSB : Filling RSB on VMEXIT
+Sep 17 07:25:04 TestnetSupernode01 kernel: Spectre V2 : Enabling Speculation Barrier for firmware calls
+Sep 17 07:25:04 TestnetSupernode01 kernel: RETBleed: Mitigation: untrained return thunk
+Sep 17 07:25:04 TestnetSupernode01 kernel: Spectre V2 : mitigation: Enabling conditional Indirect Branch Prediction Barrier
+Sep 17 07:25:04 TestnetSupernode01 kernel: Speculative Store Bypass: Mitigation: Speculative Store Bypass disabled via prctl and seccomp
+Sep 17 07:25:04 TestnetSupernode01 kernel: Freeing SMP alternatives memory: 44K
+Sep 17 07:25:04 TestnetSupernode01 kernel: smpboot: CPU0: AMD EPYC 7282 16-Core Processor (family: 0x17, model: 0x31, stepping: 0x0)
+Sep 17 07:25:04 TestnetSupernode01 kernel: Performance Events: Fam17h+ core perfctr, AMD PMU driver.
+Sep 17 07:25:04 TestnetSupernode01 kernel: ... version:                0
+Sep 17 07:25:04 TestnetSupernode01 kernel: ... bit width:              48
+Sep 17 07:25:04 TestnetSupernode01 kernel: ... generic registers:      6
+Sep 17 07:25:04 TestnetSupernode01 kernel: ... value mask:             0000ffffffffffff
+Sep 17 07:25:04 TestnetSupernode01 kernel: ... max period:             00007fffffffffff
+Sep 17 07:25:04 TestnetSupernode01 kernel: ... fixed-purpose events:   0
+Sep 17 07:25:04 TestnetSupernode01 kernel: ... event mask:             000000000000003f
+Sep 17 07:25:04 TestnetSupernode01 kernel: rcu: Hierarchical SRCU implementation.
+Sep 17 07:25:04 TestnetSupernode01 kernel: smp: Bringing up secondary CPUs ...
+Sep 17 07:25:04 TestnetSupernode01 kernel: x86: Booting SMP configuration:
+Sep 17 07:25:04 TestnetSupernode01 kernel: .... node  #0, CPUs:      #1
+Sep 17 07:25:04 TestnetSupernode01 kernel: kvm-clock: cpu 1, msr 5c9a01041, secondary cpu clock
+Sep 17 07:25:04 TestnetSupernode01 kernel: kvm-guest: stealtime: cpu 1, msr 7a1c73080
+Sep 17 07:25:04 TestnetSupernode01 kernel:  #2
+Sep 17 07:25:04 TestnetSupernode01 kernel: kvm-clock: cpu 2, msr 5c9a01081, secondary cpu clock
+Sep 17 07:25:04 TestnetSupernode01 kernel: kvm-guest: stealtime: cpu 2, msr 7a1cb3080
+Sep 17 07:25:04 TestnetSupernode01 kernel:  #3
+Sep 17 07:25:04 TestnetSupernode01 kernel: kvm-clock: cpu 3, msr 5c9a010c1, secondary cpu clock
+Sep 17 07:25:04 TestnetSupernode01 kernel: kvm-guest: stealtime: cpu 3, msr 7a1cf3080
+Sep 17 07:25:04 TestnetSupernode01 kernel:  #4
+Sep 17 07:25:04 TestnetSupernode01 kernel: kvm-clock: cpu 4, msr 5c9a01101, secondary cpu clock
+Sep 17 07:25:04 TestnetSupernode01 kernel: kvm-guest: stealtime: cpu 4, msr 7a1d33080
+Sep 17 07:25:04 TestnetSupernode01 kernel:  #5
+Sep 17 07:25:04 TestnetSupernode01 kernel: kvm-clock: cpu 5, msr 5c9a01141, secondary cpu clock
+Sep 17 07:25:04 TestnetSupernode01 kernel: kvm-guest: stealtime: cpu 5, msr 7a1d73080
+Sep 17 07:25:04 TestnetSupernode01 kernel:  #6
+Sep 17 07:25:04 TestnetSupernode01 kernel: kvm-clock: cpu 6, msr 5c9a01181, secondary cpu clock
+Sep 17 07:25:04 TestnetSupernode01 kernel: kvm-guest: stealtime: cpu 6, msr 7a1db3080
+Sep 17 07:25:04 TestnetSupernode01 kernel:  #7
+Sep 17 07:25:04 TestnetSupernode01 kernel: kvm-clock: cpu 7, msr 5c9a011c1, secondary cpu clock
+Sep 17 07:25:04 TestnetSupernode01 kernel: kvm-guest: stealtime: cpu 7, msr 7a1df3080
+Sep 17 07:25:04 TestnetSupernode01 kernel: smp: Brought up 1 node, 8 CPUs
+Sep 17 07:25:04 TestnetSupernode01 kernel: smpboot: Max logical packages: 1
+Sep 17 07:25:04 TestnetSupernode01 kernel: smpboot: Total of 8 processors activated (44715.96 BogoMIPS)
+Sep 17 07:25:04 TestnetSupernode01 kernel: devtmpfs: initialized
+Sep 17 07:25:04 TestnetSupernode01 kernel: x86/mm: Memory block size: 128MB
+Sep 17 07:25:04 TestnetSupernode01 kernel: clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+Sep 17 07:25:04 TestnetSupernode01 kernel: futex hash table entries: 2048 (order: 5, 131072 bytes, linear)
+Sep 17 07:25:04 TestnetSupernode01 kernel: pinctrl core: initialized pinctrl subsystem
+Sep 17 07:25:04 TestnetSupernode01 kernel: PM: RTC time: 11:24:57, date: 2023-09-17
+Sep 17 07:25:04 TestnetSupernode01 kernel: NET: Registered PF_NETLINK/PF_ROUTE protocol family
+Sep 17 07:25:04 TestnetSupernode01 kernel: DMA: preallocated 4096 KiB GFP_KERNEL pool for atomic allocations
+Sep 17 07:25:04 TestnetSupernode01 kernel: DMA: preallocated 4096 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+Sep 17 07:25:04 TestnetSupernode01 kernel: DMA: preallocated 4096 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+Sep 17 07:25:04 TestnetSupernode01 kernel: audit: initializing netlink subsys (disabled)
+Sep 17 07:25:04 TestnetSupernode01 kernel: thermal_sys: Registered thermal governor 'fair_share'
+Sep 17 07:25:04 TestnetSupernode01 kernel: thermal_sys: Registered thermal governor 'bang_bang'
+Sep 17 07:25:04 TestnetSupernode01 kernel: thermal_sys: Registered thermal governor 'step_wise'
+Sep 17 07:25:04 TestnetSupernode01 kernel: thermal_sys: Registered thermal governor 'user_space'
+Sep 17 07:25:04 TestnetSupernode01 kernel: thermal_sys: Registered thermal governor 'power_allocator'
+Sep 17 07:25:04 TestnetSupernode01 kernel: EISA bus registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: audit: type=2000 audit(1694949898.995:1): state=initialized audit_enabled=0 res=1
+Sep 17 07:25:04 TestnetSupernode01 kernel: cpuidle: using governor ladder
+Sep 17 07:25:04 TestnetSupernode01 kernel: cpuidle: using governor menu
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: bus type PCI registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: ACPI Hot Plug PCI Controller Driver version: 0.5
+Sep 17 07:25:04 TestnetSupernode01 kernel: PCI: Using configuration type 1 for base access
+Sep 17 07:25:04 TestnetSupernode01 kernel: PCI: Using configuration type 1 for extended access
+Sep 17 07:25:04 TestnetSupernode01 kernel: kprobes: kprobe jump-optimization is enabled. All kprobes are optimized if possible.
+Sep 17 07:25:04 TestnetSupernode01 kernel: HugeTLB registered 1.00 GiB page size, pre-allocated 0 pages
+Sep 17 07:25:04 TestnetSupernode01 kernel: HugeTLB registered 2.00 MiB page size, pre-allocated 0 pages
+Sep 17 07:25:04 TestnetSupernode01 kernel: fbcon: Taking over console
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: Added _OSI(Module Device)
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: Added _OSI(Processor Device)
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: Added _OSI(3.0 _SCP Extensions)
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: Added _OSI(Processor Aggregator Device)
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: Added _OSI(Linux-Dell-Video)
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: Added _OSI(Linux-Lenovo-NV-HDMI-Audio)
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: Added _OSI(Linux-HPI-Hybrid-Graphics)
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: 2 ACPI AML tables successfully acquired and loaded
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: Interpreter enabled
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: PM: (supports S0 S3 S4 S5)
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: Using IOAPIC for interrupt routing
+Sep 17 07:25:04 TestnetSupernode01 kernel: PCI: Using host bridge windows from ACPI; if necessary, use "pci=nocrs" and report a bug
+Sep 17 07:25:04 TestnetSupernode01 kernel: PCI: Using E820 reservations for host bridge windows
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: Enabled 3 GPEs in block 00 to 0F
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: PCI Root Bridge [PCI0] (domain 0000 [bus 00-ff])
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpi PNP0A03:00: _OSC: OS supports [ExtendedConfig ASPM ClockPM Segments MSI EDR HPX-Type3]
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [4] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [5] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [6] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [7] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [8] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [9] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [10] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [11] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [12] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [13] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [14] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [15] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [16] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [17] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [18] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [19] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [20] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [21] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [22] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [23] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [24] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [25] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [26] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [27] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [28] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [29] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: PCI host bridge to bus 0000:00
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci_bus 0000:00: root bus resource [bus 00-ff]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci_bus 0000:00: root bus resource [io  0x0000-0x0cf7 window]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci_bus 0000:00: root bus resource [io  0x0d00-0xffff window]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci_bus 0000:00: root bus resource [mem 0x000a0000-0x000bffff window]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci_bus 0000:00: root bus resource [mem 0xc0000000-0xfebfffff window]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci_bus 0000:00: root bus resource [mem 0x7c0000000-0x83fffffff window]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:00.0: [8086:1237] type 00 class 0x060000
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:01.0: [8086:7000] type 00 class 0x060100
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:01.1: [8086:7010] type 00 class 0x010180
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:01.1: reg 0x20: [io  0xe0c0-0xe0cf]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:01.1: legacy IDE quirk: reg 0x10: [io  0x01f0-0x01f7]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:01.1: legacy IDE quirk: reg 0x14: [io  0x03f6]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:01.1: legacy IDE quirk: reg 0x18: [io  0x0170-0x0177]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:01.1: legacy IDE quirk: reg 0x1c: [io  0x0376]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:01.2: [8086:7020] type 00 class 0x0c0300
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:01.2: reg 0x20: [io  0xe080-0xe09f]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:01.3: [8086:7113] type 00 class 0x068000
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:01.3: quirk: [io  0x0600-0x063f] claimed by PIIX4 ACPI
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:01.3: quirk: [io  0x0700-0x070f] claimed by PIIX4 SMB
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:02.0: [1234:1111] type 00 class 0x030000
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:02.0: reg 0x10: [mem 0xfd000000-0xfdffffff pref]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:02.0: reg 0x18: [mem 0xfea50000-0xfea50fff]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:02.0: reg 0x30: [mem 0xfea40000-0xfea4ffff pref]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:02.0: BAR 0: assigned to efifb
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:02.0: Video device with shadowed ROM at [mem 0x000c0000-0x000dffff]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:03.0: [1af4:1002] type 00 class 0x00ff00
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:03.0: reg 0x10: [io  0xe000-0xe03f]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:03.0: reg 0x20: [mem 0xfe400000-0xfe403fff 64bit pref]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:05.0: [1af4:1004] type 00 class 0x010000
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:05.0: reg 0x10: [io  0xe040-0xe07f]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:05.0: reg 0x14: [mem 0xfea51000-0xfea51fff]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:05.0: reg 0x20: [mem 0xfe404000-0xfe407fff 64bit pref]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:12.0: [1af4:1000] type 00 class 0x020000
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:12.0: reg 0x10: [io  0xe0a0-0xe0bf]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:12.0: reg 0x14: [mem 0xfea52000-0xfea52fff]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:12.0: reg 0x20: [mem 0xfe408000-0xfe40bfff 64bit pref]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:12.0: reg 0x30: [mem 0xfea00000-0xfea3ffff pref]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:1e.0: [1b36:0001] type 01 class 0x060400
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:1e.0: reg 0x10: [mem 0xfea53000-0xfea530ff 64bit]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:1f.0: [1b36:0001] type 01 class 0x060400
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:1f.0: reg 0x10: [mem 0xfea54000-0xfea540ff 64bit]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci_bus 0000:01: extended config space not accessible
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [0] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [1] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [3-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [4-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [5-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [6-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [7-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [8-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [9-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [10-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [11-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [12-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [13-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [14-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [15-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [16-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [17-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [18-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [19-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [20-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [21-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [22-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [23-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [24-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [25-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [26-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [27-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [28-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [29-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [30] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [31] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:1e.0: PCI bridge to [bus 01]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:1e.0:   bridge window [io  0xd000-0xdfff]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:1e.0:   bridge window [mem 0xfe800000-0xfe9fffff]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:1e.0:   bridge window [mem 0xfe200000-0xfe3fffff 64bit pref]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci_bus 0000:02: extended config space not accessible
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [0-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [1-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [2-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [3-3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [4-3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [5-3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [6-3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [7-3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [8-3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [9-3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [10-3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [11-3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [12-3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [13-3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [14-3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [15-3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [16-3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [17-3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [18-3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [19-3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [20-3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [21-3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [22-3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [23-3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [24-3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [25-3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [26-3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [27-3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [28-3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [29-3] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [30-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: acpiphp: Slot [31-2] registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:1f.0: PCI bridge to [bus 02]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:1f.0:   bridge window [io  0xc000-0xcfff]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:1f.0:   bridge window [mem 0xfe600000-0xfe7fffff]
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:1f.0:   bridge window [mem 0xfe000000-0xfe1fffff 64bit pref]
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: PCI: Interrupt link LNKA configured for IRQ 10
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: PCI: Interrupt link LNKB configured for IRQ 10
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: PCI: Interrupt link LNKC configured for IRQ 11
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: PCI: Interrupt link LNKD configured for IRQ 11
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: PCI: Interrupt link LNKS configured for IRQ 9
+Sep 17 07:25:04 TestnetSupernode01 kernel: iommu: Default domain type: Translated 
+Sep 17 07:25:04 TestnetSupernode01 kernel: iommu: DMA domain TLB invalidation policy: lazy mode 
+Sep 17 07:25:04 TestnetSupernode01 kernel: SCSI subsystem initialized
+Sep 17 07:25:04 TestnetSupernode01 kernel: libata version 3.00 loaded.
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:02.0: vgaarb: setting as boot VGA device
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:02.0: vgaarb: VGA device added: decodes=io+mem,owns=io+mem,locks=none
+Sep 17 07:25:04 TestnetSupernode01 kernel: pci 0000:00:02.0: vgaarb: bridge control possible
+Sep 17 07:25:04 TestnetSupernode01 kernel: vgaarb: loaded
+Sep 17 07:25:04 TestnetSupernode01 kernel: ACPI: bus type USB registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: usbcore: registered new interface driver usbfs
+Sep 17 07:25:04 TestnetSupernode01 kernel: usbcore: registered new interface driver hub
+Sep 17 07:25:04 TestnetSupernode01 kernel: usbcore: registered new device driver usb
+Sep 17 07:25:04 TestnetSupernode01 kernel: pps_core: LinuxPPS API ver. 1 registered
+Sep 17 07:25:04 TestnetSupernode01 kernel: pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>

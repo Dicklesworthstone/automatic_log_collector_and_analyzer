@@ -35,7 +35,8 @@ from collections import Counter
 import yaml
 from decouple import config
 
-# pip install boto3 paramiko sqlalchemy tqdm redis
+# Prerequisites under Ubuntu 20+:
+# sudo apt update && sudo apt install redis pipx -y && pipx ensurepath && pipx install datasette
 
 SSH_TIMEOUT_SECONDS = config("SSH_TIMEOUT_SECONDS", cast=int)
 BASE_PATH = config("BASE_PATH", cast=str)
@@ -1208,7 +1209,7 @@ if __name__ == "__main__":
     backup_table('sn_network_activity_ss')
     print('Done backing up database tables!')
     print('All Completed!')
-    datasette_path =  config("DATASETTE_PATH", cast=str) # Replace with the actual path to your Datasette executable (pip install datasette) 
+    datasette_path =  config("DATASETTE_PATH", cast=str) # Replace with the actual path to your Datasette executable (sudo apt install pipx && pipx ensurepath && pipx install datasette) 
     sqlite_path = BASE_PATH + sqlite_file_path
     host = config("HOST", cast=str)
     port = config("PORT", cast=int)

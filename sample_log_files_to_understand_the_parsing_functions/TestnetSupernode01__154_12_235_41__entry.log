@@ -1,0 +1,957 @@
+2023-07-24 10:39:17.922 - [37] RECEIVED, request_size=495 bytes, height=326400
+2023-07-24 10:39:17.925 - [37] QUEUED, queue_size=1
+2023-07-24 10:39:17.931 - [37] STARTED, queue_wait_time=0.006175 secs
+2023-07-24 10:44:12.112 - [37] SUCCEEDED, execution_time=294.028 secs, response_size=2531630 bytes, image_hash=8c26b8fe1f22e2078fbfd4a6d86e5728da2a58f749da83d210a341be081f35ee
+2023-07-24 11:26:00.256 - [38] RECEIVED, request_size=495 bytes, height=326421
+2023-07-24 11:26:00.257 - [38] QUEUED, queue_size=1
+2023-07-24 11:26:00.260 - [38] STARTED, queue_wait_time=0.003543 secs
+2023-07-24 11:32:16.473 - [38] SUCCEEDED, execution_time=376.044 secs, response_size=2915406 bytes, image_hash=e3567f0081cf92013beb8131a9012fc758931eb478dc052ab90e4a7c851d1729
+2023-07-24 16:17:28.202 - -------------------------------------------------- v2.3.27 --------------------------------------------------
+2023-07-24 16:47:02.504 - -------------------------------------------------- v2.3.27 --------------------------------------------------
+2023-07-24 17:11:03.921 - [1] RECEIVED, request_size=494 bytes, height=326565
+2023-07-24 17:11:03.923 - [1] QUEUED, queue_size=1
+2023-07-24 17:11:04.120 - [1] STARTED, queue_wait_time=0.198139 secs
+2023-07-24 17:11:31.186 - [2] RECEIVED, request_size=494 bytes, height=326565
+2023-07-24 17:11:31.186 - [2] QUEUED, queue_size=1
+2023-07-24 17:12:54.229 - [1] SUCCEEDED, execution_time=110.014 secs, response_size=1631686 bytes, image_hash=825723e242d2f0b1fec19749b04812d0bb23fc91f6ec375ffd1907210b1283d9
+2023-07-24 17:12:54.478 - [2] STARTED, queue_wait_time=83.292199 secs
+2023-07-24 17:13:31.705 - [3] RECEIVED, request_size=495 bytes, height=326565
+2023-07-24 17:13:31.706 - [3] QUEUED, queue_size=1
+2023-07-24 17:15:39.657 - [2] SUCCEEDED, execution_time=165.034 secs, response_size=2094766 bytes, image_hash=42b6644e34ab203d4311f495624fef5f5427cad88cc14d591158b2daf34715ec
+2023-07-24 17:15:39.868 - [3] STARTED, queue_wait_time=128.162280 secs
+2023-07-24 17:16:33.025 - [4] RECEIVED, request_size=495 bytes, height=326565
+2023-07-24 17:16:33.026 - [4] QUEUED, queue_size=1
+2023-07-24 17:20:12.102 - [3] SUCCEEDED, execution_time=272.049 secs, response_size=2407517 bytes, image_hash=0412cb7b2104d3f53e5dbe877bafe865a3144498c8dc79a4f1d07c21e91d56f8
+2023-07-24 17:20:12.304 - [4] STARTED, queue_wait_time=219.278318 secs
+2023-07-24 17:27:00.768 - [4] SUCCEEDED, execution_time=408.073 secs, response_size=5830175 bytes, image_hash=e3567f0081cf92013beb8131a9012fc758931eb478dc052ab90e4a7c851d1729
+2023-07-24 18:02:18.943 - [5] RECEIVED, request_size=495 bytes, height=326583
+2023-07-24 18:02:18.944 - [5] QUEUED, queue_size=1
+2023-07-24 18:02:19.315 - [5] STARTED, queue_wait_time=0.371398 secs
+2023-07-24 18:02:25.347 - [6] RECEIVED, request_size=495 bytes, height=326583
+2023-07-24 18:02:25.348 - [6] QUEUED, queue_size=1
+2023-07-24 18:07:49.684 - [5] SUCCEEDED, execution_time=330.028 secs, response_size=5995736 bytes, image_hash=1e7241b7cfb5085d42c2a0501e6bbc75b15c3924307f8019afb8f45431f270e6
+2023-07-24 18:07:49.934 - [6] STARTED, queue_wait_time=324.585915 secs
+2023-07-24 18:12:40.207 - [6] SUCCEEDED, execution_time=290.018 secs, response_size=4359419 bytes, image_hash=653843d02c9635e5a049a0e1e5dcb335c49b3c12aaa0ac95c05f385fcf9bf009
+2023-07-24 18:14:05.641 - [7] RECEIVED, request_size=495 bytes, height=326590
+2023-07-24 18:14:05.642 - [7] QUEUED, queue_size=1
+2023-07-24 18:14:05.919 - [7] STARTED, queue_wait_time=0.277769 secs
+2023-07-24 18:24:46.147 - [7] SUCCEEDED, execution_time=640.060 secs, response_size=3145125 bytes, image_hash=eed61d9929cbf41a30ef42e5d6461fae8f409c70672c462170d6185aabb50a1e
+2023-07-24 18:37:23.134 - [8] RECEIVED, request_size=494 bytes, height=326599
+2023-07-24 18:37:23.136 - [8] QUEUED, queue_size=1
+2023-07-24 18:37:23.465 - [8] STARTED, queue_wait_time=0.330333 secs
+2023-07-24 18:37:24.226 - [9] RECEIVED, request_size=495 bytes, height=326599
+2023-07-24 18:37:24.227 - [9] QUEUED, queue_size=1
+2023-07-24 18:37:24.540 - [9] STARTED, queue_wait_time=0.313238 secs
+2023-07-24 18:37:26.963 - [10] RECEIVED, request_size=495 bytes, height=326599
+2023-07-24 18:37:26.963 - [10] QUEUED, queue_size=1
+2023-07-24 18:37:27.160 - [10] STARTED, queue_wait_time=0.196738 secs
+2023-07-24 18:37:28.432 - [11] RECEIVED, request_size=494 bytes, height=326599
+2023-07-24 18:37:28.432 - [11] QUEUED, queue_size=1
+2023-07-24 18:37:28.644 - [11] STARTED, queue_wait_time=0.211709 secs
+2023-07-24 18:52:25.919 - [8] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/24ca0b11.png] timed out after 901.066 secs
+2023-07-24 18:52:26.288 - [9] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/fb46e9f5.jpeg] timed out after 901.044 secs
+2023-07-24 18:52:28.567 - [10] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/280c3129.jpeg] timed out after 901.058 secs
+2023-07-24 18:52:29.937 - [11] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/527eab25.png] timed out after 901.040 secs
+2023-07-24 19:00:43.256 - [12] RECEIVED, request_size=495 bytes, height=326607
+2023-07-24 19:00:43.257 - [12] QUEUED, queue_size=1
+2023-07-24 19:00:43.546 - [12] STARTED, queue_wait_time=0.289165 secs
+2023-07-24 19:00:43.891 - [13] RECEIVED, request_size=495 bytes, height=326607
+2023-07-24 19:00:43.892 - [13] QUEUED, queue_size=1
+2023-07-24 19:00:43.896 - [14] RECEIVED, request_size=495 bytes, height=326607
+2023-07-24 19:00:43.896 - [14] QUEUED, queue_size=1
+2023-07-24 19:00:44.135 - [13] STARTED, queue_wait_time=0.242743 secs
+2023-07-24 19:00:44.165 - [15] RECEIVED, request_size=495 bytes, height=326607
+2023-07-24 19:00:44.166 - [15] QUEUED, queue_size=1
+2023-07-24 19:00:44.365 - [14] STARTED, queue_wait_time=0.468694 secs
+2023-07-24 19:00:44.597 - [15] STARTED, queue_wait_time=0.431631 secs
+2023-07-24 19:00:47.443 - [16] RECEIVED, request_size=494 bytes, height=326607
+2023-07-24 19:00:47.444 - [16] QUEUED, queue_size=1
+2023-07-24 19:00:47.713 - [16] STARTED, queue_wait_time=0.269240 secs
+2023-07-24 19:00:48.181 - [17] RECEIVED, request_size=495 bytes, height=326607
+2023-07-24 19:00:48.181 - [17] QUEUED, queue_size=1
+2023-07-24 19:15:46.359 - [12] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/cf284614.jpeg] timed out after 901.047 secs
+2023-07-24 19:15:46.525 - [14] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/888c5420.jpeg] timed out after 901.048 secs
+2023-07-24 19:15:46.688 - [15] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/32604199.jpeg] timed out after 901.037 secs
+2023-07-24 19:15:46.841 - [13] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/0719e42a.jpeg] timed out after 901.032 secs
+2023-07-24 19:15:46.978 - [17] STARTED, queue_wait_time=898.797113 secs
+2023-07-24 19:15:49.056 - [16] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/b36a2d62.png] timed out after 901.041 secs
+2023-07-24 19:30:48.042 - [17] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/20901119.jpeg] timed out after 901.037 secs
+2023-07-24 22:36:50.693 - -------------------------------------------------- v2.3.27 --------------------------------------------------
+2023-07-25 19:07:04.458 - [1] RECEIVED, request_size=502 bytes, height=327153
+2023-07-25 19:07:04.464 - [1] QUEUED, queue_size=1
+2023-07-25 19:07:04.864 - [1] STARTED, queue_wait_time=0.403349 secs
+2023-07-25 19:14:00.386 - [1] SUCCEEDED, execution_time=415.091 secs, response_size=6645148 bytes, image_hash=11f0b9e9c946aa6c29dea0a56c021f0733c219bdbc8d5bccb64e16eadf6ea0f1
+2023-07-26 00:41:03.947 - [2] RECEIVED, request_size=494 bytes, height=327293
+2023-07-26 00:41:03.951 - [2] QUEUED, queue_size=1
+2023-07-26 00:41:04.178 - [2] STARTED, queue_wait_time=0.227719 secs
+2023-07-26 00:41:06.130 - [3] RECEIVED, request_size=494 bytes, height=327293
+2023-07-26 00:41:06.130 - [3] QUEUED, queue_size=1
+2023-07-26 00:43:01.387 - [2] SUCCEEDED, execution_time=117.012 secs, response_size=2790683 bytes, image_hash=6312abea9b69186439c2255f185b99a98c4ee0fae75a0d3b0bd6808d7c0f68fa
+2023-07-26 00:43:01.518 - [3] STARTED, queue_wait_time=115.387608 secs
+2023-07-26 00:43:17.299 - [4] RECEIVED, request_size=495 bytes, height=327293
+2023-07-26 00:43:17.299 - [4] QUEUED, queue_size=1
+2023-07-26 00:44:45.670 - [3] SUCCEEDED, execution_time=104.017 secs, response_size=2457470 bytes, image_hash=b697c45c50b7ee856ede30e9fde45568685773b96330697b2305c4d8d0686a28
+2023-07-26 00:44:45.879 - [4] STARTED, queue_wait_time=88.579969 secs
+2023-07-26 00:44:55.503 - [5] RECEIVED, request_size=495 bytes, height=327293
+2023-07-26 00:44:55.503 - [5] QUEUED, queue_size=1
+2023-07-26 00:49:34.131 - [4] SUCCEEDED, execution_time=288.028 secs, response_size=3664071 bytes, image_hash=a21efe718cd7bb6fff2baee26d838f4d09eede1d831593d08c4a91314552ab4d
+2023-07-26 00:49:34.312 - [5] STARTED, queue_wait_time=278.809194 secs
+2023-07-26 00:49:40.515 - [6] RECEIVED, request_size=495 bytes, height=327293
+2023-07-26 00:49:40.516 - [6] QUEUED, queue_size=1
+2023-07-26 00:56:55.702 - [5] SUCCEEDED, execution_time=441.067 secs, response_size=5554311 bytes, image_hash=6940d810012d1a815379f80d7da6228948a104f423710bcd7e4050fea0286684
+2023-07-26 00:56:55.830 - [6] STARTED, queue_wait_time=435.314985 secs
+2023-07-26 01:02:26.026 - [6] SUCCEEDED, execution_time=330.028 secs, response_size=2958065 bytes, image_hash=98fb037b621117c2b960a9264aed4d7f336eb98ffbd9d385b5408e350a65f76d
+2023-07-26 01:23:54.031 - [7] RECEIVED, request_size=495 bytes, height=327314
+2023-07-26 01:23:54.032 - [7] QUEUED, queue_size=1
+2023-07-26 01:23:54.357 - [7] STARTED, queue_wait_time=0.324816 secs
+2023-07-26 01:27:56.619 - [7] SUCCEEDED, execution_time=242.014 secs, response_size=4812167 bytes, image_hash=b2306f8c02aabc21a232bf07d67dd558b7257b4e03da27419aef3bcb1771dad6
+2023-07-26 02:22:20.983 - [8] RECEIVED, request_size=495 bytes, height=327337
+2023-07-26 02:22:20.986 - [8] QUEUED, queue_size=1
+2023-07-26 02:22:21.584 - [8] STARTED, queue_wait_time=0.598931 secs
+2023-07-26 02:22:27.215 - [9] RECEIVED, request_size=495 bytes, height=327337
+2023-07-26 02:22:27.216 - [9] QUEUED, queue_size=1
+2023-07-26 02:22:27.421 - [9] STARTED, queue_wait_time=0.205772 secs
+2023-07-26 02:33:54.326 - [10] RECEIVED, request_size=495 bytes, height=327342
+2023-07-26 02:33:54.328 - [10] QUEUED, queue_size=1
+2023-07-26 02:33:54.915 - [10] STARTED, queue_wait_time=0.588217 secs
+2023-07-26 02:37:23.019 - [8] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/d1bebf50.jpeg] timed out after 901.070 secs
+2023-07-26 02:37:29.021 - [9] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/51df115c.jpeg] timed out after 901.091 secs
+2023-07-26 02:41:07.181 - [10] SUCCEEDED, execution_time=432.053 secs, response_size=3466685 bytes, image_hash=4e016abd79d7d1e4e03e9e37807dae8eb45d1ed211f77a324a0d2482dade4e1a
+2023-07-26 02:45:31.449 - [11] RECEIVED, request_size=495 bytes, height=327346
+2023-07-26 02:45:31.450 - [11] QUEUED, queue_size=1
+2023-07-26 02:45:31.789 - [11] STARTED, queue_wait_time=0.339726 secs
+2023-07-26 02:54:20.027 - [11] SUCCEEDED, execution_time=528.033 secs, response_size=3584919 bytes, image_hash=957083ffa4b4d5e91ad8502510490fb236159ff04e784a1953d14cb7d2d9da6a
+2023-07-26 02:57:11.978 - [12] RECEIVED, request_size=495 bytes, height=327353
+2023-07-26 02:57:11.979 - [12] QUEUED, queue_size=1
+2023-07-26 02:57:12.331 - [12] STARTED, queue_wait_time=0.351882 secs
+2023-07-26 02:57:19.578 - [13] RECEIVED, request_size=495 bytes, height=327353
+2023-07-26 02:57:19.579 - [13] QUEUED, queue_size=1
+2023-07-26 02:57:19.865 - [13] STARTED, queue_wait_time=0.286193 secs
+2023-07-26 02:57:20.670 - [14] RECEIVED, request_size=495 bytes, height=327353
+2023-07-26 02:57:20.670 - [14] QUEUED, queue_size=1
+2023-07-26 02:57:20.856 - [14] STARTED, queue_wait_time=0.185397 secs
+2023-07-26 03:12:25.231 - [12] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/5c370584.jpeg] timed out after 911.057 secs
+2023-07-26 03:12:31.624 - [13] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/f63c257a.jpeg] timed out after 911.040 secs
+2023-07-26 03:12:32.208 - [14] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/a34198e5.jpeg] timed out after 911.049 secs
+2023-07-26 03:43:56.221 - [15] RECEIVED, request_size=495 bytes, height=327370
+2023-07-26 03:43:56.223 - [15] QUEUED, queue_size=1
+2023-07-26 03:43:56.602 - [15] STARTED, queue_wait_time=0.379277 secs
+2023-07-26 03:43:57.449 - [16] RECEIVED, request_size=495 bytes, height=327370
+2023-07-26 03:43:57.449 - [16] QUEUED, queue_size=1
+2023-07-26 03:43:57.794 - [17] RECEIVED, request_size=495 bytes, height=327370
+2023-07-26 03:43:57.796 - [17] QUEUED, queue_size=1
+2023-07-26 03:43:57.801 - [16] STARTED, queue_wait_time=0.351202 secs
+2023-07-26 03:43:58.006 - [17] STARTED, queue_wait_time=0.211235 secs
+2023-07-26 03:55:34.674 - [18] RECEIVED, request_size=495 bytes, height=327375
+2023-07-26 03:55:34.675 - [18] QUEUED, queue_size=1
+2023-07-26 03:55:35.337 - [18] STARTED, queue_wait_time=0.662120 secs
+2023-07-26 03:55:38.389 - [19] RECEIVED, request_size=495 bytes, height=327375
+2023-07-26 03:55:38.390 - [19] QUEUED, queue_size=1
+2023-07-26 03:55:38.587 - [20] RECEIVED, request_size=494 bytes, height=327375
+2023-07-26 03:55:38.588 - [20] QUEUED, queue_size=1
+2023-07-26 03:55:39.098 - [19] STARTED, queue_wait_time=0.708820 secs
+2023-07-26 03:59:08.787 - [15] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/57af5ec0.jpeg] timed out after 911.048 secs
+2023-07-26 03:59:09.299 - [16] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/9c6853bf.jpeg] timed out after 911.044 secs
+2023-07-26 03:59:09.364 - [20] STARTED, queue_wait_time=210.776038 secs
+2023-07-26 03:59:09.457 - [17] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/5c55f742.jpeg] timed out after 911.062 secs
+2023-07-26 04:01:43.451 - [19] SUCCEEDED, execution_time=364.043 secs, response_size=1382112 bytes, image_hash=38a080e07f4014481647e640294c2daf0570d442cef1a33d0bdce73326bfcf36
+2023-07-26 04:10:47.174 - [18] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/696afb50.jpeg] timed out after 911.068 secs
+2023-07-26 04:11:03.593 - [20] SUCCEEDED, execution_time=714.111 secs, response_size=1964674 bytes, image_hash=229fe9852b8d5c6d556104c9be5d5f9202047df38a2f8451d4c290c46052a56e
+2023-07-26 04:42:10.532 - [21] RECEIVED, request_size=495 bytes, height=327388
+2023-07-26 04:42:10.535 - [21] QUEUED, queue_size=1
+2023-07-26 04:42:10.876 - [21] STARTED, queue_wait_time=0.341878 secs
+2023-07-26 04:42:13.217 - [22] RECEIVED, request_size=494 bytes, height=327388
+2023-07-26 04:42:13.218 - [22] QUEUED, queue_size=1
+2023-07-26 04:42:13.416 - [22] STARTED, queue_wait_time=0.197953 secs
+2023-07-26 04:42:14.360 - [23] RECEIVED, request_size=495 bytes, height=327388
+2023-07-26 04:42:14.361 - [23] QUEUED, queue_size=1
+2023-07-26 04:42:14.583 - [23] STARTED, queue_wait_time=0.222933 secs
+2023-07-26 04:57:12.772 - [21] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/c4f42dcf.jpeg] timed out after 901.029 secs
+2023-07-26 04:57:15.127 - [22] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/d6596625.png] timed out after 901.024 secs
+2023-07-26 04:57:15.955 - [23] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/fe85d1e7.jpeg] timed out after 901.038 secs
+2023-07-26 07:02:11.058 - [24] RECEIVED, request_size=495 bytes, height=327428
+2023-07-26 07:02:11.060 - [24] QUEUED, queue_size=1
+2023-07-26 07:02:11.446 - [24] STARTED, queue_wait_time=0.386023 secs
+2023-07-26 07:02:15.514 - [25] RECEIVED, request_size=495 bytes, height=327428
+2023-07-26 07:02:15.517 - [25] QUEUED, queue_size=1
+2023-07-26 07:02:15.798 - [25] STARTED, queue_wait_time=0.280671 secs
+2023-07-26 07:17:13.035 - [24] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/039cc0b9.jpeg] timed out after 901.038 secs
+2023-07-26 07:17:17.147 - [25] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/258f8f42.jpeg] timed out after 901.047 secs
+2023-07-26 07:25:31.781 - [26] RECEIVED, request_size=495 bytes, height=327435
+2023-07-26 07:25:31.782 - [26] QUEUED, queue_size=1
+2023-07-26 07:25:32.131 - [26] STARTED, queue_wait_time=0.349525 secs
+2023-07-26 07:31:32.296 - [26] SUCCEEDED, execution_time=360.030 secs, response_size=2087796 bytes, image_hash=fce4c5c17aaf959f2ab0cd10e3ba48e89b95832198c6b781f22920d63114dc9b
+2023-07-26 07:48:53.502 - [27] RECEIVED, request_size=494 bytes, height=327435
+2023-07-26 07:48:53.503 - [27] QUEUED, queue_size=1
+2023-07-26 07:48:53.748 - [27] STARTED, queue_wait_time=0.244654 secs
+2023-07-26 08:00:32.125 - [28] RECEIVED, request_size=495 bytes, height=327435
+2023-07-26 08:00:32.128 - [28] QUEUED, queue_size=1
+2023-07-26 08:00:32.444 - [28] STARTED, queue_wait_time=0.317919 secs
+2023-07-26 08:03:55.322 - [27] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/260c6782.png] timed out after 901.045 secs
+2023-07-26 08:15:34.047 - [28] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/25b18cc5.jpeg] timed out after 901.060 secs
+2023-07-26 15:58:53.848 - [29] RECEIVED, request_size=495 bytes, height=327435
+2023-07-26 15:58:53.852 - [29] QUEUED, queue_size=1
+2023-07-26 15:58:54.279 - [29] STARTED, queue_wait_time=0.428467 secs
+2023-07-26 16:06:24.651 - [29] SUCCEEDED, execution_time=450.045 secs, response_size=6013207 bytes, image_hash=e3567f0081cf92013beb8131a9012fc758931eb478dc052ab90e4a7c851d1729
+2023-07-26 16:57:17.432 - [30] RECEIVED, request_size=495 bytes, height=327435
+2023-07-26 16:57:17.435 - [30] QUEUED, queue_size=1
+2023-07-26 16:57:17.779 - [30] STARTED, queue_wait_time=0.344181 secs
+2023-07-26 17:02:18.161 - [30] SUCCEEDED, execution_time=300.018 secs, response_size=6603468 bytes, image_hash=f35171c21943600b61e261adabcede83080389d55457bec100185ff86215682e
+2023-07-26 17:43:56.862 - [31] RECEIVED, request_size=495 bytes, height=327435
+2023-07-26 17:43:56.865 - [31] QUEUED, queue_size=1
+2023-07-26 17:43:57.376 - [31] STARTED, queue_wait_time=0.511793 secs
+2023-07-26 17:54:57.648 - [31] SUCCEEDED, execution_time=660.051 secs, response_size=3700590 bytes, image_hash=c6768e3d4c58b3724bb79e2e33619c53c0614c81b6e2d58d483f49263c3472c9
+2023-07-26 17:55:38.904 - [32] RECEIVED, request_size=494 bytes, height=327436
+2023-07-26 17:55:38.905 - [32] QUEUED, queue_size=1
+2023-07-26 17:55:39.150 - [32] STARTED, queue_wait_time=0.245342 secs
+2023-07-26 17:55:39.788 - [33] RECEIVED, request_size=495 bytes, height=327436
+2023-07-26 17:55:39.789 - [33] QUEUED, queue_size=1
+2023-07-26 17:55:39.928 - [34] RECEIVED, request_size=495 bytes, height=327436
+2023-07-26 17:55:39.929 - [34] QUEUED, queue_size=1
+2023-07-26 17:55:40.005 - [33] STARTED, queue_wait_time=0.216400 secs
+2023-07-26 17:55:40.296 - [34] STARTED, queue_wait_time=0.367725 secs
+2023-07-26 17:55:42.325 - [35] RECEIVED, request_size=495 bytes, height=327436
+2023-07-26 17:55:42.326 - [35] QUEUED, queue_size=1
+2023-07-26 17:55:42.541 - [35] STARTED, queue_wait_time=0.214316 secs
+2023-07-26 18:10:43.216 - [32] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/2f102c82.png] timed out after 902.042 secs
+2023-07-26 18:10:43.441 - [34] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/967a2ee4.jpeg] timed out after 902.039 secs
+2023-07-26 18:10:43.627 - [33] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/2423bef2.jpeg] timed out after 902.034 secs
+2023-07-26 18:10:44.967 - [35] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/6055045f.jpeg] timed out after 902.066 secs
+2023-07-26 18:18:58.119 - [36] RECEIVED, request_size=495 bytes, height=327439
+2023-07-26 18:18:58.119 - [36] QUEUED, queue_size=1
+2023-07-26 18:18:58.455 - [36] STARTED, queue_wait_time=0.335344 secs
+2023-07-26 18:19:00.840 - [37] RECEIVED, request_size=495 bytes, height=327439
+2023-07-26 18:19:00.841 - [37] QUEUED, queue_size=1
+2023-07-26 18:19:01.068 - [37] STARTED, queue_wait_time=0.226985 secs
+2023-07-26 18:19:01.306 - [38] RECEIVED, request_size=495 bytes, height=327439
+2023-07-26 18:19:01.306 - [38] QUEUED, queue_size=1
+2023-07-26 18:19:01.550 - [38] STARTED, queue_wait_time=0.243462 secs
+2023-07-26 18:19:01.764 - [39] RECEIVED, request_size=494 bytes, height=327439
+2023-07-26 18:19:01.764 - [39] QUEUED, queue_size=1
+2023-07-26 18:19:02.003 - [39] STARTED, queue_wait_time=0.238575 secs
+2023-07-26 18:19:08.585 - [40] RECEIVED, request_size=494 bytes, height=327439
+2023-07-26 18:19:08.586 - [40] QUEUED, queue_size=1
+2023-07-26 18:19:08.817 - [40] STARTED, queue_wait_time=0.231476 secs
+2023-07-26 18:22:33.008 - [40] SUCCEEDED, execution_time=204.014 secs, response_size=1620391 bytes, image_hash=651f8a0dac836a621d08cf3cd91fa5d2d5419db3c05ad1ccaa2514f5cb0fe5f7
+2023-07-26 18:34:02.086 - [36] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/38dc9e81.jpeg] timed out after 902.053 secs
+2023-07-26 18:34:03.823 - [37] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/79ed9376.jpeg] timed out after 902.036 secs
+2023-07-26 18:34:04.279 - [38] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/e63703d4.jpeg] timed out after 902.028 secs
+2023-07-26 18:34:04.500 - [39] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/e8523752.png] timed out after 902.029 secs
+2023-07-26 20:27:20.648 - [41] RECEIVED, request_size=495 bytes, height=327444
+2023-07-26 20:27:20.652 - [41] QUEUED, queue_size=1
+2023-07-26 20:27:20.917 - [41] STARTED, queue_wait_time=0.265524 secs
+2023-07-26 20:32:21.087 - [41] SUCCEEDED, execution_time=300.027 secs, response_size=2240385 bytes, image_hash=b2d1fc64ef7bf112f23095d713814a39c46d73f208f2fd217af127563cb72a13
+2023-07-26 20:38:55.502 - [42] RECEIVED, request_size=495 bytes, height=327450
+2023-07-26 20:38:55.504 - [42] QUEUED, queue_size=1
+2023-07-26 20:38:55.891 - [42] STARTED, queue_wait_time=0.387414 secs
+2023-07-26 20:38:58.062 - [43] RECEIVED, request_size=495 bytes, height=327450
+2023-07-26 20:38:58.062 - [43] QUEUED, queue_size=1
+2023-07-26 20:38:58.090 - [44] RECEIVED, request_size=495 bytes, height=327450
+2023-07-26 20:38:58.091 - [44] QUEUED, queue_size=1
+2023-07-26 20:38:58.321 - [43] STARTED, queue_wait_time=0.257987 secs
+2023-07-26 20:38:58.582 - [44] STARTED, queue_wait_time=0.491358 secs
+2023-07-26 20:50:36.870 - [45] RECEIVED, request_size=494 bytes, height=327457
+2023-07-26 20:50:36.872 - [45] QUEUED, queue_size=1
+2023-07-26 20:50:37.842 - [45] STARTED, queue_wait_time=0.956145 secs
+2023-07-26 20:50:40.363 - [46] RECEIVED, request_size=494 bytes, height=327457
+2023-07-26 20:50:40.363 - [46] QUEUED, queue_size=1
+2023-07-26 20:50:41.330 - [46] STARTED, queue_wait_time=0.956772 secs
+2023-07-26 20:54:01.482 - [42] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/c506c105.jpeg] timed out after 903.057 secs
+2023-07-26 20:54:01.984 - [43] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/b785df1a.jpeg] timed out after 903.052 secs
+2023-07-26 20:54:02.557 - [44] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/2738fd5f.jpeg] timed out after 903.066 secs
+2023-07-26 20:55:27.656 - [46] SUCCEEDED, execution_time=286.105 secs, response_size=1685175 bytes, image_hash=61d6415d10bcc6c83df6fb568f8a4562f85e5ccf8d574af8ca7918b2faeb6591
+2023-07-26 20:56:07.934 - [45] SUCCEEDED, execution_time=330.070 secs, response_size=473249 bytes, image_hash=33c97619a15187de844610770b2357b5fb7b969e7e3baaced4586a5817e5a702
+2023-07-26 21:02:16.849 - [47] RECEIVED, request_size=494 bytes, height=327466
+2023-07-26 21:02:16.850 - [47] QUEUED, queue_size=1
+2023-07-26 21:02:17.058 - [47] STARTED, queue_wait_time=0.207702 secs
+2023-07-26 21:02:28.382 - [48] RECEIVED, request_size=495 bytes, height=327466
+2023-07-26 21:02:28.383 - [48] QUEUED, queue_size=1
+2023-07-26 21:02:28.591 - [48] STARTED, queue_wait_time=0.208466 secs
+2023-07-26 21:03:28.389 - [49] RECEIVED, request_size=495 bytes, height=327466
+2023-07-26 21:03:28.390 - [49] QUEUED, queue_size=1
+2023-07-26 21:03:28.705 - [49] STARTED, queue_wait_time=0.314121 secs
+2023-07-26 21:17:19.215 - [47] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/16270591.png] timed out after 901.098 secs
+2023-07-26 21:17:30.267 - [48] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/df82e67b.jpeg] timed out after 901.099 secs
+2023-07-26 21:18:30.076 - [49] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/c5e0ca21.jpeg] timed out after 901.070 secs
+2023-07-26 21:25:38.422 - [50] RECEIVED, request_size=494 bytes, height=327478
+2023-07-26 21:25:38.422 - [50] QUEUED, queue_size=1
+2023-07-26 21:25:38.558 - [51] RECEIVED, request_size=495 bytes, height=327478
+2023-07-26 21:25:38.558 - [51] QUEUED, queue_size=1
+2023-07-26 21:25:38.772 - [50] STARTED, queue_wait_time=0.349401 secs
+2023-07-26 21:25:38.987 - [51] STARTED, queue_wait_time=0.428995 secs
+2023-07-26 21:25:41.009 - [52] RECEIVED, request_size=495 bytes, height=327478
+2023-07-26 21:25:41.009 - [52] QUEUED, queue_size=1
+2023-07-26 21:25:41.254 - [52] STARTED, queue_wait_time=0.245398 secs
+2023-07-26 21:25:42.397 - [53] RECEIVED, request_size=495 bytes, height=327478
+2023-07-26 21:25:42.397 - [53] QUEUED, queue_size=1
+2023-07-26 21:25:42.628 - [53] STARTED, queue_wait_time=0.231254 secs
+2023-07-26 21:25:47.578 - [54] RECEIVED, request_size=494 bytes, height=327478
+2023-07-26 21:25:47.578 - [54] QUEUED, queue_size=1
+2023-07-26 21:25:47.945 - [54] STARTED, queue_wait_time=0.355702 secs
+2023-07-26 21:29:08.355 - [54] SUCCEEDED, execution_time=200.054 secs, response_size=1846223 bytes, image_hash=86a833c1db815502c58a761cffe875303f55e18d4afdeba2d519bd61017d6c1d
+2023-07-26 21:37:16.863 - [55] RECEIVED, request_size=495 bytes, height=327485
+2023-07-26 21:37:16.866 - [55] QUEUED, queue_size=1
+2023-07-26 21:37:17.176 - [56] RECEIVED, request_size=495 bytes, height=327485
+2023-07-26 21:37:17.177 - [56] QUEUED, queue_size=1
+2023-07-26 21:37:18.160 - [55] STARTED, queue_wait_time=1.277590 secs
+2023-07-26 21:40:41.558 - [50] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/9fbcd4ab.png] timed out after 901.059 secs
+2023-07-26 21:40:41.758 - [51] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/198347f6.jpeg] timed out after 901.093 secs
+2023-07-26 21:40:42.172 - [56] STARTED, queue_wait_time=204.995329 secs
+2023-07-26 21:40:43.516 - [52] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/11890a9c.jpeg] timed out after 901.087 secs
+2023-07-26 21:40:44.243 - [53] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/983a2090.jpeg] timed out after 901.071 secs
+2023-07-26 21:41:18.762 - [57] RECEIVED, request_size=495 bytes, height=327485
+2023-07-26 21:41:18.763 - [57] QUEUED, queue_size=1
+2023-07-26 21:41:19.088 - [57] STARTED, queue_wait_time=0.323415 secs
+2023-07-26 21:48:58.009 - [58] RECEIVED, request_size=495 bytes, height=327491
+2023-07-26 21:48:58.010 - [58] QUEUED, queue_size=1
+2023-07-26 21:48:58.913 - [58] STARTED, queue_wait_time=0.903231 secs
+2023-07-26 21:48:59.298 - [59] RECEIVED, request_size=495 bytes, height=327491
+2023-07-26 21:48:59.299 - [59] QUEUED, queue_size=1
+2023-07-26 21:48:59.527 - [60] RECEIVED, request_size=495 bytes, height=327491
+2023-07-26 21:48:59.527 - [60] QUEUED, queue_size=1
+2023-07-26 21:49:00.066 - [59] STARTED, queue_wait_time=0.767576 secs
+2023-07-26 21:52:25.389 - [55] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/28f5bbff.jpeg] timed out after 905.074 secs
+2023-07-26 21:52:26.131 - [60] STARTED, queue_wait_time=206.603373 secs
+2023-07-26 21:53:00.224 - [61] RECEIVED, request_size=495 bytes, height=327491
+2023-07-26 21:53:00.230 - [61] QUEUED, queue_size=1
+2023-07-26 21:55:48.977 - [56] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/410aaa52.jpeg] timed out after 905.127 secs
+2023-07-26 21:55:50.109 - [61] STARTED, queue_wait_time=169.880029 secs
+2023-07-26 21:56:01.231 - [62] RECEIVED, request_size=495 bytes, height=327491
+2023-07-26 21:56:01.232 - [62] QUEUED, queue_size=1
+2023-07-26 21:56:24.941 - [57] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/a2d745dd.jpeg] timed out after 905.055 secs
+2023-07-26 21:56:25.516 - [62] STARTED, queue_wait_time=24.283883 secs
+2023-07-26 22:04:07.094 - [58] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/dca5a8e6.jpeg] timed out after 905.132 secs
+2023-07-26 22:04:07.750 - [59] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/af0b1483.jpeg] timed out after 905.123 secs
+2023-07-26 22:07:32.433 - [60] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/aeccd0cb.jpeg] timed out after 905.114 secs
+2023-07-26 22:10:55.869 - [61] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/6767277e.jpeg] timed out after 905.101 secs
+2023-07-26 22:11:31.124 - [62] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/cd28f285.jpeg] timed out after 905.160 secs
+2023-07-26 22:12:19.159 - [63] RECEIVED, request_size=494 bytes, height=327502
+2023-07-26 22:12:19.160 - [63] QUEUED, queue_size=1
+2023-07-26 22:12:19.515 - [63] STARTED, queue_wait_time=0.354383 secs
+2023-07-26 22:12:21.137 - [64] RECEIVED, request_size=495 bytes, height=327502
+2023-07-26 22:12:21.138 - [64] QUEUED, queue_size=1
+2023-07-26 22:12:21.332 - [64] STARTED, queue_wait_time=0.193771 secs
+2023-07-26 22:12:21.708 - [65] RECEIVED, request_size=495 bytes, height=327502
+2023-07-26 22:12:21.709 - [65] QUEUED, queue_size=1
+2023-07-26 22:12:21.908 - [65] STARTED, queue_wait_time=0.199350 secs
+2023-07-26 22:23:58.598 - [66] RECEIVED, request_size=495 bytes, height=327508
+2023-07-26 22:23:58.599 - [66] QUEUED, queue_size=1
+2023-07-26 22:23:58.841 - [67] RECEIVED, request_size=495 bytes, height=327508
+2023-07-26 22:23:58.842 - [67] QUEUED, queue_size=1
+2023-07-26 22:23:59.534 - [66] STARTED, queue_wait_time=0.930184 secs
+2023-07-26 22:24:00.413 - [67] STARTED, queue_wait_time=1.571480 secs
+2023-07-26 22:24:02.494 - [68] RECEIVED, request_size=494 bytes, height=327508
+2023-07-26 22:24:02.495 - [68] QUEUED, queue_size=1
+2023-07-26 22:27:26.712 - [63] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/3bd8ba8a.png] timed out after 905.150 secs
+2023-07-26 22:27:27.267 - [68] STARTED, queue_wait_time=204.768940 secs
+2023-07-26 22:27:27.799 - [64] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/a8bd3a86.jpeg] timed out after 905.068 secs
+2023-07-26 22:27:28.322 - [65] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/abec0eb7.jpeg] timed out after 905.111 secs
+2023-07-26 22:39:06.902 - [67] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/690f03bc.jpeg] timed out after 905.073 secs
+2023-07-26 22:39:06.993 - [66] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/db521b2f.jpeg] timed out after 905.106 secs
+2023-07-26 22:39:27.499 - [68] SUCCEEDED, execution_time=720.089 secs, response_size=2531235 bytes, image_hash=c0e762d2b6a7512f9805b6320c35247f35343d5e1e956f3058b5762245514a8d
+2023-07-26 22:58:57.240 - [69] RECEIVED, request_size=495 bytes, height=327522
+2023-07-26 22:58:57.240 - [69] QUEUED, queue_size=1
+2023-07-26 22:58:57.575 - [69] STARTED, queue_wait_time=0.334831 secs
+2023-07-26 23:04:01.855 - [69] SUCCEEDED, execution_time=304.025 secs, response_size=3003522 bytes, image_hash=049b9874c0534e107e06460152114b575f29bd062b2a1be3440b9747d2c77fb7
+2023-07-26 23:22:15.482 - [70] RECEIVED, request_size=494 bytes, height=327533
+2023-07-26 23:22:15.483 - [70] QUEUED, queue_size=1
+2023-07-26 23:22:15.728 - [70] STARTED, queue_wait_time=0.245333 secs
+2023-07-26 23:28:19.867 - [70] SUCCEEDED, execution_time=364.020 secs, response_size=1832892 bytes, image_hash=2c2d4db6476f4ed6d9946e399bc4eac93ad5c164238f06684411ce2cd9fda606
+2023-07-26 23:33:56.482 - [71] RECEIVED, request_size=494 bytes, height=327538
+2023-07-26 23:33:56.486 - [71] QUEUED, queue_size=1
+2023-07-26 23:33:56.836 - [71] STARTED, queue_wait_time=0.351136 secs
+2023-07-26 23:41:23.043 - [71] SUCCEEDED, execution_time=444.042 secs, response_size=39670258 bytes, image_hash=4310736a1195c5acc63ac8860e291aeb99700676a0c0c833cd2336ec6310eedd
+2023-07-27 00:08:57.300 - [72] RECEIVED, request_size=494 bytes, height=327553
+2023-07-27 00:08:57.301 - [72] QUEUED, queue_size=1
+2023-07-27 00:08:57.491 - [73] RECEIVED, request_size=495 bytes, height=327553
+2023-07-27 00:08:57.491 - [73] QUEUED, queue_size=1
+2023-07-27 00:08:57.533 - [72] STARTED, queue_wait_time=0.232865 secs
+2023-07-27 00:08:57.826 - [73] STARTED, queue_wait_time=0.334580 secs
+2023-07-27 00:08:58.359 - [74] RECEIVED, request_size=495 bytes, height=327553
+2023-07-27 00:08:58.359 - [74] QUEUED, queue_size=1
+2023-07-27 00:08:58.570 - [74] STARTED, queue_wait_time=0.211135 secs
+2023-07-27 00:20:57.219 - [75] RECEIVED, request_size=495 bytes, height=327558
+2023-07-27 00:20:57.224 - [75] QUEUED, queue_size=1
+2023-07-27 00:20:58.019 - [75] STARTED, queue_wait_time=0.795838 secs
+2023-07-27 00:24:09.282 - [72] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/9ee1a1eb.png] timed out after 911.053 secs
+2023-07-27 00:24:09.702 - [73] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/f46b9774.jpeg] timed out after 911.040 secs
+2023-07-27 00:24:10.010 - [74] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/da546a62.jpeg] timed out after 911.040 secs
+2023-07-27 00:30:56.438 - [75] SUCCEEDED, execution_time=598.058 secs, response_size=6457080 bytes, image_hash=76ddc77f8d428a1ca845c9d4c1b6d3a86fcda3ef8ec37419a000e76173fee0bc
+2023-07-27 00:32:19.899 - [76] RECEIVED, request_size=495 bytes, height=327562
+2023-07-27 00:32:19.900 - [76] QUEUED, queue_size=1
+2023-07-27 00:32:20.240 - [76] STARTED, queue_wait_time=0.341192 secs
+2023-07-27 00:32:21.477 - [77] RECEIVED, request_size=494 bytes, height=327562
+2023-07-27 00:32:21.477 - [77] QUEUED, queue_size=1
+2023-07-27 00:32:21.734 - [77] STARTED, queue_wait_time=0.256946 secs
+2023-07-27 00:44:00.388 - [78] RECEIVED, request_size=495 bytes, height=327565
+2023-07-27 00:44:00.402 - [78] QUEUED, queue_size=1
+2023-07-27 00:44:01.094 - [78] STARTED, queue_wait_time=0.692536 secs
+2023-07-27 00:44:22.106 - [77] SUCCEEDED, execution_time=720.035 secs, response_size=2999259 bytes, image_hash=bb02f4ad9b3ebaf785d2cf2f207df120eb09125ae2e44e45589a0369b0ed3973
+2023-07-27 00:47:33.794 - [76] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/b1dbf775.jpeg] timed out after 913.043 secs
+2023-07-27 00:59:14.567 - [78] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/c06b7c49.jpeg] timed out after 913.047 secs
+2023-07-27 01:07:19.369 - [79] RECEIVED, request_size=495 bytes, height=327576
+2023-07-27 01:07:19.370 - [79] QUEUED, queue_size=1
+2023-07-27 01:07:19.638 - [79] STARTED, queue_wait_time=0.268826 secs
+2023-07-27 01:07:19.726 - [80] RECEIVED, request_size=494 bytes, height=327576
+2023-07-27 01:07:19.727 - [80] QUEUED, queue_size=1
+2023-07-27 01:07:19.804 - [81] RECEIVED, request_size=494 bytes, height=327576
+2023-07-27 01:07:19.804 - [81] QUEUED, queue_size=1
+2023-07-27 01:07:19.977 - [80] STARTED, queue_wait_time=0.248808 secs
+2023-07-27 01:07:20.128 - [82] RECEIVED, request_size=495 bytes, height=327576
+2023-07-27 01:07:20.129 - [82] QUEUED, queue_size=1
+2023-07-27 01:07:20.201 - [81] STARTED, queue_wait_time=0.396719 secs
+2023-07-27 01:07:20.457 - [82] STARTED, queue_wait_time=0.328508 secs
+2023-07-27 01:19:03.895 - [83] RECEIVED, request_size=495 bytes, height=327582
+2023-07-27 01:19:03.898 - [83] QUEUED, queue_size=1
+2023-07-27 01:19:05.148 - [83] STARTED, queue_wait_time=1.249220 secs
+2023-07-27 01:22:22.081 - [80] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/635e8d21.png] timed out after 901.045 secs
+2023-07-27 01:22:22.340 - [81] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/5397e783.png] timed out after 901.037 secs
+2023-07-27 01:22:22.451 - [79] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/460becc5.jpeg] timed out after 901.053 secs
+2023-07-27 01:22:22.511 - [82] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/99ee9716.jpeg] timed out after 901.060 secs
+2023-07-27 01:27:45.638 - [83] SUCCEEDED, execution_time=520.042 secs, response_size=8266835 bytes, image_hash=985d86bcaebba69ec9612cccf2e4f4aae41a98d7ef44f99397ac494515274d1c
+2023-07-27 02:05:40.922 - [84] RECEIVED, request_size=495 bytes, height=327601
+2023-07-27 02:05:40.927 - [84] QUEUED, queue_size=1
+2023-07-27 02:05:41.384 - [84] STARTED, queue_wait_time=0.458870 secs
+2023-07-27 02:10:47.643 - [84] SUCCEEDED, execution_time=306.016 secs, response_size=3847939 bytes, image_hash=e0e6b99926ea31ea32728aada07055ef1d22597c0ce212c3713f9d26b9debadd
+2023-07-27 02:52:17.086 - [85] RECEIVED, request_size=495 bytes, height=327621
+2023-07-27 02:52:17.088 - [85] QUEUED, queue_size=1
+2023-07-27 02:52:17.463 - [85] STARTED, queue_wait_time=0.374487 secs
+2023-07-27 02:52:20.206 - [86] RECEIVED, request_size=495 bytes, height=327621
+2023-07-27 02:52:20.207 - [86] QUEUED, queue_size=1
+2023-07-27 02:52:20.398 - [86] STARTED, queue_wait_time=0.191117 secs
+2023-07-27 03:07:29.170 - [85] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/da45755c.jpeg] timed out after 911.057 secs
+2023-07-27 03:07:31.735 - [86] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/9abb11fd.jpeg] timed out after 911.048 secs
+2023-07-27 03:15:40.224 - [87] RECEIVED, request_size=495 bytes, height=327635
+2023-07-27 03:15:40.224 - [87] QUEUED, queue_size=1
+2023-07-27 03:15:40.464 - [87] STARTED, queue_wait_time=0.239475 secs
+2023-07-27 03:22:12.671 - [87] SUCCEEDED, execution_time=392.031 secs, response_size=2872166 bytes, image_hash=ab67fc71e25607b77bc897effa32bd5aad65a91242bf408d1fc5f11ce8a3922e
+2023-07-27 03:39:00.159 - [88] RECEIVED, request_size=495 bytes, height=327642
+2023-07-27 03:39:00.161 - [88] QUEUED, queue_size=1
+2023-07-27 03:39:00.542 - [88] STARTED, queue_wait_time=0.381596 secs
+2023-07-27 03:45:30.680 - [88] SUCCEEDED, execution_time=390.026 secs, response_size=1443561 bytes, image_hash=aa29fc1fb2f1328eef19c68ea29824f5182cea291eaace0f4b2243b324e84af9
+2023-07-27 03:50:38.588 - [89] RECEIVED, request_size=495 bytes, height=327643
+2023-07-27 03:50:38.589 - [89] QUEUED, queue_size=1
+2023-07-27 03:50:39.008 - [89] STARTED, queue_wait_time=0.419768 secs
+2023-07-27 03:50:40.564 - [90] RECEIVED, request_size=495 bytes, height=327643
+2023-07-27 03:50:40.565 - [90] QUEUED, queue_size=1
+2023-07-27 03:50:40.820 - [90] STARTED, queue_wait_time=0.255750 secs
+2023-07-27 03:50:42.607 - [91] RECEIVED, request_size=495 bytes, height=327643
+2023-07-27 03:50:42.607 - [91] QUEUED, queue_size=1
+2023-07-27 03:50:42.901 - [91] STARTED, queue_wait_time=0.294437 secs
+2023-07-27 04:02:18.308 - [92] RECEIVED, request_size=494 bytes, height=327645
+2023-07-27 04:02:18.311 - [92] QUEUED, queue_size=1
+2023-07-27 04:02:19.205 - [92] STARTED, queue_wait_time=0.894607 secs
+2023-07-27 04:05:51.482 - [89] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/513eac63.jpeg] timed out after 911.052 secs
+2023-07-27 04:05:52.507 - [90] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/cafd7d35.jpeg] timed out after 911.057 secs
+2023-07-27 04:05:54.386 - [91] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/fd6749f2.jpeg] timed out after 911.075 secs
+2023-07-27 04:07:18.293 - [92] SUCCEEDED, execution_time=299.047 secs, response_size=473241 bytes, image_hash=33c97619a15187de844610770b2357b5fb7b969e7e3baaced4586a5817e5a702
+2023-07-27 04:13:58.526 - [93] RECEIVED, request_size=495 bytes, height=327647
+2023-07-27 04:13:58.527 - [93] QUEUED, queue_size=1
+2023-07-27 04:13:58.541 - [94] RECEIVED, request_size=495 bytes, height=327647
+2023-07-27 04:13:58.541 - [94] QUEUED, queue_size=1
+2023-07-27 04:13:58.874 - [93] STARTED, queue_wait_time=0.347084 secs
+2023-07-27 04:13:59.090 - [94] STARTED, queue_wait_time=0.548990 secs
+2023-07-27 04:14:00.323 - [95] RECEIVED, request_size=495 bytes, height=327647
+2023-07-27 04:14:00.324 - [95] QUEUED, queue_size=1
+2023-07-27 04:14:00.455 - [96] RECEIVED, request_size=495 bytes, height=327647
+2023-07-27 04:14:00.459 - [96] QUEUED, queue_size=1
+2023-07-27 04:14:00.543 - [95] STARTED, queue_wait_time=0.220302 secs
+2023-07-27 04:14:00.744 - [96] STARTED, queue_wait_time=0.285752 secs
+2023-07-27 04:14:01.616 - [97] RECEIVED, request_size=494 bytes, height=327647
+2023-07-27 04:14:01.617 - [97] QUEUED, queue_size=1
+2023-07-27 04:14:01.892 - [97] STARTED, queue_wait_time=0.275047 secs
+2023-07-27 04:29:04.084 - [93] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/4dcda74d.jpeg] timed out after 903.080 secs
+2023-07-27 04:29:04.514 - [94] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/0772a073.jpeg] timed out after 903.052 secs
+2023-07-27 04:29:04.798 - [95] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/193244fd.jpeg] timed out after 903.071 secs
+2023-07-27 04:29:04.982 - [96] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/0a713dc2.jpeg] timed out after 903.089 secs
+2023-07-27 04:29:05.400 - [97] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/5bb8833a.png] timed out after 903.094 secs
+2023-07-27 05:12:18.023 - [98] RECEIVED, request_size=495 bytes, height=327667
+2023-07-27 05:12:18.025 - [98] QUEUED, queue_size=1
+2023-07-27 05:12:18.431 - [98] STARTED, queue_wait_time=0.406176 secs
+2023-07-27 05:17:37.803 - [98] SUCCEEDED, execution_time=319.036 secs, response_size=5558738 bytes, image_hash=ff1eecec7f043ce0e337c36c2bf3850684cd86b8f7954e60b2a171cf39965c27
+2023-07-27 05:24:00.869 - [99] RECEIVED, request_size=495 bytes, height=327672
+2023-07-27 05:24:00.870 - [99] QUEUED, queue_size=1
+2023-07-27 05:24:01.149 - [99] STARTED, queue_wait_time=0.279745 secs
+2023-07-27 05:39:04.582 - [99] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/55879279.jpeg] timed out after 903.086 secs
+2023-07-27 05:47:20.393 - [100] RECEIVED, request_size=495 bytes, height=327683
+2023-07-27 05:47:20.394 - [100] QUEUED, queue_size=1
+2023-07-27 05:47:20.605 - [100] STARTED, queue_wait_time=0.211220 secs
+2023-07-27 05:58:58.475 - [101] RECEIVED, request_size=495 bytes, height=327686
+2023-07-27 05:58:58.479 - [101] QUEUED, queue_size=1
+2023-07-27 05:58:58.978 - [101] STARTED, queue_wait_time=0.500288 secs
+2023-07-27 05:59:00.166 - [102] RECEIVED, request_size=495 bytes, height=327686
+2023-07-27 05:59:00.167 - [102] QUEUED, queue_size=1
+2023-07-27 05:59:00.772 - [102] STARTED, queue_wait_time=0.604517 secs
+2023-07-27 06:02:24.081 - [100] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/d1cb1561.jpeg] timed out after 903.094 secs
+2023-07-27 06:14:03.125 - [101] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/e1602202.jpeg] timed out after 903.060 secs
+2023-07-27 06:14:04.284 - [102] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/1c243a1e.jpeg] timed out after 903.051 secs
+2023-07-27 06:33:59.441 - [103] RECEIVED, request_size=495 bytes, height=327702
+2023-07-27 06:33:59.445 - [103] QUEUED, queue_size=1
+2023-07-27 06:33:59.690 - [103] STARTED, queue_wait_time=0.248229 secs
+2023-07-27 06:34:00.956 - [104] RECEIVED, request_size=494 bytes, height=327702
+2023-07-27 06:34:00.957 - [104] QUEUED, queue_size=1
+2023-07-27 06:34:01.291 - [104] STARTED, queue_wait_time=0.335103 secs
+2023-07-27 06:49:03.433 - [103] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/0b10c54a.jpeg] timed out after 903.057 secs
+2023-07-27 06:49:04.766 - [104] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/84b763c1.png] timed out after 903.077 secs
+2023-07-27 06:57:20.495 - [105] RECEIVED, request_size=495 bytes, height=327714
+2023-07-27 06:57:20.496 - [105] QUEUED, queue_size=1
+2023-07-27 06:57:20.953 - [105] STARTED, queue_wait_time=0.457401 secs
+2023-07-27 07:00:04.298 - [105] CANCELLED, Dupe detection task [/home/ubuntu/.pastel/dd-server/5a82a712.jpeg] was cancelled after 162.600 secs, process was killed by signal SIGKILL
+2023-07-27 07:32:19.601 - [106] RECEIVED, request_size=495 bytes, height=327730
+2023-07-27 07:32:19.602 - [106] QUEUED, queue_size=1
+2023-07-27 07:32:19.960 - [106] STARTED, queue_wait_time=0.358105 secs
+2023-07-27 07:32:20.527 - [107] RECEIVED, request_size=495 bytes, height=327730
+2023-07-27 07:32:20.528 - [107] QUEUED, queue_size=1
+2023-07-27 07:32:20.787 - [107] STARTED, queue_wait_time=0.259252 secs
+2023-07-27 07:43:59.301 - [108] RECEIVED, request_size=495 bytes, height=327735
+2023-07-27 07:43:59.304 - [108] QUEUED, queue_size=1
+2023-07-27 07:43:59.917 - [108] STARTED, queue_wait_time=0.612982 secs
+2023-07-27 07:47:24.089 - [106] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/26a5a63d.jpeg] timed out after 903.078 secs
+2023-07-27 07:47:24.342 - [107] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/8ce3e963.jpeg] timed out after 903.106 secs
+2023-07-27 07:50:25.324 - [108] SUCCEEDED, execution_time=385.060 secs, response_size=5095999 bytes, image_hash=4cab48568005d0c976901fc97a5cce0b7876f49580ccad86e0675dc26a9f0d17
+2023-07-27 08:07:19.188 - [109] RECEIVED, request_size=495 bytes, height=327744
+2023-07-27 08:07:19.189 - [109] QUEUED, queue_size=1
+2023-07-27 08:07:19.524 - [109] STARTED, queue_wait_time=0.335591 secs
+2023-07-27 08:22:23.062 - [109] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/192ef956.jpeg] timed out after 903.066 secs
+2023-07-27 08:42:18.698 - [110] RECEIVED, request_size=494 bytes, height=327757
+2023-07-27 08:42:18.700 - [110] QUEUED, queue_size=1
+2023-07-27 08:42:18.943 - [110] STARTED, queue_wait_time=0.243795 secs
+2023-07-27 08:44:20.145 - [110] SUCCEEDED, execution_time=121.013 secs, response_size=2999259 bytes, image_hash=bb02f4ad9b3ebaf785d2cf2f207df120eb09125ae2e44e45589a0369b0ed3973
+2023-07-27 09:05:39.544 - [111] RECEIVED, request_size=495 bytes, height=327767
+2023-07-27 09:05:39.546 - [111] QUEUED, queue_size=1
+2023-07-27 09:05:39.606 - [112] RECEIVED, request_size=495 bytes, height=327767
+2023-07-27 09:05:39.607 - [112] QUEUED, queue_size=1
+2023-07-27 09:05:39.899 - [111] STARTED, queue_wait_time=0.353472 secs
+2023-07-27 09:05:39.931 - [113] RECEIVED, request_size=495 bytes, height=327767
+2023-07-27 09:05:39.931 - [113] QUEUED, queue_size=1
+2023-07-27 09:05:40.101 - [112] STARTED, queue_wait_time=0.494276 secs
+2023-07-27 09:05:40.325 - [113] STARTED, queue_wait_time=0.393536 secs
+2023-07-27 09:20:45.717 - [111] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/a2900401.jpeg] timed out after 905.110 secs
+2023-07-27 09:20:45.886 - [112] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/94dfad41.jpeg] timed out after 905.075 secs
+2023-07-27 09:20:45.896 - [113] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/24f3a4dd.jpeg] timed out after 905.103 secs
+2023-07-27 09:52:19.763 - [114] RECEIVED, request_size=495 bytes, height=327792
+2023-07-27 09:52:19.776 - [114] QUEUED, queue_size=1
+2023-07-27 09:52:20.025 - [114] STARTED, queue_wait_time=0.249378 secs
+2023-07-27 09:57:40.284 - [114] SUCCEEDED, execution_time=320.066 secs, response_size=3426187 bytes, image_hash=f9a9f88520faa9d586fe17f670a4b18ee184ccf7f7387f94479336997390061f
+2023-07-27 10:04:00.906 - [115] RECEIVED, request_size=495 bytes, height=327796
+2023-07-27 10:04:00.907 - [115] QUEUED, queue_size=1
+2023-07-27 10:04:01.416 - [115] STARTED, queue_wait_time=0.508838 secs
+2023-07-27 10:10:46.685 - [115] SUCCEEDED, execution_time=405.041 secs, response_size=3676206 bytes, image_hash=e0e6b99926ea31ea32728aada07055ef1d22597c0ce212c3713f9d26b9debadd
+2023-07-27 10:15:51.249 - [116] RECEIVED, request_size=495 bytes, height=327799
+2023-07-27 10:15:51.254 - [116] QUEUED, queue_size=1
+2023-07-27 10:15:51.268 - [117] RECEIVED, request_size=494 bytes, height=327799
+2023-07-27 10:15:51.270 - [117] QUEUED, queue_size=1
+2023-07-27 10:15:51.513 - [116] STARTED, queue_wait_time=0.260416 secs
+2023-07-27 10:15:51.774 - [117] STARTED, queue_wait_time=0.504967 secs
+2023-07-27 10:27:22.470 - [118] RECEIVED, request_size=495 bytes, height=327803
+2023-07-27 10:27:22.474 - [118] QUEUED, queue_size=1
+2023-07-27 10:27:23.131 - [118] STARTED, queue_wait_time=0.658841 secs
+2023-07-27 10:30:55.448 - [116] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/481a7f84.jpeg] timed out after 903.072 secs
+2023-07-27 10:30:55.518 - [117] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/de87b151.png] timed out after 903.072 secs
+2023-07-27 10:42:26.754 - [118] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/02d3573f.jpeg] timed out after 903.070 secs
+2023-07-27 11:49:02.671 - [119] RECEIVED, request_size=494 bytes, height=327833
+2023-07-27 11:49:02.675 - [119] QUEUED, queue_size=1
+2023-07-27 11:49:03.027 - [119] STARTED, queue_wait_time=0.352367 secs
+2023-07-27 11:52:54.112 - [119] SUCCEEDED, execution_time=231.021 secs, response_size=630369 bytes, image_hash=d1ce51e32772a4738e73ba8a37def7a7fb910c72a923595ba757e2cff043f2df
+2023-07-28 00:04:07.613 - [120] RECEIVED, request_size=495 bytes, height=328106
+2023-07-28 00:04:07.616 - [120] QUEUED, queue_size=1
+2023-07-28 00:04:07.648 - [121] RECEIVED, request_size=494 bytes, height=328106
+2023-07-28 00:04:07.649 - [121] QUEUED, queue_size=1
+2023-07-28 00:04:07.670 - [122] RECEIVED, request_size=495 bytes, height=328106
+2023-07-28 00:04:07.672 - [122] QUEUED, queue_size=1
+2023-07-28 00:04:08.151 - [123] RECEIVED, request_size=495 bytes, height=328106
+2023-07-28 00:04:08.151 - [123] QUEUED, queue_size=1
+2023-07-28 00:04:08.604 - [120] STARTED, queue_wait_time=0.988738 secs
+2023-07-28 00:04:08.923 - [121] STARTED, queue_wait_time=1.273455 secs
+2023-07-28 00:04:09.178 - [122] STARTED, queue_wait_time=1.504848 secs
+2023-07-28 00:04:09.486 - [123] STARTED, queue_wait_time=1.335199 secs
+2023-07-28 00:04:11.337 - [124] RECEIVED, request_size=494 bytes, height=328106
+2023-07-28 00:04:11.338 - [124] QUEUED, queue_size=1
+2023-07-28 00:04:11.574 - [124] STARTED, queue_wait_time=0.235482 secs
+2023-07-28 00:05:07.692 - [125] RECEIVED, request_size=495 bytes, height=328106
+2023-07-28 00:05:07.693 - [125] QUEUED, queue_size=1
+2023-07-28 00:19:11.689 - [122] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/ee9112c5.jpeg] timed out after 901.096 secs
+2023-07-28 00:19:11.777 - [121] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/c92f3bdd.png] timed out after 901.101 secs
+2023-07-28 00:19:11.869 - [120] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/d84b39bd.jpeg] timed out after 901.156 secs
+2023-07-28 00:19:12.173 - [123] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/61f8a434.jpeg] timed out after 901.083 secs
+2023-07-28 00:19:12.245 - [125] STARTED, queue_wait_time=844.551791 secs
+2023-07-28 00:19:13.183 - [124] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/17eac110.png] timed out after 901.114 secs
+2023-07-28 00:27:25.035 - [126] RECEIVED, request_size=494 bytes, height=328110
+2023-07-28 00:27:25.037 - [126] QUEUED, queue_size=1
+2023-07-28 00:27:25.466 - [126] STARTED, queue_wait_time=0.428863 secs
+2023-07-28 00:27:25.493 - [127] RECEIVED, request_size=495 bytes, height=328110
+2023-07-28 00:27:25.494 - [127] QUEUED, queue_size=1
+2023-07-28 00:27:25.764 - [127] STARTED, queue_wait_time=0.269831 secs
+2023-07-28 00:27:26.153 - [128] RECEIVED, request_size=495 bytes, height=328110
+2023-07-28 00:27:26.154 - [128] QUEUED, queue_size=1
+2023-07-28 00:27:26.369 - [128] STARTED, queue_wait_time=0.215672 secs
+2023-07-28 00:27:29.107 - [129] RECEIVED, request_size=494 bytes, height=328110
+2023-07-28 00:27:29.108 - [129] QUEUED, queue_size=1
+2023-07-28 00:27:29.322 - [129] STARTED, queue_wait_time=0.213501 secs
+2023-07-28 00:27:33.805 - [130] RECEIVED, request_size=495 bytes, height=328110
+2023-07-28 00:27:33.806 - [130] QUEUED, queue_size=1
+2023-07-28 00:34:14.353 - [125] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/e2b6cde8.jpeg] timed out after 901.117 secs
+2023-07-28 00:34:15.042 - [130] STARTED, queue_wait_time=401.236726 secs
+2023-07-28 00:34:33.974 - [131] RECEIVED, request_size=495 bytes, height=328110
+2023-07-28 00:34:33.974 - [131] QUEUED, queue_size=1
+2023-07-28 00:42:28.166 - [127] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/b43275a4.jpeg] timed out after 901.136 secs
+2023-07-28 00:42:28.367 - [126] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/0daf44ee.png] timed out after 901.097 secs
+2023-07-28 00:42:28.956 - [128] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/feaee290.jpeg] timed out after 901.116 secs
+2023-07-28 00:42:28.968 - [131] STARTED, queue_wait_time=474.993415 secs
+2023-07-28 00:42:31.139 - [129] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/d19c120d.png] timed out after 901.147 secs
+2023-07-28 00:49:16.821 - [130] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/935af2c1.jpeg] timed out after 901.125 secs
+2023-07-28 00:54:38.387 - [131] SUCCEEDED, execution_time=729.132 secs, response_size=4399787 bytes, image_hash=ee9ac1d75785c2d416224ec1b0642609581a6309db3afa5d069caa07bf155595
+2023-07-28 01:02:25.810 - [132] RECEIVED, request_size=495 bytes, height=328116
+2023-07-28 01:02:25.812 - [132] QUEUED, queue_size=1
+2023-07-28 01:02:26.205 - [132] STARTED, queue_wait_time=0.394148 secs
+2023-07-28 01:02:29.091 - [133] RECEIVED, request_size=495 bytes, height=328116
+2023-07-28 01:02:29.091 - [133] QUEUED, queue_size=1
+2023-07-28 01:02:29.346 - [133] STARTED, queue_wait_time=0.255460 secs
+2023-07-28 01:02:30.976 - [134] RECEIVED, request_size=495 bytes, height=328116
+2023-07-28 01:02:30.976 - [134] QUEUED, queue_size=1
+2023-07-28 01:02:31.181 - [134] STARTED, queue_wait_time=0.204476 secs
+2023-07-28 01:17:40.766 - [132] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/3e03098c.jpeg] timed out after 913.075 secs
+2023-07-28 01:17:43.163 - [133] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/08a375e2.jpeg] timed out after 913.058 secs
+2023-07-28 01:17:44.885 - [134] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/3d113666.jpeg] timed out after 913.099 secs
+2023-07-28 01:37:23.886 - [135] RECEIVED, request_size=495 bytes, height=328124
+2023-07-28 01:37:23.894 - [135] QUEUED, queue_size=1
+2023-07-28 01:37:24.230 - [135] STARTED, queue_wait_time=0.336993 secs
+2023-07-28 01:49:08.434 - [136] RECEIVED, request_size=495 bytes, height=328127
+2023-07-28 01:49:08.438 - [136] QUEUED, queue_size=1
+2023-07-28 01:49:08.767 - [136] STARTED, queue_wait_time=0.329883 secs
+2023-07-28 01:52:37.672 - [135] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/9a0ae8b3.jpeg] timed out after 913.103 secs
+2023-07-28 02:00:46.093 - [137] RECEIVED, request_size=495 bytes, height=328128
+2023-07-28 02:00:46.095 - [137] QUEUED, queue_size=1
+2023-07-28 02:00:46.684 - [137] STARTED, queue_wait_time=0.576279 secs
+2023-07-28 02:00:48.712 - [138] RECEIVED, request_size=495 bytes, height=328128
+2023-07-28 02:00:48.713 - [138] QUEUED, queue_size=1
+2023-07-28 02:00:49.072 - [138] STARTED, queue_wait_time=0.359648 secs
+2023-07-28 02:00:51.724 - [139] RECEIVED, request_size=494 bytes, height=328128
+2023-07-28 02:00:51.726 - [139] QUEUED, queue_size=1
+2023-07-28 02:00:52.155 - [139] STARTED, queue_wait_time=0.425992 secs
+2023-07-28 02:00:54.339 - [140] RECEIVED, request_size=495 bytes, height=328128
+2023-07-28 02:00:54.340 - [140] QUEUED, queue_size=1
+2023-07-28 02:00:54.931 - [140] STARTED, queue_wait_time=0.591419 secs
+2023-07-28 02:04:22.458 - [136] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/32f2de43.jpeg] timed out after 913.059 secs
+2023-07-28 02:16:00.639 - [137] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/c5e8e2ef.jpeg] timed out after 913.058 secs
+2023-07-28 02:16:03.155 - [138] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/68ea9e56.jpeg] timed out after 913.047 secs
+2023-07-28 02:16:05.864 - [139] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/ebf89842.png] timed out after 913.112 secs
+2023-07-28 02:16:08.685 - [140] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/3272fb35.jpeg] timed out after 913.055 secs
+2023-07-28 02:35:43.568 - [141] RECEIVED, request_size=495 bytes, height=328133
+2023-07-28 02:35:43.570 - [141] QUEUED, queue_size=1
+2023-07-28 02:35:43.974 - [141] STARTED, queue_wait_time=0.403794 secs
+2023-07-28 02:35:49.572 - [142] RECEIVED, request_size=494 bytes, height=328133
+2023-07-28 02:35:49.573 - [142] QUEUED, queue_size=1
+2023-07-28 02:35:49.803 - [142] STARTED, queue_wait_time=0.229990 secs
+2023-07-28 02:50:57.944 - [141] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/60067cf9.jpeg] timed out after 913.067 secs
+2023-07-28 02:51:03.451 - [142] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/fff6fec6.png] timed out after 913.059 secs
+2023-07-28 03:10:45.328 - [143] RECEIVED, request_size=494 bytes, height=328139
+2023-07-28 03:10:45.330 - [143] QUEUED, queue_size=1
+2023-07-28 03:10:45.663 - [143] STARTED, queue_wait_time=0.333227 secs
+2023-07-28 03:10:47.356 - [144] RECEIVED, request_size=494 bytes, height=328139
+2023-07-28 03:10:47.357 - [144] QUEUED, queue_size=1
+2023-07-28 03:10:47.597 - [144] STARTED, queue_wait_time=0.239777 secs
+2023-07-28 03:10:48.108 - [145] RECEIVED, request_size=495 bytes, height=328139
+2023-07-28 03:10:48.109 - [145] QUEUED, queue_size=1
+2023-07-28 03:10:48.346 - [145] STARTED, queue_wait_time=0.238197 secs
+2023-07-28 03:26:00.702 - [143] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/09fcf928.png] timed out after 913.042 secs
+2023-07-28 03:26:01.873 - [144] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/5fcc4d2e.png] timed out after 913.057 secs
+2023-07-28 03:26:02.560 - [145] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/263ce544.jpeg] timed out after 913.040 secs
+2023-07-28 03:45:45.642 - [146] RECEIVED, request_size=495 bytes, height=328148
+2023-07-28 03:45:45.648 - [146] QUEUED, queue_size=1
+2023-07-28 03:45:45.854 - [147] RECEIVED, request_size=495 bytes, height=328148
+2023-07-28 03:45:45.855 - [147] QUEUED, queue_size=1
+2023-07-28 03:45:45.921 - [146] STARTED, queue_wait_time=0.274223 secs
+2023-07-28 03:45:46.201 - [147] STARTED, queue_wait_time=0.346133 secs
+2023-07-28 04:00:59.592 - [146] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/e5ede57b.jpeg] timed out after 913.146 secs
+2023-07-28 04:00:59.737 - [147] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/632a7899.jpeg] timed out after 913.095 secs
+2023-07-28 04:09:08.111 - [148] RECEIVED, request_size=494 bytes, height=328152
+2023-07-28 04:09:08.113 - [148] QUEUED, queue_size=1
+2023-07-28 04:09:08.476 - [148] STARTED, queue_wait_time=0.363484 secs
+2023-07-28 04:16:04.592 - [148] SUCCEEDED, execution_time=416.038 secs, response_size=653761 bytes, image_hash=d1ce51e32772a4738e73ba8a37def7a7fb910c72a923595ba757e2cff043f2df
+2023-07-28 05:30:48.554 - [149] RECEIVED, request_size=495 bytes, height=328171
+2023-07-28 05:30:48.558 - [149] QUEUED, queue_size=1
+2023-07-28 05:30:48.812 - [149] STARTED, queue_wait_time=0.254913 secs
+2023-07-28 05:45:50.385 - [149] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/0984695c.jpeg] timed out after 901.068 secs
+2023-07-28 06:05:48.237 - [150] RECEIVED, request_size=495 bytes, height=328175
+2023-07-28 06:05:48.245 - [150] QUEUED, queue_size=1
+2023-07-28 06:05:48.258 - [151] RECEIVED, request_size=494 bytes, height=328175
+2023-07-28 06:05:48.258 - [151] QUEUED, queue_size=1
+2023-07-28 06:05:48.551 - [150] STARTED, queue_wait_time=0.308033 secs
+2023-07-28 06:05:48.777 - [151] STARTED, queue_wait_time=0.519120 secs
+2023-07-28 06:05:50.920 - [152] RECEIVED, request_size=495 bytes, height=328175
+2023-07-28 06:05:50.923 - [152] QUEUED, queue_size=1
+2023-07-28 06:05:51.141 - [152] STARTED, queue_wait_time=0.214660 secs
+2023-07-28 06:05:51.260 - [153] RECEIVED, request_size=495 bytes, height=328175
+2023-07-28 06:05:51.261 - [153] QUEUED, queue_size=1
+2023-07-28 06:05:51.463 - [154] RECEIVED, request_size=495 bytes, height=328175
+2023-07-28 06:05:51.464 - [154] QUEUED, queue_size=1
+2023-07-28 06:05:51.481 - [153] STARTED, queue_wait_time=0.220841 secs
+2023-07-28 06:05:51.762 - [154] STARTED, queue_wait_time=0.297866 secs
+2023-07-28 06:20:52.269 - [150] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/55f4fa23.jpeg] timed out after 901.083 secs
+2023-07-28 06:20:52.942 - [151] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/45ab9b49.png] timed out after 901.109 secs
+2023-07-28 06:20:53.615 - [153] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/5dab9422.jpeg] timed out after 901.042 secs
+2023-07-28 06:20:53.673 - [152] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/ec987385.jpeg] timed out after 901.100 secs
+2023-07-28 06:20:53.855 - [154] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/e4988562.jpeg] timed out after 901.040 secs
+2023-07-28 06:29:06.787 - [155] RECEIVED, request_size=494 bytes, height=328181
+2023-07-28 06:29:06.791 - [155] QUEUED, queue_size=1
+2023-07-28 06:29:07.085 - [155] STARTED, queue_wait_time=0.294117 secs
+2023-07-28 06:38:22.370 - [155] SUCCEEDED, execution_time=555.072 secs, response_size=2790116 bytes, image_hash=6442cab9a2e35f9dad5e9384a1814b2a74c4f004629392aac97ce4c8c6a97db5
+2023-07-28 06:40:46.823 - [156] RECEIVED, request_size=495 bytes, height=328185
+2023-07-28 06:40:46.824 - [156] QUEUED, queue_size=1
+2023-07-28 06:40:46.893 - [157] RECEIVED, request_size=495 bytes, height=328185
+2023-07-28 06:40:46.893 - [157] QUEUED, queue_size=1
+2023-07-28 06:40:47.066 - [156] STARTED, queue_wait_time=0.242384 secs
+2023-07-28 06:40:47.343 - [157] STARTED, queue_wait_time=0.449425 secs
+2023-07-28 06:40:48.997 - [158] RECEIVED, request_size=494 bytes, height=328185
+2023-07-28 06:40:48.997 - [158] QUEUED, queue_size=1
+2023-07-28 06:40:49.198 - [158] STARTED, queue_wait_time=0.201450 secs
+2023-07-28 06:56:01.307 - [156] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/25d5c522.jpeg] timed out after 913.074 secs
+2023-07-28 06:56:01.432 - [157] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/5d5bb602.jpeg] timed out after 913.043 secs
+2023-07-28 06:56:02.903 - [158] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/f0672673.png] timed out after 913.099 secs
+2023-07-28 07:15:47.070 - [159] RECEIVED, request_size=495 bytes, height=328194
+2023-07-28 07:15:47.073 - [159] QUEUED, queue_size=1
+2023-07-28 07:15:47.299 - [159] STARTED, queue_wait_time=0.226990 secs
+2023-07-28 07:31:00.850 - [159] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/b33e2952.jpeg] timed out after 913.052 secs
+2023-07-28 08:49:12.080 - [160] RECEIVED, request_size=495 bytes, height=328211
+2023-07-28 08:49:12.084 - [160] QUEUED, queue_size=1
+2023-07-28 08:49:12.363 - [160] STARTED, queue_wait_time=0.279720 secs
+2023-07-28 08:49:13.070 - [161] RECEIVED, request_size=495 bytes, height=328211
+2023-07-28 08:49:13.071 - [161] QUEUED, queue_size=1
+2023-07-28 08:49:13.293 - [161] STARTED, queue_wait_time=0.222249 secs
+2023-07-28 08:49:13.542 - [162] RECEIVED, request_size=495 bytes, height=328211
+2023-07-28 08:49:13.542 - [162] QUEUED, queue_size=1
+2023-07-28 08:49:13.762 - [162] STARTED, queue_wait_time=0.219486 secs
+2023-07-28 09:04:26.572 - [160] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/693e5ca2.jpeg] timed out after 913.049 secs
+2023-07-28 09:04:27.120 - [161] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/eced59a6.jpeg] timed out after 913.091 secs
+2023-07-28 09:04:27.385 - [162] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/207cb08d.jpeg] timed out after 913.049 secs
+2023-07-28 09:24:07.542 - [163] RECEIVED, request_size=495 bytes, height=328217
+2023-07-28 09:24:07.546 - [163] QUEUED, queue_size=1
+2023-07-28 09:24:07.993 - [163] STARTED, queue_wait_time=0.447675 secs
+2023-07-28 09:24:12.708 - [164] RECEIVED, request_size=494 bytes, height=328217
+2023-07-28 09:24:12.709 - [164] QUEUED, queue_size=1
+2023-07-28 09:24:12.911 - [164] STARTED, queue_wait_time=0.202627 secs
+2023-07-28 09:24:15.688 - [165] RECEIVED, request_size=495 bytes, height=328217
+2023-07-28 09:24:15.689 - [165] QUEUED, queue_size=1
+2023-07-28 09:24:15.903 - [165] STARTED, queue_wait_time=0.214195 secs
+2023-07-28 09:39:22.136 - [163] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/7ee2d875.jpeg] timed out after 913.098 secs
+2023-07-28 09:39:26.578 - [164] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/e4bb4654.png] timed out after 913.061 secs
+2023-07-28 09:39:29.561 - [165] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/76103524.jpeg] timed out after 913.078 secs
+2023-07-28 10:10:45.222 - [166] RECEIVED, request_size=495 bytes, height=328228
+2023-07-28 10:10:45.226 - [166] QUEUED, queue_size=1
+2023-07-28 10:10:45.566 - [166] STARTED, queue_wait_time=0.340942 secs
+2023-07-28 10:25:59.218 - [166] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/64efbc4e.jpeg] timed out after 913.050 secs
+2023-07-28 10:45:52.572 - [167] RECEIVED, request_size=495 bytes, height=328234
+2023-07-28 10:45:52.578 - [167] QUEUED, queue_size=1
+2023-07-28 10:45:52.869 - [167] STARTED, queue_wait_time=0.291175 secs
+2023-07-28 10:45:53.786 - [168] RECEIVED, request_size=495 bytes, height=328234
+2023-07-28 10:45:53.787 - [168] QUEUED, queue_size=1
+2023-07-28 10:45:53.994 - [168] STARTED, queue_wait_time=0.207103 secs
+2023-07-28 10:45:56.661 - [169] RECEIVED, request_size=495 bytes, height=328234
+2023-07-28 10:45:56.662 - [169] QUEUED, queue_size=1
+2023-07-28 10:45:56.858 - [169] STARTED, queue_wait_time=0.196397 secs
+2023-07-28 11:01:07.193 - [167] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/4b1807a1.jpeg] timed out after 913.041 secs
+2023-07-28 11:01:07.763 - [168] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/e38afbd2.jpeg] timed out after 913.057 secs
+2023-07-28 11:01:10.259 - [169] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/82e1af80.jpeg] timed out after 913.031 secs
+2023-07-28 11:20:47.629 - [170] RECEIVED, request_size=495 bytes, height=328239
+2023-07-28 11:20:47.632 - [170] QUEUED, queue_size=1
+2023-07-28 11:20:48.012 - [170] STARTED, queue_wait_time=0.380091 secs
+2023-07-28 11:20:48.441 - [171] RECEIVED, request_size=495 bytes, height=328239
+2023-07-28 11:20:48.442 - [171] QUEUED, queue_size=1
+2023-07-28 11:20:48.528 - [172] RECEIVED, request_size=494 bytes, height=328239
+2023-07-28 11:20:48.529 - [172] QUEUED, queue_size=1
+2023-07-28 11:20:48.682 - [171] STARTED, queue_wait_time=0.239784 secs
+2023-07-28 11:20:48.891 - [172] STARTED, queue_wait_time=0.362902 secs
+2023-07-28 11:20:49.545 - [173] RECEIVED, request_size=494 bytes, height=328239
+2023-07-28 11:20:49.549 - [173] QUEUED, queue_size=1
+2023-07-28 11:20:49.773 - [173] STARTED, queue_wait_time=0.224831 secs
+2023-07-28 11:20:50.371 - [174] RECEIVED, request_size=495 bytes, height=328239
+2023-07-28 11:20:50.371 - [174] QUEUED, queue_size=1
+2023-07-28 11:20:50.612 - [174] STARTED, queue_wait_time=0.241433 secs
+2023-07-28 11:20:50.826 - [175] RECEIVED, request_size=495 bytes, height=328239
+2023-07-28 11:20:50.827 - [175] QUEUED, queue_size=1
+2023-07-28 11:36:02.575 - [170] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/8f45fa9b.jpeg] timed out after 913.052 secs
+2023-07-28 11:36:03.890 - [175] STARTED, queue_wait_time=913.062924 secs
+2023-07-28 11:36:04.217 - [172] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/79d60308.png] timed out after 913.085 secs
+2023-07-28 11:36:04.228 - [171] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/d1936250.jpeg] timed out after 913.059 secs
+2023-07-28 11:36:04.480 - [173] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/bfd7a8e8.png] timed out after 913.066 secs
+2023-07-28 11:36:04.685 - [174] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/d97ed92e.jpeg] timed out after 913.068 secs
+2023-07-28 11:46:28.471 - [175] SUCCEEDED, execution_time=624.090 secs, response_size=5482247 bytes, image_hash=6940d810012d1a815379f80d7da6228948a104f423710bcd7e4050fea0286684
+2023-07-28 12:42:27.238 - [176] RECEIVED, request_size=494 bytes, height=328254
+2023-07-28 12:42:27.242 - [176] QUEUED, queue_size=1
+2023-07-28 12:42:27.441 - [177] RECEIVED, request_size=495 bytes, height=328254
+2023-07-28 12:42:27.442 - [177] QUEUED, queue_size=1
+2023-07-28 12:42:27.551 - [176] STARTED, queue_wait_time=0.310139 secs
+2023-07-28 12:42:27.754 - [177] STARTED, queue_wait_time=0.311970 secs
+2023-07-28 12:42:28.008 - [178] RECEIVED, request_size=495 bytes, height=328254
+2023-07-28 12:42:28.008 - [178] QUEUED, queue_size=1
+2023-07-28 12:42:28.231 - [178] STARTED, queue_wait_time=0.223339 secs
+2023-07-28 12:42:29.013 - [179] RECEIVED, request_size=495 bytes, height=328254
+2023-07-28 12:42:29.015 - [179] QUEUED, queue_size=1
+2023-07-28 12:42:29.266 - [179] STARTED, queue_wait_time=0.252809 secs
+2023-07-28 12:57:29.658 - [177] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/9d6e19f7.jpeg] timed out after 901.042 secs
+2023-07-28 12:57:29.825 - [176] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/9cc82b5f.png] timed out after 901.040 secs
+2023-07-28 12:57:30.108 - [178] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/a69dbc66.jpeg] timed out after 901.032 secs
+2023-07-28 12:57:30.658 - [179] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/ea51752a.jpeg] timed out after 901.029 secs
+2023-07-28 15:14:11.532 - [180] RECEIVED, request_size=495 bytes, height=328281
+2023-07-28 15:14:11.541 - [180] QUEUED, queue_size=1
+2023-07-28 15:14:11.789 - [180] STARTED, queue_wait_time=0.250016 secs
+2023-07-28 15:14:14.037 - [181] RECEIVED, request_size=494 bytes, height=328281
+2023-07-28 15:14:14.038 - [181] QUEUED, queue_size=1
+2023-07-28 15:14:14.252 - [181] STARTED, queue_wait_time=0.215021 secs
+2023-07-28 15:14:14.772 - [182] RECEIVED, request_size=495 bytes, height=328281
+2023-07-28 15:14:14.773 - [182] QUEUED, queue_size=1
+2023-07-28 15:14:14.993 - [182] STARTED, queue_wait_time=0.220779 secs
+2023-07-28 15:25:48.589 - [183] RECEIVED, request_size=495 bytes, height=328284
+2023-07-28 15:25:48.591 - [183] QUEUED, queue_size=1
+2023-07-28 15:25:49.709 - [183] STARTED, queue_wait_time=1.117913 secs
+2023-07-28 15:25:53.616 - [184] RECEIVED, request_size=495 bytes, height=328284
+2023-07-28 15:25:53.621 - [184] QUEUED, queue_size=1
+2023-07-28 15:25:54.480 - [184] STARTED, queue_wait_time=0.860081 secs
+2023-07-28 15:29:15.392 - [180] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/a9999e31.jpeg] timed out after 901.030 secs
+2023-07-28 15:29:16.934 - [181] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/38718016.png] timed out after 901.038 secs
+2023-07-28 15:29:16.989 - [182] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/7b09092c.jpeg] timed out after 901.045 secs
+2023-07-28 15:40:51.726 - [183] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/42651e2f.jpeg] timed out after 901.064 secs
+2023-07-28 15:40:56.012 - [184] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/a22f4ab4.jpeg] timed out after 901.054 secs
+2023-07-28 17:45:54.875 - [185] RECEIVED, request_size=495 bytes, height=328311
+2023-07-28 17:45:54.879 - [185] QUEUED, queue_size=1
+2023-07-28 17:45:55.121 - [185] STARTED, queue_wait_time=0.242033 secs
+2023-07-28 17:45:55.311 - [186] RECEIVED, request_size=495 bytes, height=328311
+2023-07-28 17:45:55.311 - [186] QUEUED, queue_size=1
+2023-07-28 17:45:55.508 - [186] STARTED, queue_wait_time=0.197257 secs
+2023-07-28 17:45:56.299 - [187] RECEIVED, request_size=495 bytes, height=328311
+2023-07-28 17:45:56.300 - [187] QUEUED, queue_size=1
+2023-07-28 17:45:56.532 - [187] STARTED, queue_wait_time=0.231791 secs
+2023-07-28 17:57:29.982 - [188] RECEIVED, request_size=495 bytes, height=328312
+2023-07-28 17:57:30.007 - [188] QUEUED, queue_size=1
+2023-07-28 17:57:30.897 - [188] STARTED, queue_wait_time=0.890189 secs
+2023-07-28 18:00:57.162 - [185] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/1a01b631.jpeg] timed out after 901.039 secs
+2023-07-28 18:00:57.770 - [186] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/27554aec.jpeg] timed out after 901.038 secs
+2023-07-28 18:00:58.132 - [187] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/68dbfc09.jpeg] timed out after 901.036 secs
+2023-07-28 18:08:37.566 - [188] SUCCEEDED, execution_time=666.064 secs, response_size=8310477 bytes, image_hash=feefb6e0b9aebe52d72f58ecfb8d069d447d9fc74057128a5111b4d472918ff8
+2023-07-28 18:32:34.462 - [189] RECEIVED, request_size=494 bytes, height=328317
+2023-07-28 18:32:34.465 - [189] QUEUED, queue_size=1
+2023-07-28 18:32:34.815 - [189] STARTED, queue_wait_time=0.351010 secs
+2023-07-28 18:44:35.094 - [189] SUCCEEDED, execution_time=720.055 secs, response_size=1991363 bytes, image_hash=eec4ad1ef43029823af778cf28c1dd2128c181ddb293570fabb44c44c0838266
+2023-07-28 20:29:10.823 - [190] RECEIVED, request_size=495 bytes, height=328352
+2023-07-28 20:29:10.827 - [190] QUEUED, queue_size=1
+2023-07-28 20:29:11.087 - [190] STARTED, queue_wait_time=0.260761 secs
+2023-07-28 20:29:11.191 - [191] RECEIVED, request_size=495 bytes, height=328352
+2023-07-28 20:29:11.192 - [191] QUEUED, queue_size=1
+2023-07-28 20:29:11.464 - [192] RECEIVED, request_size=495 bytes, height=328352
+2023-07-28 20:29:11.464 - [192] QUEUED, queue_size=1
+2023-07-28 20:29:11.486 - [191] STARTED, queue_wait_time=0.294168 secs
+2023-07-28 20:29:11.744 - [192] STARTED, queue_wait_time=0.280118 secs
+2023-07-28 20:29:12.701 - [193] RECEIVED, request_size=495 bytes, height=328352
+2023-07-28 20:29:12.702 - [193] QUEUED, queue_size=1
+2023-07-28 20:29:12.935 - [193] STARTED, queue_wait_time=0.233374 secs
+2023-07-28 20:29:13.337 - [194] RECEIVED, request_size=495 bytes, height=328352
+2023-07-28 20:29:13.338 - [194] QUEUED, queue_size=1
+2023-07-28 20:29:13.543 - [194] STARTED, queue_wait_time=0.205178 secs
+2023-07-28 20:44:16.005 - [191] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/4dcae274.jpeg] timed out after 903.061 secs
+2023-07-28 20:44:16.396 - [190] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/a1b54b4a.jpeg] timed out after 903.036 secs
+2023-07-28 20:44:16.697 - [192] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/c6c945fd.jpeg] timed out after 903.045 secs
+2023-07-28 20:44:16.913 - [193] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/be9d7d0a.jpeg] timed out after 903.038 secs
+2023-07-28 20:44:17.078 - [194] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/ece7fa43.jpeg] timed out after 903.045 secs
+2023-07-28 22:49:12.186 - [195] RECEIVED, request_size=495 bytes, height=328376
+2023-07-28 22:49:12.191 - [195] QUEUED, queue_size=1
+2023-07-28 22:49:12.465 - [195] STARTED, queue_wait_time=0.273743 secs
+2023-07-28 22:49:15.356 - [196] RECEIVED, request_size=495 bytes, height=328376
+2023-07-28 22:49:15.356 - [196] QUEUED, queue_size=1
+2023-07-28 22:49:15.619 - [196] STARTED, queue_wait_time=0.262521 secs
+2023-07-28 23:04:15.967 - [195] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/8d893369.jpeg] timed out after 903.049 secs
+2023-07-28 23:04:19.078 - [196] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/a116c4be.jpeg] timed out after 903.033 secs
+2023-07-28 23:12:30.793 - [197] RECEIVED, request_size=494 bytes, height=328381
+2023-07-28 23:12:30.795 - [197] QUEUED, queue_size=1
+2023-07-28 23:12:31.416 - [197] STARTED, queue_wait_time=0.621014 secs
+2023-07-28 23:12:31.858 - [198] RECEIVED, request_size=495 bytes, height=328381
+2023-07-28 23:12:31.860 - [198] QUEUED, queue_size=1
+2023-07-28 23:12:32.095 - [198] STARTED, queue_wait_time=0.236474 secs
+2023-07-28 23:24:11.778 - [199] RECEIVED, request_size=494 bytes, height=328383
+2023-07-28 23:24:11.784 - [199] QUEUED, queue_size=1
+2023-07-28 23:24:12.687 - [199] STARTED, queue_wait_time=0.903598 secs
+2023-07-28 23:24:13.359 - [200] RECEIVED, request_size=495 bytes, height=328383
+2023-07-28 23:24:13.360 - [200] QUEUED, queue_size=1
+2023-07-28 23:24:14.064 - [200] STARTED, queue_wait_time=0.704243 secs
+2023-07-28 23:24:17.418 - [201] RECEIVED, request_size=495 bytes, height=328383
+2023-07-28 23:24:17.419 - [201] QUEUED, queue_size=1
+2023-07-28 23:24:18.034 - [201] STARTED, queue_wait_time=0.604188 secs
+2023-07-28 23:27:35.846 - [197] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/aa43b2d7.png] timed out after 903.033 secs
+2023-07-28 23:27:36.259 - [198] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/8fa00b86.jpeg] timed out after 903.048 secs
+2023-07-28 23:35:53.136 - [202] RECEIVED, request_size=495 bytes, height=328383
+2023-07-28 23:35:53.140 - [202] QUEUED, queue_size=1
+2023-07-28 23:35:53.229 - [203] RECEIVED, request_size=494 bytes, height=328383
+2023-07-28 23:35:53.230 - [203] QUEUED, queue_size=1
+2023-07-28 23:35:53.558 - [204] RECEIVED, request_size=494 bytes, height=328383
+2023-07-28 23:35:53.559 - [204] QUEUED, queue_size=1
+2023-07-28 23:35:53.779 - [202] STARTED, queue_wait_time=0.635271 secs
+2023-07-28 23:35:54.784 - [203] STARTED, queue_wait_time=1.553463 secs
+2023-07-28 23:39:17.815 - [199] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/ef6e3483.png] timed out after 903.068 secs
+2023-07-28 23:39:18.420 - [200] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/6d8bdbb4.jpeg] timed out after 903.027 secs
+2023-07-28 23:39:18.692 - [204] STARTED, queue_wait_time=205.133680 secs
+2023-07-28 23:39:22.238 - [201] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/ba110ae5.jpeg] timed out after 903.062 secs
+2023-07-28 23:39:55.582 - [205] RECEIVED, request_size=494 bytes, height=328383
+2023-07-28 23:39:55.583 - [205] QUEUED, queue_size=1
+2023-07-28 23:39:55.890 - [205] STARTED, queue_wait_time=0.307086 secs
+2023-07-28 23:39:56.265 - [206] RECEIVED, request_size=495 bytes, height=328383
+2023-07-28 23:39:56.266 - [206] QUEUED, queue_size=1
+2023-07-28 23:39:56.576 - [206] STARTED, queue_wait_time=0.308764 secs
+2023-07-28 23:50:59.197 - [202] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/0c73c6b9.jpeg] timed out after 903.059 secs
+2023-07-28 23:51:00.197 - [203] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/7ca2a80f.png] timed out after 903.034 secs
+2023-07-28 23:54:22.521 - [204] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/75c8ae0f.png] timed out after 903.038 secs
+2023-07-28 23:54:59.625 - [205] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/477a4073.png] timed out after 903.056 secs
+2023-07-28 23:55:00.248 - [206] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/050b016f.jpeg] timed out after 903.058 secs
+2023-07-29 00:10:53.517 - [207] RECEIVED, request_size=495 bytes, height=328387
+2023-07-29 00:10:53.519 - [207] QUEUED, queue_size=1
+2023-07-29 00:10:53.771 - [207] STARTED, queue_wait_time=0.252923 secs
+2023-07-29 00:10:54.894 - [208] RECEIVED, request_size=495 bytes, height=328387
+2023-07-29 00:10:54.894 - [208] QUEUED, queue_size=1
+2023-07-29 00:10:55.129 - [208] STARTED, queue_wait_time=0.234744 secs
+2023-07-29 00:10:55.676 - [209] RECEIVED, request_size=495 bytes, height=328387
+2023-07-29 00:10:55.677 - [209] QUEUED, queue_size=1
+2023-07-29 00:10:55.951 - [209] STARTED, queue_wait_time=0.274283 secs
+2023-07-29 00:11:03.461 - [210] RECEIVED, request_size=495 bytes, height=328387
+2023-07-29 00:11:03.462 - [210] QUEUED, queue_size=1
+2023-07-29 00:11:03.741 - [210] STARTED, queue_wait_time=0.279531 secs
+2023-07-29 00:22:33.290 - [211] RECEIVED, request_size=494 bytes, height=328387
+2023-07-29 00:22:33.295 - [211] QUEUED, queue_size=1
+2023-07-29 00:22:34.286 - [211] STARTED, queue_wait_time=0.992262 secs
+2023-07-29 00:22:41.726 - [212] RECEIVED, request_size=495 bytes, height=328387
+2023-07-29 00:22:41.727 - [212] QUEUED, queue_size=1
+2023-07-29 00:25:58.010 - [207] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/13538dfc.jpeg] timed out after 903.027 secs
+2023-07-29 00:25:59.209 - [212] STARTED, queue_wait_time=197.482007 secs
+2023-07-29 00:26:00.146 - [208] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/fda371fa.jpeg] timed out after 903.047 secs
+2023-07-29 00:26:00.187 - [209] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/b6c32476.jpeg] timed out after 903.054 secs
+2023-07-29 00:26:07.417 - [210] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/9654c5b7.jpeg] timed out after 903.043 secs
+2023-07-29 00:26:42.145 - [213] RECEIVED, request_size=495 bytes, height=328387
+2023-07-29 00:26:42.153 - [213] QUEUED, queue_size=1
+2023-07-29 00:26:42.424 - [213] STARTED, queue_wait_time=0.274960 secs
+2023-07-29 00:26:43.432 - [214] RECEIVED, request_size=495 bytes, height=328387
+2023-07-29 00:26:43.433 - [214] QUEUED, queue_size=1
+2023-07-29 00:26:43.687 - [214] STARTED, queue_wait_time=0.254357 secs
+2023-07-29 00:34:12.597 - [215] RECEIVED, request_size=495 bytes, height=328388
+2023-07-29 00:34:12.607 - [215] QUEUED, queue_size=1
+2023-07-29 00:34:13.758 - [215] STARTED, queue_wait_time=1.145266 secs
+2023-07-29 00:34:13.987 - [216] RECEIVED, request_size=494 bytes, height=328388
+2023-07-29 00:34:13.988 - [216] QUEUED, queue_size=1
+2023-07-29 00:37:40.794 - [211] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/17789efc.png] timed out after 903.041 secs
+2023-07-29 00:37:41.813 - [216] STARTED, queue_wait_time=207.824180 secs
+2023-07-29 00:38:14.512 - [217] RECEIVED, request_size=495 bytes, height=328388
+2023-07-29 00:38:14.514 - [217] QUEUED, queue_size=1
+2023-07-29 00:41:04.241 - [212] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/498f94e2.jpeg] timed out after 903.038 secs
+2023-07-29 00:41:04.783 - [217] STARTED, queue_wait_time=170.267865 secs
+2023-07-29 00:41:46.162 - [213] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/b1281493.jpeg] timed out after 903.056 secs
+2023-07-29 00:41:47.569 - [214] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/7fbf1d33.jpeg] timed out after 903.055 secs
+2023-07-29 00:49:17.560 - [215] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/c44eb073.jpeg] timed out after 903.038 secs
+2023-07-29 00:52:45.515 - [216] TIMEDOUT, Dupe detection task [/home/ubuntu/.pastel/dd-server/5236fa87.png] timed out after 903.026 secs
+2023-07-29 00:55:45.120 - [217] SUCCEEDED, execution_time=880.082 secs, response_size=3674848 bytes, image_hash=d12fb9fcae0634ad6f2a511a1f890d0ef302580788dc986f7e07ad49541c0ce1
+2023-07-29 01:20:57.780 - [218] RECEIVED, request_size=495 bytes, height=328393
+2023-07-29 01:20:57.783 - [218] QUEUED, queue_size=1
+2023-07-29 01:20:57.809 - [219] RECEIVED, request_size=495 bytes, height=328393
+2023-07-29 01:20:57.810 - [219] QUEUED, queue_size=1
+2023-07-29 01:20:57.818 - [220] RECEIVED, request_size=495 bytes, height=328393
+2023-07-29 01:20:57.819 - [220] QUEUED, queue_size=1
+2023-07-29 01:20:58.057 - [218] STARTED, queue_wait_time=0.273547 secs
+2023-07-29 01:20:58.271 - [219] STARTED, queue_wait_time=0.460943 secs
+2023-07-29 01:20:58.501 - [220] STARTED, queue_wait_time=0.682673 secs
+2023-07-29 01:32:30.954 - [221] RECEIVED, request_size=495 bytes, height=328394
