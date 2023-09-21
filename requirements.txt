@@ -1,0 +1,8 @@
+boto3
+paramiko
+sqlalchemy
+tqdm
+redis
+pandas
+pyyaml
+decouple
