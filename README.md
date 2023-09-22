@@ -35,7 +35,7 @@ all:
     MyCoolMachine01:
       ansible_host: 1.2.3.41
     MyCoolMachine02:
-      ansible_host: 1.2.3.41.19
+      ansible_host: 1.2.3.19
 ```
 
 (Both can be used seamlessly.)
