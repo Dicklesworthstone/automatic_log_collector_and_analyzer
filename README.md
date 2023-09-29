@@ -77,5 +77,5 @@ crontab -e
 And add the following line:
 
 ```bash
-*/15 * * * * . $HOME/.profile; /home/ubuntu/automatic_log_collector_and_analyzer/venv/bin/python /home/ubuntu/automatic_log_collector_and_analyzer/automatic_log_collector_and_analyzer.py >> /home/ubuntu/automatic_log_collector_and_analyzer/log_$(date +\%Y-\%m-\%dT\%H_\%M_\%S).log 2>&1
+*/30 * * * * . $HOME/.profile; /home/ubuntu/automatic_log_collector_and_analyzer/venv/bin/python /home/ubuntu/automatic_log_collector_and_analyzer/automatic_log_collector_and_analyzer.py >> /home/ubuntu/automatic_log_collector_and_analyzer/log_$(date +\%Y-\%m-\%dT\%H_\%M_\%S).log 2>&1
 ```
