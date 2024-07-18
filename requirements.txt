@@ -3,6 +3,7 @@ paramiko
 sqlalchemy
 tqdm
 redis
+ruff
 pandas
 pyyaml
 python-decouple

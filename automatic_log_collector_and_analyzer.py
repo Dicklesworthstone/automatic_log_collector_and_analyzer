@@ -1,6 +1,5 @@
 import time
 import os
-import sys
 import subprocess
 import mmap
 import glob
@@ -35,19 +34,18 @@ from collections import Counter
 import yaml
 from decouple import config
 
-# Prerequisites under Ubuntu 20+:
-# sudo apt update && sudo apt install redis pipx -y && pipx ensurepath && pipx install datasette
-
 SSH_TIMEOUT_SECONDS = config("SSH_TIMEOUT_SECONDS", cast=int)
 BASE_PATH = config("BASE_PATH", cast=str)
 
-lock_file = "automatic_log_collector_and_analyzer.lock"
-if os.path.exists(lock_file):
-    print("Lock file exists, another instance of the script is running. Exiting.")
-    sys.exit()
-open(lock_file, 'w').close()
+# lock_file = "automatic_log_collector_and_analyzer.lock"
+# if os.path.exists(lock_file):
+#     print("Lock file exists, another instance of the script is running. Exiting.")
+#     sys.exit()
+# open(lock_file, 'w').close()
 Base = sa.orm.declarative_base()
 
+# Prerequisites under Ubuntu 20+:
+# sudo apt update && sudo apt install redis pipx -y && pipx ensurepath && pipx install datasette
 
 class LogEntry(Base):
     __tablename__ = 'log_entries'
@@ -70,13 +68,14 @@ class SNStatus(Base):
     version = sa.Column(sa.Integer)
     protocolversion = sa.Column(sa.Integer)
     walletversion = sa.Column(sa.Integer)
+    chain = sa.Column(sa.String)
     balance = sa.Column(sa.Float)
     blocks = sa.Column(sa.Integer)
     timeoffset = sa.Column(sa.Integer)
     connections = sa.Column(sa.Integer)
     proxy = sa.Column(sa.String)
     difficulty = sa.Column(sa.Float)
-    testnet = sa.Column(sa.Boolean)
+    testnet = sa.Column(sa.Boolean)  # Add this line
     keypoololdest = sa.Column(sa.Integer)
     keypoolsize = sa.Column(sa.Integer)
     paytxfee = sa.Column(sa.Float)
@@ -187,20 +186,17 @@ class EntriesBeforeAndAfterPanics(Base):
     log_entry_id = Column(Integer, ForeignKey('log_entries.id'))
     log_entry = relationship("LogEntry")
 
-
 class MiscErrorEntries(Base):
     __tablename__ = 'misc_error_entries'
     id = Column(Integer, primary_key=True)
     log_entry_id = Column(Integer, ForeignKey('log_entries.id'))
     log_entry = relationship("LogEntry")
 
-
 def get_instance_name(tags):
     for tag in tags:
         if tag['Key'] == 'Name':
             return tag['Value']
     return None
-
 
 def get_instances_with_name_prefix(name_prefix, aws_access_key_id, aws_secret_access_key, aws_region):
     ec2 = boto3.resource('ec2', region_name=aws_region, aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key)
@@ -213,6 +209,17 @@ def get_instances_with_name_prefix(name_prefix, aws_access_key_id, aws_secret_ac
     instances = sorted(instances, key=lambda instance: get_instance_name(instance.tags))
     return instances
 
+def get_inventory():
+    with open(config("ANSIBLE_INVENTORY_FILE", cast=str), 'r') as f:
+        return yaml.safe_load(f)
+
+def get_ssh_key_and_user(instance_name):
+    inventory = get_inventory()
+    for group, group_data in inventory.get('all', {}).get('children', {}).items():
+        if instance_name in group_data.get('hosts', {}):
+            host_data = group_data['hosts'][instance_name]
+            return host_data.get('ansible_ssh_private_key_file'), inventory['all']['vars'].get('ansible_user', 'ubuntu')
+    return None, None
 
 def ssh_connect(ip, user, key_path):
     ssh = paramiko.SSHClient()
@@ -226,19 +233,15 @@ def ssh_connect(ip, user, key_path):
     except Exception as e:
         return (False, str(e))
 
-
 def calculate_hash_id(log_entry):
     hash_content = f"{log_entry['instance_id']}{log_entry['machine_name']}{log_entry['public_ip']}{log_entry['log_file_source']}{log_entry['message']}"
     return hashlib.sha256(hash_content.encode()).hexdigest()
-
 
 def execute_network_commands_func(command: str) -> str:
     result = subprocess.run(command, shell=True, text=True, capture_output=True)
     return result.stdout
 
-
 def parse_netstat_output(output: str) -> Dict:
-    # Skip the header line
     lines = output.split('\n')[2:]
     records = []
     for line in lines:
@@ -255,7 +258,6 @@ def parse_netstat_output(output: str) -> Dict:
             }
             records.append(record)
     return records
-
 
 def parse_lsof_output(output: str) -> Dict:
     lines = output.split('\n')[1:]
@@ -277,7 +279,6 @@ def parse_lsof_output(output: str) -> Dict:
             records.append(record)
     return records
 
-
 def parse_ss_output(output: str) -> Dict:
     lines = output.split('\n')[1:]
     records = []
@@ -294,7 +295,6 @@ def parse_ss_output(output: str) -> Dict:
             }
             records.append(record)
     return records
-
 
 def get_sn_network_data(remote_ip, user, key_path, instance_name):
     global engine
@@ -327,7 +327,6 @@ def get_sn_network_data(remote_ip, user, key_path, instance_name):
     finally:
         ssh.close()
         session.close()
-
 
 def download_logs(remote_ip, user, key_path, instance_name, log_files):
     log_files_directory = "downloaded_log_files"
@@ -372,7 +371,6 @@ def download_logs(remote_ip, user, key_path, instance_name, log_files):
     print(f"Finished downloading all log files from {instance_name} ({remote_ip})")
     return list_of_local_log_file_names
 
-
 def check_sn_status(remote_ip, user, key_path, instance_name):
     global engine
     ssh = paramiko.SSHClient()
@@ -388,7 +386,8 @@ def check_sn_status(remote_ip, user, key_path, instance_name):
             mn_status_output_dict = json.loads(mn_status_output)
         else:
             mn_status_output_dict = {}
-
+        print(f"mn_status_output_dict for {instance_name} ({remote_ip}): {mn_status_output_dict}")
+        
         stdin, stdout, stderr = ssh.exec_command('/home/ubuntu/pastel/pastel-cli getinfo')
         output = stdout.read().decode('utf-8')
         if output:
@@ -402,18 +401,19 @@ def check_sn_status(remote_ip, user, key_path, instance_name):
                 output_dict['sn_pastelid_pubkey'] = mn_status_output_dict['extKey']
                 output_dict['sn_alias'] = mn_status_output_dict['alias']
                 output_dict['sn_status'] = mn_status_output_dict['status']
-                
-                
+            print(f"output_dict for {instance_name} ({remote_ip}): {output_dict}")
             sn_status = SNStatus(**output_dict)
             session.add(sn_status)
             session.commit()
+            print(f"Data collected and inserted for {instance_name} ({remote_ip})")
+        else:
+            print(f"No output from getinfo command for {instance_name} ({remote_ip})")
     except Exception as e:
-        print(f"Error while checking sn status: {str(e)}")
+        print(f"Error while checking sn status for {instance_name} ({remote_ip}): {str(e)}")
     finally:
         ssh.close()
         session.close()
     return output_dict
-        
 
 def check_sn_masternode_status(remote_ip, user, key_path, instance_name):
     global engine
@@ -444,7 +444,7 @@ def check_sn_masternode_status(remote_ip, user, key_path, instance_name):
                 sn_pastelid_pubkey = extra.get('sn_pastelid_pubkey')
                 masternode_rank = extra.get('masternode_rank')
                 rank_as_of_block_height = extra.get('rank_as_of_block_height')
-            else: #Specified masternode is not in the masternode top list (only SNs in the `ENABLED` mode appear in the masternode top list), so we need to get the SN's PastelID from the masternode list extra command instead
+            else:
                 extra = data3.get(key, {})
                 sn_pastelid_pubkey = extra.get('extKey')
                 masternode_rank = -1
@@ -483,18 +483,15 @@ def check_sn_masternode_status(remote_ip, user, key_path, instance_name):
         combined_masternode_status_dict = {'Error': f'Could not connect to instance {instance_name}.'}
     return combined_masternode_status_dict
 
-
 @lru_cache(maxsize=None)
 def get_current_year():
     return datetime.now().year
-
 
 cnode_pattern = re.compile(r"\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}")
 gonode_pattern = re.compile(r"\[.*\]")
 dd_service_pattern = re.compile(r"(\d{1,7}) - (\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{3})? \[.*\]")
 dd_entry_pattern = re.compile(r'^(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{3}) - (.*)$')
 systemd_pattern = re.compile(r"(\S+)\s(\d+)\s(\d+):(\d+):(\d+)\s(\S+)\s(.*)")
-
 
 def parse_cnode_log(log_line):
     match = cnode_pattern.search(log_line)
@@ -503,7 +500,6 @@ def parse_cnode_log(log_line):
         message = log_line[match.end():].strip()
         return {'timestamp': timestamp, 'message': message}
     return None
-
 
 def parse_systemd_log(log_line):
     match = systemd_pattern.match(log_line)
@@ -517,7 +513,6 @@ def parse_systemd_log(log_line):
         return {'timestamp': timestamp, 'message': message}
     return None
 
-
 def parse_gonode_log(log_line):
     match = gonode_pattern.search(log_line)
     if match:
@@ -528,7 +523,6 @@ def parse_gonode_log(log_line):
         message = log_line[match.end():].strip()
         return {'timestamp': timestamp, 'message': message}
     return None
-
 
 def parse_dd_service_log(log_line, last_timestamp=None):
     match = dd_service_pattern.search(log_line)
@@ -544,7 +538,6 @@ def parse_dd_service_log(log_line, last_timestamp=None):
         return {'timestamp': timestamp, 'message': message}
     return None
 
-
 def parse_dd_entry_log(entry_line, last_timestamp=None):
     match = dd_entry_pattern.search(entry_line)
     if match:
@@ -556,7 +549,6 @@ def parse_dd_entry_log(entry_line, last_timestamp=None):
             timestamp = last_timestamp
         return {'timestamp': timestamp, 'message': message}
     return None
-
 
 def parse_logs(local_file_name: str, instance_id: str, machine_name: str, public_ip: str, log_file_source: str) -> List[Dict]:
     global earliest_date_cutoff
@@ -595,22 +587,19 @@ def parse_logs(local_file_name: str, instance_id: str, machine_name: str, public
                             'timestamp': parsed_log['timestamp'],
                             'message': parsed_log['message']
                         })
-            except Exception as e:
+            except Exception as e:  # noqa: F841
                 pass
         mmapped_file.close()
         print(f"Finished parsing log file '{local_file_name}' with {len(log_entries):,} log entries!")
     return log_entries
 
-
 def parse_and_append_logs(local_file_name, instance_id, instance_name, public_ip, log_file_source):
     parsed_log_entries = parse_logs(local_file_name, instance_id, instance_name, public_ip, log_file_source)
     return parsed_log_entries
 
-
 def remove_dupes_from_list_but_preserve_order_func(list_of_items):
     deduplicated_list = list(dict.fromkeys(list_of_items).keys())
     return deduplicated_list
-
 
 def insert_log_entries(parsed_log_entries: List[Dict], session: Session, chunk_size: int = 250000, max_retries: int = 3):
     def commit_with_retry(session):
@@ -630,17 +619,61 @@ def insert_log_entries(parsed_log_entries: List[Dict], session: Session, chunk_s
     for idx in range(0, len(parsed_log_entries), chunk_size):
         chunk = parsed_log_entries[idx:idx + chunk_size]
         hash_ids = [calculate_hash_id(log_entry) for log_entry in chunk]
-        hash_id_existence = redis_client.mget(hash_ids) # Check if the hash_ids are already in Redis using a single mget call
+        hash_id_existence = redis_client.mget(hash_ids) 
         hash_id_exists_map = {hash_id: exists for hash_id, exists in zip(hash_ids, hash_id_existence)}
         new_log_entries = []
         for log_entry, log_entry_hash_id in zip(chunk, hash_ids):
-            if not hash_id_exists_map.get(log_entry_hash_id): # If hash_id is not in Redis, add it to Redis and proceed with insertion
+            if not hash_id_exists_map.get(log_entry_hash_id): 
                 redis_client.set(log_entry_hash_id, 1)
                 new_log_entries.append(LogEntry(hash_id=log_entry_hash_id, **log_entry))
         new_log_entries = remove_dupes_from_list_but_preserve_order_func(new_log_entries)
         session.add_all(new_log_entries)
         commit_with_retry(session)
-
+        
+def get_status_info_for_instance(instance_id):
+    global aws_region
+    global aws_access_key_id
+    global aws_secret_access_key
+    global ssh_key_path
+    global ansible_inventory_file
+    print(f"Checking {instance_id}...")
+    with open(ansible_inventory_file, 'r') as f:
+        ansible_inventory = yaml.safe_load(f)
+    public_ip = None
+    key_path = None
+    instance_name = instance_id
+    ssh_user = ansible_inventory['all']['vars']['ansible_user']
+    for group in ansible_inventory['all']['children'].values():
+        if 'hosts' in group and instance_id in group['hosts']:
+            host_info = group['hosts'][instance_id]
+            public_ip = host_info['ansible_host']
+            key_path = host_info['ansible_ssh_private_key_file']
+            break
+    if not public_ip or not key_path:
+        print(f"Instance {instance_id} is not in the Ansible inventory file, so we will use the AWS API to get the public IP address and instance name.")
+        ec2 = boto3.client('ec2', region_name=aws_region, aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key)
+        print(f"Checking {instance_id}...")
+        instance = ec2.describe_instances(InstanceIds=[instance_id])['Reservations'][0]['Instances'][0]
+        public_ip = instance['PublicIpAddress']
+        instance_name = get_instance_name(instance['Tags'])
+    print(f"Now checking for SSH connectivity on instance named {instance_name} with instance ID of {instance_id} and public IP address of {public_ip}...")
+    ssh_status, ssh_error = ssh_connect(public_ip, ssh_user, key_path if key_path else ssh_key_path)
+    if ssh_status:
+        print(f"{instance_id} ({instance_name}) is reachable by SSH")
+        print(f"Now checking the status of the Pastel node on {instance_name} using `pastel-cli getinfo`...")
+        output_dict = check_sn_status(public_ip, ssh_user, key_path if key_path else ssh_key_path, instance_name)
+        print(f"Result of `getinfo` command on {instance_name}: {output_dict}")
+        print(f"Now checking the masternode status of {instance_name} using `pastel-cli masternode list full` and `list extra`...")
+        combined_masternode_status_dict = check_sn_masternode_status(public_ip, ssh_user, key_path if key_path else ssh_key_path, instance_name)
+        print(f"Result of `masternode list full` and `list extra` command on {instance_name}: {combined_masternode_status_dict}")
+        print(f"Now getting network data for {instance_name} using various network commands...")
+        get_sn_network_data(public_ip, ssh_user, key_path if key_path else ssh_key_path, instance_name)
+        print('Done getting network data!')
+    else:
+        if ssh_error == "Authentication failed.":
+            print(f"{instance_id} ({instance_name}) has an authentication issue!")
+        else:
+            print(f"{instance_id} ({instance_name}) is not reachable by SSH!")
 
 def insert_log_entries_worker(db_write_queue):
     Session = sessionmaker(bind=engine)
@@ -664,8 +697,6 @@ def process_instance(instance_id, db_write_queue):
     global aws_region
     global aws_access_key_id
     global aws_secret_access_key
-    global ssh_user
-    global ssh_key_path
     global ansible_inventory_file
     num_cores = os.cpu_count()
     if num_cores is not None:
@@ -673,11 +704,17 @@ def process_instance(instance_id, db_write_queue):
     with open(ansible_inventory_file, 'r') as f:
         ansible_inventory = yaml.safe_load(f)
     print(f"Checking {instance_id}...")
-    if instance_id in ansible_inventory['all']['hosts']:
-        print(f"Instance {instance_id} is in the Ansible inventory file, so we will use the public IP address from the inventory file.")
-        public_ip = ansible_inventory['all']['hosts'][instance_id]['ansible_host']
-        instance_name = instance_id
-    else:
+    public_ip = None
+    key_path = None
+    instance_name = instance_id
+    ssh_user = ansible_inventory['all']['vars']['ansible_user']
+    for group in ansible_inventory['all']['children'].values():
+        if 'hosts' in group and instance_id in group['hosts']:
+            host_info = group['hosts'][instance_id]
+            public_ip = host_info['ansible_host']
+            key_path = host_info['ansible_ssh_private_key_file']
+            break
+    if not public_ip or not key_path:
         print('Instance is not in the Ansible inventory file, so we will use the AWS API to get the public IP address and instance name.')
         ec2 = boto3.client('ec2', region_name=aws_region, aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key)
         instance = ec2.describe_instances(InstanceIds=[instance_id])['Reservations'][0]['Instances'][0]
@@ -685,16 +722,18 @@ def process_instance(instance_id, db_write_queue):
         instance_name = get_instance_name(instance['Tags'])
     Session = sessionmaker(bind=engine)
     session = Session()
+    user = ssh_user
+    key_path = key_path if key_path else ssh_key_path
     print(f"Now checking for SSH connectivity on instance named {instance_name} with instance ID of {instance_id} and public IP address of {public_ip}...")
-    ssh_status, ssh_error = ssh_connect(public_ip, ssh_user, ssh_key_path)
+    ssh_status, ssh_error = ssh_connect(public_ip, user, key_path)
     if ssh_status:
         print(f"{instance_id} ({instance_name}) is reachable by SSH")
         log_files = ["/home/ubuntu/.pastel/testnet3/debug.log",
-                     "/home/ubuntu/.pastel/supernode.log",
-                     "/home/ubuntu/.pastel/hermes.log",
-                     "/home/ubuntu/pastel_dupe_detection_service/logs/dd-service-log.txt",
-                     "/home/ubuntu/pastel_dupe_detection_service/logs/entry/entry.log"]
-        list_of_local_log_file_names = download_logs(public_ip, ssh_user, ssh_key_path, instance_name, log_files)
+                        "/home/ubuntu/.pastel/supernode.log",
+                        "/home/ubuntu/.pastel/hermes.log",
+                        "/home/ubuntu/pastel_dupe_detection_service/logs/dd-service-log.txt",
+                        "/home/ubuntu/pastel_dupe_detection_service/logs/entry/entry.log"]
+        list_of_local_log_file_names = download_logs(public_ip, user, key_path, instance_name, log_files)
         print('Now parsing log files...')
         all_parsed_log_entries = []
         with ThreadPoolExecutor(max_workers=num_cores) as executor:
@@ -706,7 +745,7 @@ def process_instance(instance_id, db_write_queue):
         for future in futures:
             all_parsed_log_entries.extend(future.result())
         print(f'Done parsing log files on {instance_name}! Total number of log entries: {len(all_parsed_log_entries):,}')
-        db_write_queue.put(all_parsed_log_entries) # Pass the log entries to the insert_log_entries_worker through the queue
+        db_write_queue.put(all_parsed_log_entries) 
         session.close()
         print(f'Done inserting log entries into database on {instance_name}! Number of log entries inserted: {len(all_parsed_log_entries):,}')
     else:
@@ -714,49 +753,7 @@ def process_instance(instance_id, db_write_queue):
             print(f"{instance_id} ({instance_name}) has an authentication issue!")
         else:
             print(f"{instance_id} ({instance_name}) is not reachable by SSH!")
-    db_write_queue.put(None)  # Add this line to indicate the end of processing for this instance
-
-
-def get_status_info_for_instance(instance_id):
-    global aws_region
-    global aws_access_key_id
-    global aws_secret_access_key
-    global ssh_user
-    global ssh_key_path
-    global ansible_inventory_file
-    print(f"Checking {instance_id}...")
-    with open(ansible_inventory_file, 'r') as f:
-        ansible_inventory = yaml.safe_load(f)
-    if instance_id in ansible_inventory['all']['hosts']:
-        print(f"Instance {instance_id} is in the Ansible inventory file, so we will use the public IP address from the inventory file.")
-        public_ip = ansible_inventory['all']['hosts'][instance_id]['ansible_host']
-        instance_name = instance_id
-    else:
-        print(f"Instance {instance_id} is not in the Ansible inventory file, so we will use the AWS API to get the public IP address and instance name.")
-        ec2 = boto3.client('ec2', region_name=aws_region, aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key)
-        print(f"Checking {instance_id}...")
-        instance = ec2.describe_instances(InstanceIds=[instance_id])['Reservations'][0]['Instances'][0]
-        public_ip = instance['PublicIpAddress']
-        instance_name = get_instance_name(instance['Tags'])    
-    print(f"Now checking for SSH connectivity on instance named {instance_name} with instance ID of {instance_id} and public IP address of {public_ip}...")
-    ssh_status, ssh_error = ssh_connect(public_ip, ssh_user, ssh_key_path)
-    if ssh_status:
-        print(f"{instance_id} ({instance_name}) is reachable by SSH")
-        print(f"Now checking the status of the Pastel node on {instance_name} using `pastel-cli getinfo`...")
-        output_dict = check_sn_status(public_ip, ssh_user, ssh_key_path, instance_name)
-        print(f"Result of `getinfo` command on {instance_name}: {output_dict}")
-        print(f"Now checking the masternode status of {instance_name} using `pastel-cli masternode list full` and `list extra`...")
-        combined_masternode_status_dict = check_sn_masternode_status(public_ip, ssh_user, ssh_key_path, instance_name)
-        print(f"Result of `masternode list full` and `list extra` command on {instance_name}: {combined_masternode_status_dict}")
-        print(f"Now getting network data for {instance_name} using various network commands...")
-        get_sn_network_data(public_ip, ssh_user, ssh_key_path, instance_name)
-        print('Done getting network data!')
-    else:
-        if ssh_error == "Authentication failed.":
-            print(f"{instance_id} ({instance_name}) has an authentication issue!")
-        else:
-            print(f"{instance_id} ({instance_name}) is not reachable by SSH!")
-
+    db_write_queue.put(None)
 
 def process_panic(panic, k_delta, session):
     time_start = panic.timestamp - k_delta
@@ -770,7 +767,6 @@ def process_panic(panic, k_delta, session):
         entry = EntriesBeforeAndAfterPanics(log_entry_id=log.id)
         session.add(entry)
     session.commit()
-
 
 def analyze_panics(n_days=2, k_minutes=10):
     global engine
@@ -795,7 +791,7 @@ def analyze_panics(n_days=2, k_minutes=10):
             session.commit()
         pool.close()
         pool.join()
-    create_view_sql = f"""
+    create_view_sql = """
         CREATE VIEW entries_before_and_after_panics_view AS
         SELECT log_entries.* FROM log_entries
         JOIN entries_before_and_after_panics
@@ -806,12 +802,11 @@ def analyze_panics(n_days=2, k_minutes=10):
             connection.execute(sa.DDL(create_view_sql))
         except OperationalError as e:
             if "table entries_before_and_after_panics_view already exists" in str(e):
-                pass  # Ignore the error if the view already exists
+                pass
             else:
-                raise e  # Raise the error if it's not about an existing view
+                raise e
     if len(panics) > 0:
         print(f'Done analyzing panics over the previous {n_days} days and {k_minutes} minutes before and after the panic! Found {len(panics):,} panics.')
-
 
 def find_error_entries(n_days=3):
     global engine
@@ -825,12 +820,12 @@ def find_error_entries(n_days=3):
     error_entries = session.query(LogEntry).filter(
         error_filters,
         LogEntry.timestamp.between(start_date, now)
-    ).all() # Find log entries containing any of the error keywords
-    Base.metadata.create_all(engine) # Create the new table for storing the misc_error_entries
+    ).all()
+    Base.metadata.create_all(engine)
     error_entries_mappings = [{'log_entry_id': entry.id} for entry in error_entries]
     session.bulk_insert_mappings(MiscErrorEntries, error_entries_mappings)
     session.commit()
-    create_view_sql = f"""
+    create_view_sql = """
         CREATE VIEW misc_error_entries_view AS
         SELECT log_entries.* FROM log_entries
         JOIN misc_error_entries
@@ -841,41 +836,49 @@ def find_error_entries(n_days=3):
             connection.execute(sa.DDL(create_view_sql))
         except OperationalError as e:
             if "table misc_error_entries_view already exists" in str(e):
-                pass  # Ignore the error if the view already exists
+                pass
             else:
-                raise e  # Raise the error if it's not about an existing view
+                raise e
     print(f'Done finding error entries! Found {len(error_entries):,} error entries and inserted them into the database.')
-
-
+    
 def get_latest_sn_statuses_func():
     global engine
     Session = sessionmaker(bind=engine)
     session = Session()
     try:
+        # Check if the SNStatus table has any data
+        sn_status_count = session.query(SNStatus).count()
+        print(f"SNStatus table row count: {sn_status_count}")
+        if sn_status_count == 0:
+            print("SNStatus table is empty.")
+            return pd.DataFrame()
+        # Execute the subquery and main query
         subq = session.query(SNStatus.instance_name, sa.func.max(SNStatus.datetime_of_data).label('max_datetime')).group_by(SNStatus.instance_name).subquery()
         latest_statuses = session.query(SNStatus).join(subq, and_(SNStatus.instance_name == subq.c.instance_name, SNStatus.datetime_of_data == subq.c.max_datetime)).all()
         latest_sn_statuses_df = pd.DataFrame([status.to_dict() for status in latest_statuses])
+        # Print the DataFrame to check the results
+        print(f"Latest SN statuses DataFrame:\n{latest_sn_statuses_df}")
         return latest_sn_statuses_df
     except Exception as e:
         print(f"Error while fetching latest SNStatus: {str(e)}")
     finally:
         session.close()
-    
-
-def run_checks_on_latest_sn_statuses_data_func(latest_sn_statuses_df, instances):
+        
+def run_checks_on_latest_sn_statuses_data_func(latest_sn_statuses_df, instances=None):
     global engine
     Session = sessionmaker(bind=engine)
-    session = Session()    
+    session = Session()
     result = {}
-    # Test 1
     instances_with_status = set(latest_sn_statuses_df['instance_name'])
-    instance_names = [get_instance_name(instance.tags) for instance in instances]
-    missing_status_responses = list(set(instance_names) - instances_with_status)    
+    if instances:
+        instance_names = [get_instance_name(instance.tags) for instance in instances]
+    else:
+        instance_names = instances_with_status
+    missing_status_responses = list(set(instance_names) - instances_with_status)
     if len(missing_status_responses) > 0:
         result['missing_status_responses'] = missing_status_responses
     else:
         result['missing_status_responses'] = "OK"
-    # Test 2
     block_heights = latest_sn_statuses_df['blocks'].values
     latest_block_height_reported_by_any_node = int(max(block_heights))
     block_heights_dict = latest_sn_statuses_df[['instance_name', 'blocks']].set_index('instance_name').to_dict()['blocks']
@@ -894,7 +897,6 @@ def run_checks_on_latest_sn_statuses_data_func(latest_sn_statuses_df, instances)
         }
     else:
         result['out_of_sync_nodes'] = "OK"
-    # Test 3
     connections_dict = latest_sn_statuses_df[['instance_name', 'connections']].set_index('instance_name').to_dict()['connections']
     nodes_with_zero_connections = [instance_name for instance_name, connection in connections_dict.items() if connection == 0]
     if len(nodes_with_zero_connections) > 0:
@@ -905,17 +907,15 @@ def run_checks_on_latest_sn_statuses_data_func(latest_sn_statuses_df, instances)
         missing_status_responses=result['missing_status_responses'],
         out_of_sync_nodes=result['out_of_sync_nodes'],
         nodes_with_zero_connections=result['nodes_with_zero_connections']
-    )        
+    )
     try:
         session.add(health_check)
-        session.commit()        
-        session.close()
+        session.commit()
     except Exception as e:
         print(f"Error while inserting NodeHealthChecks: {str(e)}")
     finally:
-        session.close()            
+        session.close()
     return result
-
 
 def get_latest_sn_masternode_statuses_func():
     global engine
@@ -928,7 +928,7 @@ def get_latest_sn_masternode_statuses_func():
         ).group_by(SNMasternodeStatus.instance_name).subquery()
         latest_masternode_statuses = session.query(SNMasternodeStatus).filter(
             SNMasternodeStatus.instance_name == subq.c.instance_name,
-            sa.func.julianday(subq.c.max_datetime) - sa.func.julianday(SNMasternodeStatus.datetime_of_data) <= 2 / (24*60*60)  # 2 seconds as days
+            sa.func.julianday(subq.c.max_datetime) - sa.func.julianday(SNMasternodeStatus.datetime_of_data) <= 2 / (24*60*60)
         ).all()
         latest_masternode_statuses_df = pd.DataFrame([status.to_dict() for status in latest_masternode_statuses])
         return latest_masternode_statuses_df
@@ -937,29 +937,23 @@ def get_latest_sn_masternode_statuses_func():
     finally:
         session.close()
 
-
 def run_checks_on_latest_sn_masternode_statuses_data_func(latest_masternode_statuses_df, latest_sn_statuses_df):
     global engine
     Session = sessionmaker(bind=engine)
     session = Session()     
     results = {}
     masternode_collateral_txid_and_outpoint_to_instance_name_dict = dict(zip(latest_sn_statuses_df['masternode_collateral_txid_and_outpoint'], latest_sn_statuses_df['instance_name']))
-    # Check 1
     outlier_reports = {"reporting_SNs": {}}
     grouped = latest_masternode_statuses_df[latest_masternode_statuses_df.masternode_rank != -1].groupby(['instance_name', 'masternode_collateral_txid_and_outpoint'])['masternode_rank'].apply(list)
     ranks = grouped.values
     majority_ranks = [Counter(rank).most_common(1)[0][0] for rank in zip(*ranks)]
     for (reporting_sn, reported_sn), reported_ranks in grouped.items():
         for reported_rank, majority in zip(reported_ranks, majority_ranks):
-            # If the reporting SN's rank doesn't match the majority's rank
             if reported_rank != majority:
-                # Initialize this reporting SN's entry in the outlier_reports dictionary, if it doesn't exist
                 if reporting_sn not in outlier_reports["reporting_SNs"]:
                     outlier_reports["reporting_SNs"][reporting_sn] = {"disagreements_with_majority_rank": {}}
-                # Initialize this majority rank's entry in the reporting SN's dictionary, if it doesn't exist
                 if majority not in outlier_reports["reporting_SNs"][reporting_sn]["disagreements_with_majority_rank"]:
                     outlier_reports["reporting_SNs"][reporting_sn]["disagreements_with_majority_rank"][majority] = {"reported_ranks_instead": []}
-                # Add the reported rank that disagrees with the majority to the list
                 outlier_reports["reporting_SNs"][reporting_sn]["disagreements_with_majority_rank"][majority]["reported_ranks_instead"].append((reported_rank, reported_sn))
     explanations = []
     for reporting_sn, sn_data in outlier_reports["reporting_SNs"].items():
@@ -974,29 +968,22 @@ def run_checks_on_latest_sn_masternode_statuses_data_func(latest_masternode_stat
                 except KeyError:
                     pass
     results['outlier_reports_explanations'] = explanations                
-    # Check 2
     all_new_start_required = latest_masternode_statuses_df.groupby('instance_name')['masternode_status_message'].all() == "NEW_START_REQUIRED"
     if not any(all_new_start_required.values.tolist()):
         results['all_new_start_required'] = 'OK'
     else:
         results['all_new_start_required'] = all_new_start_required.to_dict()
-    # Check 3
-    # Find all the unique instance names that have status "NEW_START_REQUIRED"
     new_start_required_sns = latest_masternode_statuses_df[latest_masternode_statuses_df.masternode_status_message == "NEW_START_REQUIRED"]["masternode_collateral_txid_and_outpoint"].unique()
     sn_new_start_required_dict = {}
-    # For each of the instance names that were flagged with the status "NEW_START_REQUIRED"
     for sn in new_start_required_sns:
-        # Get a DataFrame of all entries that reported this instance as needing a new start
         reporting_df = latest_masternode_statuses_df[(latest_masternode_statuses_df.masternode_collateral_txid_and_outpoint  == sn) & (latest_masternode_statuses_df.masternode_status_message == "NEW_START_REQUIRED")]
-        # Get the list of instance names that reported this instance as needing a new start
         reporting_sns = reporting_df['instance_name'].unique().tolist()
         reporting_sns.sort()
-        # Store the list in the output dictionary, keyed by the instance name that was reported
         if len(reporting_sns) > 1:
             try:
                 sn_instance_name = masternode_collateral_txid_and_outpoint_to_instance_name_dict[sn]
                 sn_new_start_required_dict[sn_instance_name] = {"instance_name_of_reporting_sn": reporting_sns}
-            except:
+            except Exception as e:  # noqa: F841
                 pass
     results['supernodes_reported_to_be_in_new_start_required_mode'] = sn_new_start_required_dict
     masternode_health_check = NodeMasternodeHealthChecks(
@@ -1014,10 +1001,8 @@ def run_checks_on_latest_sn_masternode_statuses_data_func(latest_masternode_stat
         session.close()          
     return results
 
-
 def create_view_of_connection_counts():
     global engine
-    # Create the SQL for the view
     create_view_sql = """
     CREATE VIEW connection_count_per_service_view AS
     SELECT public_ip, instance_name, lsof__command, datetime_of_data_truncated, COUNT(*) as count
@@ -1037,20 +1022,18 @@ def create_view_of_connection_counts():
             connection.execute(sa.DDL(create_view_sql))
         except OperationalError as e:
             if "table connection_count_per_service_view already exists" in str(e):
-                pass  # Ignore the error if the view already exists
+                pass
             else:
-                raise e  # Re-raise the error if it's not about an existing view
+                raise e
     print('View created!')
-
 
 def stop_existing_datasette():
     ps_output = subprocess.check_output(['ps', 'aux']).decode('utf-8')
-    datasette_processes = [line for line in ps_output.split('\n') if 'datasette' in line and not 'grep' in line]
+    datasette_processes = [line for line in ps_output.split('\n') if 'datasette' in line and not 'grep' in line]  # noqa: E713
     for process in datasette_processes:
         pid = int(process.split()[1])
         os.kill(pid, signal.SIGTERM)
         print(f"Stopped existing Datasette process with PID {pid}")
-
 
 def restart_datasette(datasette_path: str, sqlite_path: str, host: str, port: int, time_limit_ms: int):
     stop_existing_datasette()
@@ -1059,21 +1042,19 @@ def restart_datasette(datasette_path: str, sqlite_path: str, host: str, port: in
         subprocess.Popen(shlex.split(cmd), stdout=dev_null, stderr=dev_null)
     print(f"Datasette started with the new SQLite file at http://{host}:{port}")
 
-
 def backup_table(table_name):
     with sqlite3.connect(sqlite_file_path) as conn:
         df = pd.read_sql(f'SELECT * FROM {table_name}', conn)
         backup_file_name = f'{backup_base_path}_{table_name}.csv'
         df.to_csv(backup_file_name, index=False)        
-        timestamp = datetime.now().strftime('__%Y_%m_%d__%H_%M_%S') # Copy the backup file to a backup directory with a timestamp in the file name
+        timestamp = datetime.now().strftime('__%Y_%m_%d__%H_%M_%S')
         backup_dir = BASE_PATH + config("BACKUP_DATABASE_TABLE_CSV_FILES_DIR_NAME", cast=str)
         os.makedirs(backup_dir, exist_ok=True)
         backup_file_name_timestamped = f'{table_name}{timestamp}.csv'
         backup_file_path_timestamped = os.path.join(backup_dir, backup_file_name_timestamped)
         shutil.copy2(backup_file_name, backup_file_path_timestamped)                
         print(f"Backed up {table_name} to {backup_file_name} and {backup_file_path_timestamped}")
-        
-                
+
 def load_table(table_name):
     global earliest_date_cutoff
     backup_path = f'{backup_base_path}_{table_name}.csv'
@@ -1090,19 +1071,25 @@ def get_status_data_in_parallel_func(instance_ids):
     with concurrent.futures.ThreadPoolExecutor() as executor:
         executor.map(get_status_info_for_instance, instance_ids)
 
+# def get_status_data_in_parallel_func(instance_ids):
+#     for instance_id in instance_ids:
+#         get_status_info_for_instance(instance_id)
+
 def get_instance_ids_from_inventory(inventory_file):
     with open(inventory_file, 'r') as file:
         inventory = yaml.safe_load(file)
-    instance_ids = list(inventory['all']['hosts'].keys())
-    return instance_ids            
-            
+    instance_ids = []
+    for group in inventory.get('all', {}).get('children', {}).values():
+        instance_ids.extend(group.get('hosts', {}).keys())
+    return instance_ids
+
 def main():
     num_cores = os.cpu_count()
     if num_cores is not None:
         num_cores = max(1, num_cores - 2)
     manager = Manager()
     db_write_queue = manager.JoinableQueue()
-    db_writer_thread = threading.Thread(target=insert_log_entries_worker, args=(db_write_queue,))  # Start the insert_log_entries_worker in a separate thread
+    db_writer_thread = threading.Thread(target=insert_log_entries_worker, args=(db_write_queue,))  
     db_writer_thread.start()
     with ProcessPoolExecutor(max_workers=num_cores) as executor:
         futures = []
@@ -1117,8 +1104,7 @@ def main():
     db_write_queue.put(None)
     db_writer_thread.join()
 
-
-redis_client = redis.StrictRedis(host='localhost', port=6379, db=0) # Create a Redis connection
+redis_client = redis.StrictRedis(host='localhost', port=6379, db=0)
 
 if __name__ == "__main__":
     profile_code = 0
@@ -1130,9 +1116,6 @@ if __name__ == "__main__":
     aws_access_key_id = config("AWS_ACCESS_KEY_ID", cast=str)
     aws_secret_access_key = config("AWS_SECRET_ACCESS_KEY", cast=str)
     aws_region = config("AWS_REGION", cast=str)
-    ssh_user = config("SSH_USER", cast=str)
-    ssh_key_name = config("SSH_KEY_NAME", cast=str)
-    ssh_key_path = BASE_PATH + ssh_key_name
     ansible_inventory_file = config("ANSIBLE_INVENTORY_FILE", cast=str)
     earliest_date_cutoff = datetime.now() - timedelta(days=7)
     print('Clearing existing log files and database...')
@@ -1177,11 +1160,15 @@ if __name__ == "__main__":
             os.remove(backup_csv_file)
             print(f"Deleted backup CSV file {backup_csv_file} because it was too old (more than {number_of_backup_csv_files_to_keep} files in the backup directory)")                    
     instance_name_prefix = config("INSTANCE_NAME_PREFIX", cast=str)
-    instances = get_instances_with_name_prefix(instance_name_prefix, aws_access_key_id, aws_secret_access_key, aws_region)
     non_aws_instance_ids = get_instance_ids_from_inventory(ansible_inventory_file)
-    aws_instance_ids = [instance.id for instance in instances]
+    try:
+        instances = get_instances_with_name_prefix(instance_name_prefix, aws_access_key_id, aws_secret_access_key, aws_region)
+        aws_instance_ids = [instance.id for instance in instances]        
+    except Exception as e:
+        print("Error getting instances from AWS API: ", e)
+        aws_instance_ids = []
+        instances = None
     instance_ids = aws_instance_ids + non_aws_instance_ids
-    # instance_ids = instance_ids[:3] # For testing purposes
     print(f'Now collecting status info for {len(instance_ids)} instances...')
     get_status_data_in_parallel_func(instance_ids)
     print('Done collecting status info for all instances!')
@@ -1209,15 +1196,18 @@ if __name__ == "__main__":
     backup_table('sn_network_activity_ss')
     print('Done backing up database tables!')
     print('All Completed!')
-    datasette_path =  config("DATASETTE_PATH", cast=str) # Replace with the actual path to your Datasette executable (sudo apt install pipx && pipx ensurepath && pipx install datasette) 
+    datasette_path =  config("DATASETTE_PATH", cast=str)
     sqlite_path = BASE_PATH + sqlite_file_path
     host = config("HOST", cast=str)
     port = config("PORT", cast=int)
     time_limit_ms = config("TIME_LIMIT_MS", cast=int)
     restart_datasette(datasette_path, sqlite_path, host, port, time_limit_ms)
-    os.remove(lock_file)
+    # try:
+    #     os.remove(lock_file)
+    # except Exception as e: # noqa: F841
+    #     pass
     if profile_code:
-        with open("profiling_report.txt", "w") as f: # Load the saved profiling data using pstats
+        with open("profiling_report.txt", "w") as f:
             stats = pstats.Stats(profile_output_file, stream=f)
-            stats.sort_stats("cumulative") # Sort the stats by cumulative time spent in functions
-            stats.print_stats() # Print the profiling report to a file
+            stats.sort_stats("cumulative")
+            stats.print_stats()
