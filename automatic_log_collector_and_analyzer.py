@@ -1,5 +1,6 @@
 import time
 import os
+import sys
 import subprocess
 import mmap
 import glob
@@ -37,11 +38,11 @@ from decouple import config
 SSH_TIMEOUT_SECONDS = config("SSH_TIMEOUT_SECONDS", cast=int)
 BASE_PATH = config("BASE_PATH", cast=str)
 
-# lock_file = "automatic_log_collector_and_analyzer.lock"
-# if os.path.exists(lock_file):
-#     print("Lock file exists, another instance of the script is running. Exiting.")
-#     sys.exit()
-# open(lock_file, 'w').close()
+lock_file = "automatic_log_collector_and_analyzer.lock"
+if os.path.exists(lock_file):
+    print("Lock file exists, another instance of the script is running. Exiting.")
+    sys.exit()
+open(lock_file, 'w').close()
 Base = sa.orm.declarative_base()
 
 # Prerequisites under Ubuntu 20+:
@@ -215,10 +216,10 @@ def get_inventory():
 
 def get_ssh_key_and_user(instance_name):
     inventory = get_inventory()
-    for group, group_data in inventory.get('all', {}).get('children', {}).items():
-        if instance_name in group_data.get('hosts', {}):
-            host_data = group_data['hosts'][instance_name]
-            return host_data.get('ansible_ssh_private_key_file'), inventory['all']['vars'].get('ansible_user', 'ubuntu')
+    hosts = inventory.get('all', {}).get('hosts', {})
+    if instance_name in hosts:
+        host_data = hosts[instance_name]
+        return host_data.get('ansible_ssh_private_key_file'), inventory['all']['vars'].get('ansible_user', 'ubuntu')
     return None, None
 
 def ssh_connect(ip, user, key_path):
@@ -496,9 +497,12 @@ systemd_pattern = re.compile(r"(\S+)\s(\d+)\s(\d+):(\d+):(\d+)\s(\S+)\s(.*)")
 def parse_cnode_log(log_line):
     match = cnode_pattern.search(log_line)
     if match:
-        timestamp = datetime.strptime(match.group(), "%Y-%m-%d %H:%M:%S")
-        message = log_line[match.end():].strip()
-        return {'timestamp': timestamp, 'message': message}
+        try:
+            timestamp = datetime.strptime(match.group(), "%Y-%m-%d %H:%M:%S")
+            message = log_line[match.end():].strip()
+            return {'timestamp': timestamp, 'message': message}
+        except ValueError:
+            return None
     return None
 
 def parse_systemd_log(log_line):
@@ -631,28 +635,21 @@ def insert_log_entries(parsed_log_entries: List[Dict], session: Session, chunk_s
         commit_with_retry(session)
         
 def get_status_info_for_instance(instance_id):
-    global aws_region
-    global aws_access_key_id
-    global aws_secret_access_key
-    global ssh_key_path
-    global ansible_inventory_file
+    global aws_region, aws_access_key_id, aws_secret_access_key, ssh_key_path, ansible_inventory_file
     print(f"Checking {instance_id}...")
     with open(ansible_inventory_file, 'r') as f:
         ansible_inventory = yaml.safe_load(f)
-    public_ip = None
-    key_path = None
+    public_ip, key_path = None, None
     instance_name = instance_id
     ssh_user = ansible_inventory['all']['vars']['ansible_user']
-    for group in ansible_inventory['all']['children'].values():
-        if 'hosts' in group and instance_id in group['hosts']:
-            host_info = group['hosts'][instance_id]
-            public_ip = host_info['ansible_host']
-            key_path = host_info['ansible_ssh_private_key_file']
-            break
+    hosts = ansible_inventory.get('all', {}).get('hosts', {})
+    if instance_id in hosts:
+        host_info = hosts[instance_id]
+        public_ip = host_info.get('ansible_host')
+        key_path = host_info.get('ansible_ssh_private_key_file')
     if not public_ip or not key_path:
-        print(f"Instance {instance_id} is not in the Ansible inventory file, so we will use the AWS API to get the public IP address and instance name.")
+        print(f"Instance {instance_id} is not in the Ansible inventory file, using AWS API to get public IP address and instance name.")
         ec2 = boto3.client('ec2', region_name=aws_region, aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key)
-        print(f"Checking {instance_id}...")
         instance = ec2.describe_instances(InstanceIds=[instance_id])['Reservations'][0]['Instances'][0]
         public_ip = instance['PublicIpAddress']
         instance_name = get_instance_name(instance['Tags'])
@@ -694,28 +691,23 @@ def insert_log_entries_worker(db_write_queue):
         db_write_queue.task_done()
 
 def process_instance(instance_id, db_write_queue):
-    global aws_region
-    global aws_access_key_id
-    global aws_secret_access_key
-    global ansible_inventory_file
+    global aws_region, aws_access_key_id, aws_secret_access_key, ansible_inventory_file
     num_cores = os.cpu_count()
     if num_cores is not None:
         num_cores = max(1, num_cores - 2)
     with open(ansible_inventory_file, 'r') as f:
         ansible_inventory = yaml.safe_load(f)
     print(f"Checking {instance_id}...")
-    public_ip = None
-    key_path = None
+    public_ip, key_path = None, None
     instance_name = instance_id
     ssh_user = ansible_inventory['all']['vars']['ansible_user']
-    for group in ansible_inventory['all']['children'].values():
-        if 'hosts' in group and instance_id in group['hosts']:
-            host_info = group['hosts'][instance_id]
-            public_ip = host_info['ansible_host']
-            key_path = host_info['ansible_ssh_private_key_file']
-            break
+    hosts = ansible_inventory.get('all', {}).get('hosts', {})
+    if instance_id in hosts:
+        host_info = hosts[instance_id]
+        public_ip = host_info.get('ansible_host')
+        key_path = host_info.get('ansible_ssh_private_key_file')
     if not public_ip or not key_path:
-        print('Instance is not in the Ansible inventory file, so we will use the AWS API to get the public IP address and instance name.')
+        print('Instance is not in the Ansible inventory file, using AWS API to get public IP address and instance name.')
         ec2 = boto3.client('ec2', region_name=aws_region, aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key)
         instance = ec2.describe_instances(InstanceIds=[instance_id])['Reservations'][0]['Instances'][0]
         public_ip = instance['PublicIpAddress']
@@ -728,24 +720,24 @@ def process_instance(instance_id, db_write_queue):
     ssh_status, ssh_error = ssh_connect(public_ip, user, key_path)
     if ssh_status:
         print(f"{instance_id} ({instance_name}) is reachable by SSH")
-        log_files = ["/home/ubuntu/.pastel/testnet3/debug.log",
-                        "/home/ubuntu/.pastel/supernode.log",
-                        "/home/ubuntu/.pastel/hermes.log",
-                        "/home/ubuntu/pastel_dupe_detection_service/logs/dd-service-log.txt",
-                        "/home/ubuntu/pastel_dupe_detection_service/logs/entry/entry.log"]
+        log_files = [
+            "/home/ubuntu/.pastel/testnet3/debug.log",
+            "/home/ubuntu/.pastel/supernode.log",
+            "/home/ubuntu/.pastel/hermes.log",
+            "/home/ubuntu/pastel_dupe_detection_service/logs/dd-service-log.txt",
+            "/home/ubuntu/pastel_dupe_detection_service/logs/entry/entry.log"
+        ]
         list_of_local_log_file_names = download_logs(public_ip, user, key_path, instance_name, log_files)
         print('Now parsing log files...')
         all_parsed_log_entries = []
         with ThreadPoolExecutor(max_workers=num_cores) as executor:
-            futures = []
-            for local_file_name in list_of_local_log_file_names:
-                log_file_source = os.path.basename(local_file_name).split('.')[0].split('__')[-1].replace('debug', 'cnode').replace('entry', 'dd_entry')
-                future = executor.submit(parse_and_append_logs, local_file_name, instance_id, instance_name, public_ip, log_file_source)
-                futures.append(future)
+            futures = [executor.submit(parse_and_append_logs, local_file_name, instance_id, instance_name, public_ip, 
+                        os.path.basename(local_file_name).split('.')[0].split('__')[-1].replace('debug', 'cnode').replace('entry', 'dd_entry')) 
+                        for local_file_name in list_of_local_log_file_names]
         for future in futures:
             all_parsed_log_entries.extend(future.result())
         print(f'Done parsing log files on {instance_name}! Total number of log entries: {len(all_parsed_log_entries):,}')
-        db_write_queue.put(all_parsed_log_entries) 
+        db_write_queue.put(all_parsed_log_entries)
         session.close()
         print(f'Done inserting log entries into database on {instance_name}! Number of log entries inserted: {len(all_parsed_log_entries):,}')
     else:
@@ -1079,8 +1071,8 @@ def get_instance_ids_from_inventory(inventory_file):
     with open(inventory_file, 'r') as file:
         inventory = yaml.safe_load(file)
     instance_ids = []
-    for group in inventory.get('all', {}).get('children', {}).values():
-        instance_ids.extend(group.get('hosts', {}).keys())
+    hosts = inventory.get('all', {}).get('hosts', {})
+    instance_ids.extend(hosts.keys())
     return instance_ids
 
 def main():
@@ -1202,10 +1194,10 @@ if __name__ == "__main__":
     port = config("PORT", cast=int)
     time_limit_ms = config("TIME_LIMIT_MS", cast=int)
     restart_datasette(datasette_path, sqlite_path, host, port, time_limit_ms)
-    # try:
-    #     os.remove(lock_file)
-    # except Exception as e: # noqa: F841
-    #     pass
+    try:
+        os.remove(lock_file)
+    except Exception as e: # noqa: F841
+        pass
     if profile_code:
         with open("profiling_report.txt", "w") as f:
             stats = pstats.Stats(profile_output_file, stream=f)
