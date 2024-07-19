@@ -1163,7 +1163,7 @@ if __name__ == "__main__":
         instances = None
     instance_ids = aws_instance_ids + non_aws_instance_ids
     print(f'Now collecting status info for {len(instance_ids)} instances...')
-    use_sequential_data_collection = 1
+    use_sequential_data_collection = 0
     get_status_data_in_parallel_func(instance_ids)
     print('Done collecting status info for all instances!')
     latest_sn_statuses_df = get_latest_sn_statuses_func()
