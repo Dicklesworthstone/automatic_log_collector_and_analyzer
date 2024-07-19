@@ -721,7 +721,7 @@ def process_instance(instance_id, db_write_queue):
     if ssh_status:
         print(f"{instance_id} ({instance_name}) is reachable by SSH")
         log_files = [
-            "/home/ubuntu/.pastel/testnet3/debug.log",
+            "/home/ubuntu/.pastel/debug.log",
             "/home/ubuntu/.pastel/supernode.log",
             "/home/ubuntu/.pastel/hermes.log",
             "/home/ubuntu/pastel_dupe_detection_service/logs/dd-service-log.txt",
@@ -1060,12 +1060,13 @@ def load_table(table_name):
             df.to_sql(table_name, conn, if_exists='append', index=False)
 
 def get_status_data_in_parallel_func(instance_ids):
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        executor.map(get_status_info_for_instance, instance_ids)
-
-# def get_status_data_in_parallel_func(instance_ids):
-#     for instance_id in instance_ids:
-#         get_status_info_for_instance(instance_id)
+    if use_sequential_data_collection:
+        print('\n\nNOTE: USING SEQUENTIAL DATA COLLECTION\n\n')
+        for instance_id in instance_ids:
+            get_status_info_for_instance(instance_id)
+    else:
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            executor.map(get_status_info_for_instance, instance_ids)        
 
 def get_instance_ids_from_inventory(inventory_file):
     with open(inventory_file, 'r') as file:
@@ -1162,6 +1163,7 @@ if __name__ == "__main__":
         instances = None
     instance_ids = aws_instance_ids + non_aws_instance_ids
     print(f'Now collecting status info for {len(instance_ids)} instances...')
+    use_sequential_data_collection = 1
     get_status_data_in_parallel_func(instance_ids)
     print('Done collecting status info for all instances!')
     latest_sn_statuses_df = get_latest_sn_statuses_func()
