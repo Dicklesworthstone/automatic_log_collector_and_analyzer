@@ -17,7 +17,7 @@ import datetime as dt
 from datetime import datetime, timedelta
 from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
 from multiprocessing import Pool, Manager
-from typing import List, Dict
+from typing import List, Dict, Any, Tuple
 from tqdm import tqdm
 import boto3
 import paramiko
@@ -493,6 +493,7 @@ gonode_pattern = re.compile(r"\[.*\]")
 dd_service_pattern = re.compile(r"(\d{1,7}) - (\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{3})? \[.*\]")
 dd_entry_pattern = re.compile(r'^(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{3}) - (.*)$')
 systemd_pattern = re.compile(r"(\S+)\s(\d+)\s(\d+):(\d+):(\d+)\s(\S+)\s(.*)")
+inference_layer_pattern = re.compile(r"(?P<timestamp>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}),%f - pastel_supernode_inference_layer - (?P<level>\w+) - (?P<message>.+)")
 
 def parse_cnode_log(log_line):
     match = cnode_pattern.search(log_line)
@@ -554,6 +555,20 @@ def parse_dd_entry_log(entry_line, last_timestamp=None):
         return {'timestamp': timestamp, 'message': message}
     return None
 
+def parse_inference_layer_log(line):
+    match = inference_layer_pattern.match(line)
+    if match:
+        try:
+            timestamp_str = match.group("timestamp")
+            timestamp = datetime.strptime(timestamp_str, "%Y-%m-%d %H:%M:%S")
+            level = match.group("level")
+            message = match.group("message").strip()
+            return {"timestamp": timestamp, "message": message}
+        except ValueError as e:
+            print(f"Error parsing line: {line}\n{e}")
+            return None
+    return None
+
 def parse_logs(local_file_name: str, instance_id: str, machine_name: str, public_ip: str, log_file_source: str) -> List[Dict]:
     global earliest_date_cutoff
     list_of_ignored_strings = ['sshd[']
@@ -568,6 +583,8 @@ def parse_logs(local_file_name: str, instance_id: str, machine_name: str, public
         parse_function = parse_dd_entry_log
     elif "systemd_log.txt" in local_file_name:
         parse_function = parse_systemd_log
+    elif "pastel_supernode_inference_layer.log" in local_file_name:
+        parse_function = parse_inference_layer_log        
     else:
         raise ValueError("Unsupported log file format")
     if os.path.getsize(local_file_name) == 0:
@@ -725,7 +742,8 @@ def process_instance(instance_id, db_write_queue):
             "/home/ubuntu/.pastel/supernode.log",
             "/home/ubuntu/.pastel/hermes.log",
             "/home/ubuntu/pastel_dupe_detection_service/logs/dd-service-log.txt",
-            "/home/ubuntu/pastel_dupe_detection_service/logs/entry/entry.log"
+            "/home/ubuntu/pastel_dupe_detection_service/logs/entry/entry.log",
+            "/home/ubuntu/python_inference_layer_server/pastel_supernode_inference_layer.log",
         ]
         list_of_local_log_file_names = download_logs(public_ip, user, key_path, instance_name, log_files)
         print('Now parsing log files...')
@@ -807,7 +825,7 @@ def find_error_entries(n_days=3):
     session = Session()
     now = datetime.now()
     start_date = now - timedelta(days=n_days)
-    error_keywords = ['error', 'invalid', 'failed', 'unable', 'panic']
+    error_keywords = ['error', 'invalid', 'failed', 'failure', 'unable', 'panic', 'segfault', 'exception', 'crash', 'corrupt', 'missing', 'not found', 'not responding']
     error_filters = or_(*(LogEntry.message.ilike(f"%{keyword}%") for keyword in error_keywords))
     error_entries = session.query(LogEntry).filter(
         error_filters,
@@ -1018,10 +1036,298 @@ def create_view_of_connection_counts():
             else:
                 raise e
     print('View created!')
+    
+def create_view_of_connection_counts():
+    global engine
+    create_view_sql = """
+    CREATE VIEW connection_count_per_service_view AS
+    SELECT public_ip, instance_name, lsof__command, datetime_of_data_truncated, COUNT(*) as count
+    FROM (
+        SELECT sn.*, SUBSTR(sn.datetime_of_data, 1, 15) as datetime_of_data_truncated
+        FROM sn_network_activity_lsof sn
+        WHERE sn.lsof__type = 'IPv4' OR sn.lsof__type = 'IPv6'
+    )
+    WHERE SUBSTR(datetime_of_data_truncated, 1, 15) >= (
+        SELECT SUBSTR(MAX(datetime_of_data), 1, 15)
+        FROM sn_network_activity_lsof
+    )
+    GROUP BY public_ip, instance_name, lsof__command, datetime_of_data_truncated;
+    """
+    with engine.connect() as connection:
+        try:
+            connection.execute(sa.DDL(create_view_sql))
+        except OperationalError as e:
+            if "table connection_count_per_service_view already exists" in str(e):
+                pass
+            else:
+                raise e
+    print('View created!')
+
+def add_summary_statistic_views(engine):
+    views = [
+        {
+            "name": "log_entry_count_by_node_and_source",
+            "query": """
+                SELECT 
+                    machine_name,
+                    log_file_source,
+                    COUNT(*) as entry_count
+                FROM log_entries
+                GROUP BY machine_name, log_file_source
+            """
+        },
+        {
+            "name": "error_count_by_node_and_source",
+            "query": """
+                SELECT 
+                    machine_name,
+                    log_file_source,
+                    COUNT(*) as error_count
+                FROM log_entries
+                WHERE LOWER(message) LIKE '%error%' OR LOWER(message) LIKE '%failed%' OR LOWER(message) LIKE '%exception%'
+                GROUP BY machine_name, log_file_source
+            """
+        },
+        {
+            "name": "daily_log_entry_count",
+            "query": """
+                SELECT 
+                    machine_name,
+                    log_file_source,
+                    DATE(timestamp) as log_date,
+                    COUNT(*) as daily_entry_count
+                FROM log_entries
+                GROUP BY machine_name, log_file_source, log_date
+            """
+        },
+        {
+            "name": "most_frequent_log_messages",
+            "query": """
+                SELECT 
+                    machine_name,
+                    log_file_source,
+                    message,
+                    COUNT(*) as message_count
+                FROM log_entries
+                GROUP BY machine_name, log_file_source, message
+                ORDER BY message_count DESC
+                LIMIT 100
+            """
+        },
+        {
+            "name": "recent_errors",
+            "query": """
+                SELECT 
+                    machine_name,
+                    log_file_source,
+                    timestamp,
+                    message
+                FROM log_entries
+                WHERE (LOWER(message) LIKE '%error%' OR LOWER(message) LIKE '%failed%' OR LOWER(message) LIKE '%exception%')
+                    AND timestamp >= datetime('now', '-1 day')
+                ORDER BY timestamp DESC
+                LIMIT 100
+            """
+        },
+        {
+            "name": "log_entry_time_distribution",
+            "query": """
+                SELECT 
+                    machine_name,
+                    log_file_source,
+                    strftime('%H', timestamp) as hour_of_day,
+                    COUNT(*) as entry_count
+                FROM log_entries
+                GROUP BY machine_name, log_file_source, hour_of_day
+            """
+        },
+        {
+            "name": "node_status_summary",
+            "query": """
+                SELECT 
+                    instance_name,
+                    MAX(datetime_of_data) as last_update,
+                    MAX(blocks) as latest_block_height,
+                    AVG(connections) as avg_connections,
+                    MAX(balance) as latest_balance
+                FROM sn_status
+                GROUP BY instance_name
+            """
+        },
+        {
+            "name": "masternode_status_summary",
+            "query": """
+                SELECT 
+                    instance_name,
+                    MAX(datetime_of_data) as last_update,
+                    COUNT(DISTINCT masternode_collateral_txid_and_outpoint) as unique_masternodes,
+                    COUNT(CASE WHEN masternode_status_message = 'ENABLED' THEN 1 END) as enabled_count,
+                    COUNT(CASE WHEN masternode_status_message = 'NEW_START_REQUIRED' THEN 1 END) as new_start_required_count
+                FROM sn_masternode_status
+                GROUP BY instance_name
+            """
+        },
+        {
+            "name": "node_sync_status_over_time",
+            "query": """
+                SELECT 
+                    instance_name,
+                    datetime_of_data,
+                    blocks,
+                    LAG(blocks) OVER (PARTITION BY instance_name ORDER BY datetime_of_data) as previous_blocks,
+                    JULIANDAY(datetime_of_data) - JULIANDAY(LAG(datetime_of_data) OVER (PARTITION BY instance_name ORDER BY datetime_of_data)) as days_since_last_update,
+                    (blocks - LAG(blocks) OVER (PARTITION BY instance_name ORDER BY datetime_of_data)) / 
+                        NULLIF((JULIANDAY(datetime_of_data) - JULIANDAY(LAG(datetime_of_data) OVER (PARTITION BY instance_name ORDER BY datetime_of_data))), 0) as blocks_per_day
+                FROM sn_status
+                ORDER BY instance_name, datetime_of_data
+            """
+        },
+        {
+            "name": "connection_count_anomalies",
+            "query": """
+                SELECT 
+                    instance_name,
+                    datetime_of_data,
+                    connections,
+                    AVG(connections) OVER (PARTITION BY instance_name ORDER BY datetime_of_data ROWS BETWEEN 6 PRECEDING AND 6 FOLLOWING) as avg_connections,
+                    connections - AVG(connections) OVER (PARTITION BY instance_name ORDER BY datetime_of_data ROWS BETWEEN 6 PRECEDING AND 6 FOLLOWING) as connection_anomaly
+                FROM sn_status
+                ORDER BY ABS(connections - AVG(connections) OVER (PARTITION BY instance_name ORDER BY datetime_of_data ROWS BETWEEN 6 PRECEDING AND 6 FOLLOWING)) DESC
+            """
+        },
+        {
+            "name": "error_frequency",
+            "query": """
+                SELECT 
+                    machine_name,
+                    DATE(timestamp) as error_date,
+                    COUNT(*) as error_count
+                FROM log_entries
+                WHERE LOWER(message) LIKE '%error%' OR LOWER(message) LIKE '%failed%' OR LOWER(message) LIKE '%exception%'
+                GROUP BY machine_name, error_date
+                ORDER BY machine_name, error_date
+            """
+        },
+        {
+            "name": "masternode_status_changes",
+            "query": """
+                SELECT 
+                    instance_name,
+                    masternode_collateral_txid_and_outpoint,
+                    datetime_of_data,
+                    masternode_status_message,
+                    LAG(masternode_status_message) OVER (PARTITION BY instance_name, masternode_collateral_txid_and_outpoint ORDER BY datetime_of_data) as previous_status,
+                    CASE 
+                        WHEN masternode_status_message != LAG(masternode_status_message) OVER (PARTITION BY instance_name, masternode_collateral_txid_and_outpoint ORDER BY datetime_of_data) 
+                        THEN 1 
+                        ELSE 0 
+                    END as status_changed
+                FROM sn_masternode_status
+                ORDER BY instance_name, masternode_collateral_txid_and_outpoint, datetime_of_data
+            """
+        },
+        {
+            "name": "network_activity_summary",
+            "query": """
+                SELECT 
+                    instance_name,
+                    datetime_of_data,
+                    COUNT(DISTINCT netstat__foreign_address) as unique_connections,
+                    SUM(CASE WHEN netstat__state = 'ESTABLISHED' THEN 1 ELSE 0 END) as established_connections,
+                    SUM(CASE WHEN netstat__state = 'LISTEN' THEN 1 ELSE 0 END) as listening_ports
+                FROM sn_network_activity_netstat
+                GROUP BY instance_name, datetime_of_data
+                ORDER BY instance_name, datetime_of_data
+            """
+        },
+        {
+            "name": "log_message_patterns",
+            "query": """
+                WITH message_patterns AS (
+                    SELECT 
+                        machine_name,
+                        log_file_source,
+                        REGEXP_REPLACE(message, '[0-9]+', '#') as pattern,
+                        COUNT(*) as pattern_count
+                    FROM log_entries
+                    GROUP BY machine_name, log_file_source, pattern
+                )
+                SELECT 
+                    machine_name,
+                    log_file_source,
+                    pattern,
+                    pattern_count,
+                    ROW_NUMBER() OVER (PARTITION BY machine_name, log_file_source ORDER BY pattern_count DESC) as pattern_rank
+                FROM message_patterns
+                ORDER BY machine_name, log_file_source, pattern_count DESC
+            """
+        },
+        {
+            "name": "node_performance_metrics",
+            "query": """
+                SELECT 
+                    instance_name,
+                    datetime_of_data,
+                    blocks,
+                    connections,
+                    balance,
+                    timeoffset,
+                    JULIANDAY(datetime_of_data) - JULIANDAY(LAG(datetime_of_data) OVER (PARTITION BY instance_name ORDER BY datetime_of_data)) as days_since_last_update,
+                    (blocks - LAG(blocks) OVER (PARTITION BY instance_name ORDER BY datetime_of_data)) / 
+                        NULLIF((JULIANDAY(datetime_of_data) - JULIANDAY(LAG(datetime_of_data) OVER (PARTITION BY instance_name ORDER BY datetime_of_data))), 0) as blocks_per_day,
+                    (balance - LAG(balance) OVER (PARTITION BY instance_name ORDER BY datetime_of_data)) / 
+                        NULLIF((JULIANDAY(datetime_of_data) - JULIANDAY(LAG(datetime_of_data) OVER (PARTITION BY instance_name ORDER BY datetime_of_data))), 0) as balance_change_per_day
+                FROM sn_status
+                ORDER BY instance_name, datetime_of_data
+            """
+        },
+        {
+            "name": "correlated_log_entries",
+            "query": """
+                WITH ranked_logs AS (
+                    SELECT 
+                        *,
+                        ROW_NUMBER() OVER (PARTITION BY machine_name ORDER BY timestamp) as row_num
+                    FROM log_entries
+                )
+                SELECT 
+                    a.machine_name,
+                    a.log_file_source as source_1,
+                    a.timestamp as time_1,
+                    a.message as message_1,
+                    b.log_file_source as source_2,
+                    b.timestamp as time_2,
+                    b.message as message_2,
+                    (JULIANDAY(b.timestamp) - JULIANDAY(a.timestamp)) * 86400 as seconds_between
+                FROM ranked_logs a
+                JOIN ranked_logs b ON a.machine_name = b.machine_name AND a.row_num < b.row_num
+                WHERE (JULIANDAY(b.timestamp) - JULIANDAY(a.timestamp)) * 86400 <= 60  -- Within 60 seconds
+                    AND a.log_file_source != b.log_file_source
+                    AND (
+                        (LOWER(a.message) LIKE '%error%' AND LOWER(b.message) LIKE '%error%')
+                        OR (LOWER(a.message) LIKE '%failed%' AND LOWER(b.message) LIKE '%failed%')
+                        OR (LOWER(a.message) LIKE '%exception%' AND LOWER(b.message) LIKE '%exception%')
+                    )
+                ORDER BY a.machine_name, a.timestamp
+            """
+        }
+    ]
+    with engine.connect() as connection:
+        for view in views:
+            try:
+                connection.execute(sa.text(f"DROP VIEW IF EXISTS {view['name']}"))
+                print(f"Dropped existing view: {view['name']}")
+                create_view_sql = f"CREATE VIEW {view['name']} AS {view['query']}"
+                connection.execute(sa.text(create_view_sql))
+                print(f"Created view: {view['name']}")
+            except Exception as e:
+                print(f"Error creating view {view['name']}: {str(e)}")
+    
+    print("Finished creating all summary statistic views.")
 
 def stop_existing_datasette():
     ps_output = subprocess.check_output(['ps', 'aux']).decode('utf-8')
-    datasette_processes = [line for line in ps_output.split('\n') if 'datasette' in line and not 'grep' in line]  # noqa: E713
+    datasette_processes = [line for line in ps_output.split('\n') if 'datasette' in line and not 'grep' in line]
     for process in datasette_processes:
         pid = int(process.split()[1])
         os.kill(pid, signal.SIGTERM)
@@ -1029,10 +1335,39 @@ def stop_existing_datasette():
 
 def restart_datasette(datasette_path: str, sqlite_path: str, host: str, port: int, time_limit_ms: int):
     stop_existing_datasette()
-    cmd = f"{datasette_path} {sqlite_path} -h {host} -p {port} --setting sql_time_limit_ms {time_limit_ms}"
+    metadata = {
+        "title": "Log Analysis Dashboard",
+        "description": "Summary statistics and log analysis for Pastel nodes",
+        "databases": {
+            "log_analysis": {
+                "tables": {
+                    "log_entry_count_by_node_and_source": {"title": "Log Entry Count by Node and Source"},
+                    "error_count_by_node_and_source": {"title": "Error Count by Node and Source"},
+                    "daily_log_entry_count": {"title": "Daily Log Entry Count"},
+                    "most_frequent_log_messages": {"title": "Most Frequent Log Messages"},
+                    "recent_errors": {"title": "Recent Errors"},
+                    "log_entry_time_distribution": {"title": "Log Entry Time Distribution"},
+                    "node_status_summary": {"title": "Node Status Summary"},
+                    "masternode_status_summary": {"title": "Masternode Status Summary"},
+                    "node_sync_status_over_time": {"title": "Node Sync Status Over Time"},
+                    "connection_count_anomalies": {"title": "Connection Count Anomalies"},
+                    "error_frequency": {"title": "Error Frequency by Node and Time"},
+                    "masternode_status_changes": {"title": "Masternode Status Changes"},
+                    "network_activity_summary": {"title": "Network Activity Summary"},
+                    "log_message_patterns": {"title": "Log Message Patterns"},
+                    "node_performance_metrics": {"title": "Node Performance Metrics"},
+                    "correlated_log_entries": {"title": "Correlated Log Entries"}
+                }
+            }
+        }
+    }
+    metadata_file = "datasette_metadata.json"
+    with open(metadata_file, "w") as f:
+        json.dump(metadata, f)
+    cmd = f"{datasette_path} {sqlite_path} -h {host} -p {port} --metadata {metadata_file} --setting sql_time_limit_ms {time_limit_ms}"
     with open(os.devnull, 'w') as dev_null:
         subprocess.Popen(shlex.split(cmd), stdout=dev_null, stderr=dev_null)
-    print(f"Datasette started with the new SQLite file at http://{host}:{port}")
+    print(f"Datasette started with the new SQLite file and views at http://{host}:{port}")
 
 def backup_table(table_name):
     with sqlite3.connect(sqlite_file_path) as conn:
@@ -1154,6 +1489,10 @@ if __name__ == "__main__":
             print(f"Deleted backup CSV file {backup_csv_file} because it was too old (more than {number_of_backup_csv_files_to_keep} files in the backup directory)")                    
     instance_name_prefix = config("INSTANCE_NAME_PREFIX", cast=str)
     non_aws_instance_ids = get_instance_ids_from_inventory(ansible_inventory_file)
+    print('Non-AWS instance IDs:', non_aws_instance_ids)
+    if 0:
+        print('Only using first non-AWS instance for debug purposes...')
+        non_aws_instance_ids = non_aws_instance_ids[:1]
     try:
         instances = get_instances_with_name_prefix(instance_name_prefix, aws_access_key_id, aws_secret_access_key, aws_region)
         aws_instance_ids = [instance.id for instance in instances]        
@@ -1182,6 +1521,7 @@ if __name__ == "__main__":
     analyze_panics(n_days=1, k_minutes=10)
     find_error_entries()
     create_view_of_connection_counts()
+    add_summary_statistic_views(engine)
     print('\n\nNow backing up database tables for `sn_masternode_status` and `sn_status` ...')
     backup_table('sn_masternode_status')
     backup_table('sn_status')
